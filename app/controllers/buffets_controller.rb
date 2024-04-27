@@ -1,5 +1,5 @@
 class BuffetsController < ApplicationController
-  before_action :authenticate_owner!
+  before_action :authenticate_owner!, except: %i[show]
   before_action :set_buffet, only: %i[show edit update]
 
   def show
