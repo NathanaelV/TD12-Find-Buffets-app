@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   before_action :owner_has_buffet
 
   def after_sign_in_path_for(resource)
-    if resource.is_a?(Owner)
+    if resource.is_a?(Owner) && current_owner.buffet.nil?
       new_buffet_path
     else
       super

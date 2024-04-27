@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'Buffet owner view homepage' do
+describe 'Owner view homepage' do
   it 'without register the buffet' do
     owner = Owner.create!(name: 'Splinter', email: 'splinter@email.com', password: 'password')
 
