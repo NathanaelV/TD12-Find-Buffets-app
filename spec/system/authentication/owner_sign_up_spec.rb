@@ -14,6 +14,7 @@ describe 'Buffet owner sign up' do
     end
 
     expect(page).to have_content 'Boas vindas! Você realizou seu registro com sucesso.'
+    expect(page).to have_content 'Leonardo <leonardo@email.com>'
     expect(page).not_to have_link 'Login'
   end
 end
