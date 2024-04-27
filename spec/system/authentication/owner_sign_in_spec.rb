@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe 'Buffet owner sing in' do
   it 'successfully, but without Buffet registered' do
-    BuffetOwner.create!(name: 'Leonardo', email: 'leonardo@email.com', password: 'password')
+    Owner.create!(name: 'Leonardo', email: 'leonardo@email.com', password: 'password')
 
     visit root_path
     click_on 'Login'
@@ -21,7 +21,7 @@ describe 'Buffet owner sing in' do
   end
 
   it 'and logout' do
-    BuffetOwner.create!(name: 'Leonardo', email: 'leonardo@email.com', password: 'password')
+    Owner.create!(name: 'Leonardo', email: 'leonardo@email.com', password: 'password')
 
     visit root_path
     click_on 'Login'
