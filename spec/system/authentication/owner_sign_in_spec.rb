@@ -18,6 +18,7 @@ describe 'Buffet owner sing in' do
     end
     expect(page).to have_content 'Login efetuado com sucesso'
     expect(page).not_to have_link 'Login'
+    expect(page).to have_content 'Cadastrar Buffet'
   end
 
   it 'and logout' do
