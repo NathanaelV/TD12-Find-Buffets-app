@@ -10,6 +10,13 @@
   </head>
 
   <body>
-    <%= yield %>
+    <head>
+      <%= link_to root_path do %>
+        <h1>Buffets</h1>
+      <% end %>
+    </head>
+    <main>
+      <%= yield %>
+    </main>
   </body>
 </html>
