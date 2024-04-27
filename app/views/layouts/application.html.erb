@@ -14,8 +14,20 @@
       <%= link_to root_path do %>
         <h1>Buffets</h1>
       <% end %>
+      <nav>
+        <% if owner_signed_in? %>
+          <%= current_owner.description %>
+          <%= button_to 'Sair', destroy_owner_session_path, method: :delete %>
+        <% else %>
+          <%= link_to 'Login', new_owner_session_path %>
+        <% end %>
+      </nav>
     </head>
     <main>
+      <div>
+        <%= notice %>
+        <%= alert %>
+      </div>
       <%= yield %>
     </main>
   </body>
