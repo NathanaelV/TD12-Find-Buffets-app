@@ -1,0 +1,23 @@
+pt-BR:
+  activerecord:
+    attributes:
+      buffet:
+        brand_name: Nome fantasia
+        corporate_name: Razão social
+        registration_number: CNPJ
+        phone: Telefone
+        email: E-mail
+        address: Endereço
+        city: Cidade
+        state: Estado
+        zip_code: CEP
+        description: Descrição
+        payment: Formas de pagamento
+        owner: Proprietário
+        owner_id: Proprietário
+    models:
+      buffet:
+        one: Buffet
+        other: Buffets
+    new:
+      full_address_helper: Nome da rua, número - Bairro

@@ -1,0 +1,7 @@
+<div>
+  <ul>
+    <% @buffets.each do |buffet| %>
+      <li><%= link_to buffet.brand_name, buffet %></li>
+    <% end %>
+  </ul>
+</div>

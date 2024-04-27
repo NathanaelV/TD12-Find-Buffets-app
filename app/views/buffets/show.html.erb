@@ -1,0 +1,56 @@
+
+<h1>Buffet <%= @buffet.brand_name %></h1>
+
+<div>
+  <dl>
+    <div>
+      <dt><%= I18n.t 'activerecord.attributes.buffet.corporate_name' %>:</dt>
+      <dd><%= @buffet.corporate_name %></dd>
+    </div>
+
+    <div>
+      <dt><%= I18n.t 'activerecord.attributes.buffet.registration_number' %>:</dt>
+      <dd><%= @buffet.registration_number %></dd>
+    </div>
+
+    <div>
+      <dt><%= I18n.t 'activerecord.attributes.buffet.phone' %>:</dt>
+      <dd><%= @buffet.phone %></dd>
+    </div>
+
+    <div>
+      <dt><%= I18n.t 'activerecord.attributes.buffet.email' %>:</dt>
+      <dd><%= @buffet.email %></dd>
+    </div>
+
+    <div>
+      <dt><%= I18n.t 'activerecord.attributes.buffet.address' %>:</dt>
+      <dd><%= @buffet.address %></dd>
+    </div>
+
+    <div>
+      <dt><%= I18n.t 'activerecord.attributes.buffet.zip_code' %>:</dt>
+      <dd><%= @buffet.zip_code %></dd>
+    </div>
+
+    <div>
+      <dt><%= I18n.t 'activerecord.attributes.buffet.city' %>:</dt>
+      <dd><%= @buffet.city %> - <%= @buffet.state %></dd>
+    </div>
+
+    <div>
+      <dt><%= I18n.t 'activerecord.attributes.buffet.description' %>:</dt>
+      <dd><%= @buffet.description %></dd>
+    </div>
+
+    <div>
+      <dt><%= I18n.t 'activerecord.attributes.buffet.payment' %>:</dt>
+      <dd><%= @buffet.payment %></dd>
+    </div>
+
+    <div>
+      <dt><%= I18n.t 'activerecord.attributes.buffet.owner' %>:</dt>
+      <dd><%= @buffet.owner.name %></dd>
+    </div>
+  </dl>
+</div>
