@@ -2,6 +2,12 @@
 <h1>Buffet <%= @buffet.brand_name %></h1>
 
 <div>
+  <% if owner_signed_in? %>
+    <%= link_to 'Editar Buffet', edit_buffet_path %>
+  <% end %>
+</div>
+
+<div>
   <dl>
     <div>
       <dt><%= I18n.t 'activerecord.attributes.buffet.corporate_name' %>:</dt>

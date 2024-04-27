@@ -1,8 +1,8 @@
 class BuffetsController < ApplicationController
   before_action :authenticate_owner!
+  before_action :set_buffet, only: %i[show edit update]
 
   def show
-    @buffet = Buffet.find(params[:id])
   end
 
   def new
@@ -16,10 +16,22 @@ class BuffetsController < ApplicationController
     redirect_to @buffet, notice: 'Buffet criado com sucesso!'
   end
 
+  def edit
+  end
+
+  def update
+    @buffet.update(buffet_params)
+    redirect_to @buffet, notice: 'Buffet atualizado com sucesso'
+  end
+
   private
 
   def buffet_params
     params.require(:buffet).permit(:brand_name, :corporate_name, :registration_number, :phone, :email, :address, :city,
                                    :state, :zip_code, :description, :payment)
+  end
+
+  def set_buffet
+    @buffet = Buffet.find(params[:id])
   end
 end
