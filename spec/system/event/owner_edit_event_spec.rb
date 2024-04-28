@@ -52,9 +52,9 @@ describe 'Owner edit events' do
     buffet = Buffet.create!(brand_name: 'TMNT Buffet', payment: 'PIX', owner:)
 
     Event.create!(name: 'Festa de casamento', description: 'Festa de casamento dos sonhos', min_people: 10,
-                         max_people: 100, duration: 420, menu: 'Pizza', alcoholic_beverages: true, decoration: true,
-                         parking: true, parking_valet: true, customer_space: true, buffet:)
-    
+                  max_people: 100, duration: 420, menu: 'Pizza', alcoholic_beverages: true, decoration: true,
+                  parking: true, parking_valet: true, customer_space: true, buffet:)
+
     login_as(owner)
     visit root_path
     click_on 'TMNT Buffet'
