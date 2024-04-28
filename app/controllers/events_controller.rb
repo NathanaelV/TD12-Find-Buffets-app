@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: %i[show edit]
+  before_action :set_event, only: %i[show edit destroy]
 
   def show; end
 
@@ -16,6 +16,13 @@ class EventsController < ApplicationController
 
   def edit; end
 
+  def destroy
+    buffet = @event.buffet
+    event_name = @event.name
+    @event.destroy
+    redirect_to buffet, notice: "#{event_name} excluído(a) com sucesso"
+  end
+
   private
 
   def event_params
@@ -27,3 +34,5 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
   end
 end
+
+"Buffets\nSplinter <splinter@email.com>\nSair\nFesta infantil excluído(a) com sucesso\nBuffet TMNT Buffet\nEditar Buffet | Criar Evento\nRazão social:\nCNPJ:\nTelefone:\nE-mail:\nEndereço:\nCEP:\nCidade: -\nDescrição:\nFormas de pagamento: PIX\nProprietário: Splinter\nEventos:\nFesta de casamento"

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'Owner edit events' do
+describe 'Owner destroy event' do
   it 'if authenticated' do
     owner = Owner.create!(name: 'Splinter', email: 'splinter@email.com', password: 'password')
 
@@ -14,10 +14,10 @@ describe 'Owner edit events' do
     click_on 'TMNT Buffet'
     click_on 'Festa infantil'
 
-    expect(page).not_to have_content 'Editar Evento'
+    expect(page).not_to have_content 'Excluir Evento'
   end
 
-  it 'from homepage' do
+  it 'successfully' do
     owner = Owner.create!(name: 'Splinter', email: 'splinter@email.com', password: 'password')
 
     buffet = Buffet.create!(brand_name: 'TMNT Buffet', payment: 'PIX', owner:)
@@ -25,28 +25,22 @@ describe 'Owner edit events' do
     Event.create!(name: 'Festa infantil', description: 'Festa para crianças com temática TMNT', min_people: 10,
                   max_people: 100, duration: 300, menu: 'Pizza', alcoholic_beverages: false, decoration: true,
                   parking: true, parking_valet: false, customer_space: true, buffet:)
+    Event.create!(name: 'Festa de casamento', description: 'Festa de casamento dos sonhos', min_people: 10,
+                  max_people: 100, duration: 300, menu: 'Pizza', alcoholic_beverages: true, decoration: true,
+                  parking: true, parking_valet: true, customer_space: true, buffet:)
 
     login_as owner
     visit root_path
     click_on 'TMNT Buffet'
     click_on 'Festa infantil'
-    click_on 'Editar Evento'
+    click_on 'Excluir Evento'
 
-    expect(page).to have_content 'Editar Festa infantil'
-    expect(page).to have_field 'Nome',	with: 'Festa infantil'
-    expect(page).to have_field 'Descrição',	with: 'Festa para crianças com temática TMNT'
-    expect(page).to have_field 'Mínimo de pessoas',	with: '10'
-    expect(page).to have_field 'Máximo de pessoas', with: '100'
-    expect(page).to have_field 'Duração',	with: '300'
-    expect(page).to have_field 'Cardápio', with: 'Pizza'
-    expect(page).to have_checked_field 'Decoração'
-    expect(page).to have_checked_field 'Serviço de estacionamento'
-    expect(page).to have_checked_field 'Evento em residência'
-    expect(page).to have_unchecked_field 'Bebidas alcoólicas'
-    expect(page).to have_unchecked_field 'Serviço de Valet'
-  end
-
-  xit 'successfully' do
-    
+    expect(current_path).to eq buffet_path(buffet)
+    expect(page).to have_content 'Festa infantil excluído(a) com sucesso'
+    within('section#events') do
+      expect(page).to have_content 'Festa de casamento'
+      expect(page).not_to have_content 'Festa infantil'
+    end
+    expect(Event.count).to eq 1
   end
 end

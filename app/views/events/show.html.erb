@@ -3,7 +3,8 @@
 
 <% if owner_signed_in? %>
   <div>
-    <%= link_to 'Editar Evento', edit_event_path(@event) %>
+    <%= link_to 'Editar Evento', edit_event_path(@event) %> | 
+    <%= button_to 'Excluir Evento', @event, method: :delete, onclick: "return confirm('Você tem certeza?');" %>
   </div>
 <% end %>
 
