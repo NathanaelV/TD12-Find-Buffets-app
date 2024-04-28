@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: %i[show edit destroy]
+  before_action :set_event, only: %i[show edit update destroy]
 
   def show; end
 
@@ -15,6 +15,11 @@ class EventsController < ApplicationController
   end
 
   def edit; end
+
+  def update
+    @event.update(event_params)
+    redirect_to @event, notice: 'Evento atualizado com sucesso!'
+  end
 
   def destroy
     buffet = @event.buffet

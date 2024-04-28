@@ -35,5 +35,5 @@ Event.find_or_create_by!(name: 'Festa infantil', description: 'Festa para crian√
                          buffet:)
 
 Event.find_or_create_by!(name: 'Festa de casamento', description: 'Festa de casamento dos sonhos', min_people: 10,
-                         max_people: 100, duration: 300, menu: 'Pizza', alcoholic_beverages: true, decoration: true,
+                         max_people: 100, duration: 420, menu: 'Pizza', alcoholic_beverages: true, decoration: true,
                          parking: true, parking_valet: true, customer_space: true, buffet:)
