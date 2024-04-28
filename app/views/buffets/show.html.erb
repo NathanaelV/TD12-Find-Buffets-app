@@ -3,7 +3,8 @@
 
 <div>
   <% if owner_signed_in? %>
-    <%= link_to 'Editar Buffet', edit_buffet_path %>
+    <%= link_to 'Editar Buffet', edit_buffet_path %> | 
+    <%= link_to 'Criar Evento', new_event_path %>
   <% end %>
 </div>
 
@@ -60,3 +61,14 @@
     </div>
   </dl>
 </div>
+
+
+<section>
+  <h2>Eventos:</h2>
+
+  <dl>
+    <% @events.each do |event| %>
+      <%= link_to event.name, event%>
+    <% end %>
+  </dl>
+</section>

@@ -7,6 +7,8 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+# Owner
 Owner.find_or_create_by!(name: 'Leonardo Yoshi', email: 'leonardo.yoshi@email.com', password: 'leonardo123')
 Owner.find_or_create_by!(name: 'Casey Jones', email: 'casey.jones@email.com', password: 'casey.jones123')
 Owner.find_or_create_by!(name: 'Donatello Yoshi', email: 'donatello.yoshi@email.com', password: 'donatello123')
@@ -18,3 +20,13 @@ Buffet.find_or_create_by!(brand_name: 'Teenage Mutant Ninja Turtles', corporate_
                           city: 'São Paulo', state: 'SP', zip_code: '01234123',
                           description: 'Melhor Buffet da região. Cowabunga', payment: 'PIX, Catão de Débito',
                           owner_id: Owner.first.id)
+
+# Event
+Event.find_or_create_by!(name: 'Festa infantil', description: 'Festa para crianças com temática TMNT',
+                         min_people: 10, max_people: 100, duration: 300, menu: 'Pizza', alcoholic_beverages: false,
+                         decoration: true, parking: true, parking_valet: false, customer_space: true,
+                         buffet_id: Buffet.first.id)
+
+Event.find_or_create_by!(name: 'Festa de casamento', description: 'Festa de casamento dos sonhos', min_people: 10,
+                         max_people: 100, duration: 300, menu: 'Pizza', alcoholic_beverages: true, decoration: true,
+                         parking: true, parking_valet: true, customer_space: true, buffet_id: Buffet.first.id)
