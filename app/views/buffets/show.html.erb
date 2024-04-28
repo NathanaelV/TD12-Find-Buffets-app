@@ -66,9 +66,15 @@
 <section>
   <h2>Eventos:</h2>
 
-  <dl>
-    <% @events.each do |event| %>
-      <%= link_to event.name, event%>
+  <div>
+    <% if @events.present? %>
+      <dl>
+        <% @events.each do |event| %>
+          <%= link_to event.name, event%>
+        <% end %>
+      </dl>
+    <% else %>
+      <p>Nenhum evento cadastrado! <%= link_to 'Clique aqui', new_event_path %> para cadastrar.</p>
     <% end %>
-  </dl>
+  </div>
 </section>

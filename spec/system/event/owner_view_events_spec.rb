@@ -27,4 +27,17 @@ describe "Owner view events" do
     expect(page).not_to have_content 'Bebidas alcoólicas'
     expect(page).not_to have_content 'Serviço de Valet'
   end
+
+  it 'there is no event' do
+    owner = Owner.create!(name: 'Donatello Yoshi', email: 'donatello.yoshi@email.com', password: 'donatello123')
+
+    Buffet.create!(brand_name: 'TMNT Buffet', payment: 'PIX', owner:)
+
+    login_as owner
+    visit root_path
+    click_on 'TMNT Buffet'
+
+    expect(page).to have_content 'Nenhum evento cadastrado! Clique aqui para cadastrar.'
+    expect(page).to have_link 'Clique aqui', href: new_event_path
+  end
 end

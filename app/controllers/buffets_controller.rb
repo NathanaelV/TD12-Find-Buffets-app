@@ -3,7 +3,7 @@ class BuffetsController < ApplicationController
   before_action :set_buffet, only: %i[show edit update]
 
   def show
-    @events = current_owner.buffet.events
+    @events = @buffet.events
   end
 
   def new
