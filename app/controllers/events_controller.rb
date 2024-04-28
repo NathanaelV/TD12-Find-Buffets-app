@@ -1,4 +1,5 @@
 class EventsController < ApplicationController
+  before_action :authenticate_owner!, except: %i[show]
   before_action :set_event, only: %i[show edit update destroy]
 
   def show; end
@@ -39,5 +40,3 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
   end
 end
-
-"Buffets\nSplinter <splinter@email.com>\nSair\nFesta infantil excluído(a) com sucesso\nBuffet TMNT Buffet\nEditar Buffet | Criar Evento\nRazão social:\nCNPJ:\nTelefone:\nE-mail:\nEndereço:\nCEP:\nCidade: -\nDescrição:\nFormas de pagamento: PIX\nProprietário: Splinter\nEventos:\nFesta de casamento"
