@@ -1,0 +1,56 @@
+<h1>Buffet <%= @event.buffet.brand_name %></h1>
+<h2><%= @event.name %></h2>
+
+<dl>
+  <div>
+    <dt><%= I18n.t 'activerecord.attributes.event.description' %>:</dt>
+    <dd><%= @event.description %></dd>
+  </div>
+  
+  <div>
+    <dt><%= I18n.t 'activerecord.attributes.event.min_people' %>:</dt>
+    <dd><%= @event.min_people %></dd>
+  </div>
+  
+  <div>
+    <dt><%= I18n.t 'activerecord.attributes.event.max_people' %>:</dt>
+    <dd><%= @event.max_people %></dd>
+  </div>
+  
+  <div>
+    <dt><%= I18n.t 'activerecord.attributes.event.duration' %></dt>
+    <dd><%= @event.duration %> min</dd>
+  </div>
+  
+  <div>
+    <dt><%= I18n.t 'activerecord.attributes.event.menu' %>:</dt>
+    <dd><%= @event.menu %></dd>
+  </div>
+
+  <div>
+    <dt>Serviços:</dt>
+    <dd>
+      <ul>
+        <% if @event.alcoholic_beverages %>
+          <li><%= I18n.t 'activerecord.attributes.event.alcoholic_beverages' %></li>
+        <% end %>
+
+        <% if @event.decoration %>
+          <li><%= I18n.t 'activerecord.attributes.event.decoration' %></li>
+        <% end %>
+
+        <% if @event.parking %>
+          <li><%= I18n.t 'activerecord.attributes.event.parking' %></li>
+        <% end %>
+
+        <% if @event.parking_valet %>
+          <li><%= I18n.t 'activerecord.attributes.event.parking_valet' %></li>
+        <% end %>
+
+        <% if @event.customer_space %>
+          <li><%= I18n.t 'activerecord.attributes.event.customer_space' %></li>
+        <% end %>
+      </ul>
+    </dd>
+  </div>
+</dl>

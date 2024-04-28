@@ -1,0 +1,19 @@
+pt-BR:
+  activerecord:
+    attributes:
+      event:
+        name: Nome
+        description: Descrição
+        min_people: Mínimo de pessoas
+        max_people: Máximo de pessoas
+        duration: Duração
+        menu: Cardápio
+        alcoholic_beverages: Bebidas alcoólicas
+        decoration: Decoração
+        parking: Serviço de estacionamento
+        parking_valet: Serviço de Valet
+        customer_space: Evento em residência
+    models:
+      event:
+        one: Evento
+        other: Eventos
