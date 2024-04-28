@@ -1,8 +1,7 @@
 class EventsController < ApplicationController
   before_action :set_event, only: %i[show edit]
 
-  def show
-  end
+  def show; end
 
   def new
     @event = Event.new
@@ -15,9 +14,7 @@ class EventsController < ApplicationController
     redirect_to event, notice: 'Evento criado com sucesso!'
   end
 
-  def edit
-  end
-  
+  def edit; end
 
   private
 

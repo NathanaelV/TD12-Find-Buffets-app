@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe "Owner view events" do
+describe 'Owner view events' do
   it 'from homepage' do
     owner = Owner.create!(name: 'Donatello Yoshi', email: 'donatello.yoshi@email.com', password: 'donatello123')
 
