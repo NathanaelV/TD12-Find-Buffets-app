@@ -10,19 +10,28 @@
   </head>
 
   <body>
-    <head>
+    <header>
       <%= link_to root_path do %>
         <h1>Buffets</h1>
       <% end %>
       <nav>
-        <% if owner_signed_in? %>
-          <%= current_owner.description %>
-          <%= button_to 'Sair', destroy_owner_session_path, method: :delete %>
-        <% else %>
-          <%= link_to 'Login', new_owner_session_path %>
-        <% end %>
+        <div id=search>
+          <%= form_with url: buffets_path, method: :get do |f| %>
+            <%= f.label :query, 'Buscar Buffet' %>
+            <%= f.text_field :query %>
+            <%= f.submit 'Buscar' %>
+          <% end %>
+        </div>
+        <div id=owner-login>
+          <% if owner_signed_in? %>
+            <%= current_owner.description %>
+            <%= button_to 'Sair', destroy_owner_session_path, method: :delete %>
+          <% else %>
+            <%= link_to 'Login', new_owner_session_path %>
+          <% end %>
+        </div>
       </nav>
-    </head>
+    </header>
     <main>
       <div>
         <%= notice %>

@@ -5,7 +5,7 @@ describe 'Owner sign up' do
     visit root_path
     click_on 'Login'
     click_on 'Criar uma conta'
-    within 'form' do
+    within 'section#registration' do
       fill_in 'Nome',	with: 'Leonardo'
       fill_in 'E-mail',	with: 'leonardo@email.com'
       fill_in 'Senha', with: 'password'

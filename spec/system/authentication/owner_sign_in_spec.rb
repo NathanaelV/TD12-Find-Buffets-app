@@ -6,7 +6,7 @@ describe 'Owner sing in' do
 
     visit root_path
     click_on 'Login'
-    within 'form' do
+    within 'section#login' do
       fill_in 'E-mail',	with: 'leonardo@email.com'
       fill_in 'Senha', with: 'password'
       click_on 'Login'
@@ -26,7 +26,7 @@ describe 'Owner sing in' do
 
     visit root_path
     click_on 'Login'
-    within 'form' do
+    within 'section#login' do
       fill_in 'E-mail',	with: 'leonardo@email.com'
       fill_in 'Senha', with: 'password'
       click_on 'Login'
@@ -51,7 +51,7 @@ describe 'Owner sing in' do
 
     visit root_path
     click_on 'Login'
-    within 'form' do
+    within 'section#login' do
       fill_in 'E-mail',	with: 'leonardo@email.com'
       fill_in 'Senha', with: 'password'
       click_on 'Login'
