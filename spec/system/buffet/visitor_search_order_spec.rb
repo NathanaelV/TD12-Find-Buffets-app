@@ -23,11 +23,8 @@ describe 'User search buffet' do
 
     expect(page).to have_content 'Resultado da busca por: TMNT'
     expect(page).to have_content '2 Buffets encontrados'
-    expect(page).to have_content 'TMNT Buffet'
-    expect(page).to have_content 'SP - São Paulo'
-    expect(page).to have_content 'TMNT Eventos'
-    expect(page).to have_content 'BA - Salvador'
-    expect(page).not_to have_content 'Saint Seiya Buffet'
+    expect(page).to have_content 'TMNT Buffet | SP - São Paulo TMNT Eventos | BA - Salvador'
+    expect(page).not_to have_content 'Saint Seiya Buffet | SP - São Paulo'
   end
 
   it 'find buffet by city on Buffef show' do
@@ -44,11 +41,8 @@ describe 'User search buffet' do
 
     expect(page).to have_content 'Resultado da busca por: São Paulo'
     expect(page).to have_content '2 Buffets encontrados'
-    expect(page).to have_content 'TMNT Buffet'
-    expect(page).to have_content 'SP - São Paulo'
-    expect(page).to have_content 'Saint Seiya Buffet'
-    expect(page).not_to have_content 'TMNT Eventos'
-    expect(page).not_to have_content 'BA - Salvador'
+    expect(page).to have_content 'Saint Seiya Buffet | SP - São Paulo TMNT Buffet | SP - São Paulo'
+    expect(page).not_to have_content 'TMNT Eventos | BA - Salvador'
   end
 
   it 'find buffet by Events' do
@@ -68,7 +62,6 @@ describe 'User search buffet' do
                   max_people: 100, duration: 300, menu: 'Pizza', alcoholic_beverages: false, decoration: true,
                   parking: true, parking_valet: false, customer_space: true, buffet: eventos)
 
-
     visit root_path
     click_on 'TMNT Buffet'
     click_on 'Festa infantil'
@@ -77,11 +70,8 @@ describe 'User search buffet' do
 
     expect(page).to have_content 'Resultado da busca por: inFANtil'
     expect(page).to have_content '2 Buffets encontrados'
-    expect(page).to have_content 'TMNT Buffet'
-    expect(page).to have_content 'SP - São Paulo'
-    expect(page).to have_content 'Saint Seiya Buffet'
-    expect(page).not_to have_content 'TMNT Eventos'
-    expect(page).not_to have_content 'BA - Salvador'
+    expect(page).to have_content 'Saint Seiya Buffet | SP - São Paulo TMNT Buffet | SP - São Paulo'
+    expect(page).not_to have_content 'TMNT Eventos | BA - Salvador'
   end
 
   it 'find one buffet' do
@@ -95,7 +85,57 @@ describe 'User search buffet' do
 
     expect(page).to have_content 'Resultado da busca por: TMNT Bu'
     expect(page).to have_content '1 Buffet encontrado'
-    expect(page).to have_content 'TMNT Buffet'
-    expect(page).to have_content 'SP - São Paulo'
+    expect(page).to have_content 'TMNT Buffet | SP - São Paulo'
+  end
+
+  it 'if query is empty' do
+    owner = Owner.create!(name: 'Splinter', email: 'splinter@email.com', password: 'password')
+
+    buffet = Buffet.create!(brand_name: 'TMNT Buffet', state: 'SP', city: 'São Paulo', payment: 'PIX', owner:)
+    eventos = Buffet.create!(brand_name: 'TMNT Eventos', state: 'BA', city: 'Salvador', payment: 'PIX', owner:)
+    seiya = Buffet.create!(brand_name: 'Saint Seiya Buffet', state: 'SP', city: 'São Paulo', payment: 'PIX', owner:)
+
+    Event.create!(name: 'Festa infantil', description: 'Festa para crianças com temática TMNT', min_people: 10,
+                  max_people: 100, duration: 300, menu: 'Pizza', alcoholic_beverages: false, decoration: true,
+                  parking: true, parking_valet: false, customer_space: true, buffet:)
+    Event.create!(name: 'Infantil festejando', description: 'Festa para crianças com temática TMNT', min_people: 10,
+                  max_people: 100, duration: 300, menu: 'Pizza', alcoholic_beverages: false, decoration: true,
+                  parking: true, parking_valet: false, customer_space: true, buffet: seiya)
+    Event.create!(name: 'Festa de criança', description: 'Festa para crianças com temática TMNT', min_people: 10,
+                  max_people: 100, duration: 300, menu: 'Pizza', alcoholic_beverages: false, decoration: true,
+                  parking: true, parking_valet: false, customer_space: true, buffet: eventos)
+
+    visit root_path
+    fill_in 'Buscar Buffet', with: ''
+    click_on 'Buscar'
+
+    expect(page).to have_content 'Resultado da busca por:'
+    expect(page).to have_content '0 Buffets encontrados'
+  end
+
+  it 'cannot repeat buffet' do
+    owner = Owner.create!(name: 'Splinter', email: 'splinter@email.com', password: 'password')
+
+    buffet = Buffet.create!(brand_name: 'TMNT Buffet', state: 'SP', city: 'São Paulo', payment: 'PIX', owner:)
+    eventos = Buffet.create!(brand_name: 'TMNT Eventos', state: 'BA', city: 'Salvador', payment: 'PIX', owner:)
+    seiya = Buffet.create!(brand_name: 'Saint Seiya Buffet', state: 'SP', city: 'São Paulo', payment: 'PIX', owner:)
+
+    Event.create!(name: 'Festa infantil', description: 'Festa para crianças com temática TMNT', min_people: 10,
+                  max_people: 100, duration: 300, menu: 'Pizza', alcoholic_beverages: false, decoration: true,
+                  parking: true, parking_valet: false, customer_space: true, buffet:)
+    Event.create!(name: 'Infantil festejando', description: 'Festa para crianças com temática TMNT', min_people: 10,
+                  max_people: 100, duration: 300, menu: 'Pizza', alcoholic_beverages: false, decoration: true,
+                  parking: true, parking_valet: false, customer_space: true, buffet: seiya)
+    Event.create!(name: 'Festa de criança', description: 'Festa para crianças com temática TMNT', min_people: 10,
+                  max_people: 100, duration: 300, menu: 'Pizza', alcoholic_beverages: false, decoration: true,
+                  parking: true, parking_valet: false, customer_space: true, buffet: eventos)
+
+    visit root_path
+    fill_in 'Buscar Buffet', with: 't'
+    click_on 'Buscar'
+
+    expect(page).to have_content 'Resultado da busca por:'
+    expect(page).to have_content '3 Buffets encontrados'
+    expect(page).to have_content 'Saint Seiya Buffet | SP - São Paulo TMNT Buffet | SP - São Paulo TMNT Eventos | BA - Salvador'
   end
 end
