@@ -13,7 +13,7 @@ describe 'Visitor view buffet details' do
     click_on 'TMNT Buffet'
 
     expect(page).to have_content 'Buffet TMNT Buffet'
-    expect(page).to have_content 'Razão social: TMNT Splinter LTDA'
+    expect(page).not_to have_content 'Razão social: TMNT Splinter LTDA'
     expect(page).to have_content 'CNPJ: 88392017000182'
     expect(page).to have_content 'Telefone: 11912341234'
     expect(page).to have_content 'E-mail: contato@tmntsplinter.com'
