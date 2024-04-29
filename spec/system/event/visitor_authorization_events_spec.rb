@@ -1,20 +1,20 @@
 require 'rails_helper'
 
 describe 'Visitor authorization for events' do
-  context "show" do
+  context 'show' do
     it 'from homepage' do
       owner = Owner.create!(name: 'Donatello Yoshi', email: 'donatello.yoshi@email.com', password: 'donatello123')
-  
+
       buffet = Buffet.create!(brand_name: 'TMNT Buffet', payment: 'PIX', owner:)
-  
+
       Event.create!(name: 'Festa infantil', description: 'Festa para crianças com temática TMNT', min_people: 10,
                     max_people: 100, duration: 300, menu: 'Pizza', alcoholic_beverages: false, decoration: true,
                     parking: true, parking_valet: false, customer_space: true, buffet:)
-  
+
       visit root_path
       click_on 'TMNT Buffet'
       click_on 'Festa infantil'
-  
+
       expect(page).to have_content 'Festa infantil'
       expect(page).to have_content 'Festa para crianças com temática TMNT'
       expect(page).to have_content 'Mínimo de pessoas: 10'
@@ -28,7 +28,7 @@ describe 'Visitor authorization for events' do
       expect(page).not_to have_content 'Serviço de Valet'
     end
   end
-  
+
   context 'visitor cannot create event ' do
     it 'from homepage' do
       owner = Owner.create!(name: 'Splinter', email: 'splinter@email.com', password: 'password')
@@ -40,7 +40,7 @@ describe 'Visitor authorization for events' do
 
       expect(page).not_to have_content 'Criar Evento'
     end
-    
+
     it 'trying by URL' do
       owner = Owner.create!(name: 'Splinter', email: 'splinter@email.com', password: 'password')
 
@@ -53,7 +53,7 @@ describe 'Visitor authorization for events' do
     end
   end
 
-  context "visitor cannot edit event" do
+  context 'visitor cannot edit event' do
     it 'from homepage' do
       owner = Owner.create!(name: 'Splinter', email: 'splinter@email.com', password: 'password')
 
@@ -76,8 +76,8 @@ describe 'Visitor authorization for events' do
       buffet = Buffet.create!(brand_name: 'TMNT Buffet', payment: 'PIX', owner:)
 
       event = Event.create!(name: 'Festa infantil', description: 'Festa para crianças com temática TMNT', min_people: 10,
-                    max_people: 100, duration: 300, menu: 'Pizza', alcoholic_beverages: false, decoration: true,
-                    parking: true, parking_valet: false, customer_space: true, buffet:)
+                            max_people: 100, duration: 300, menu: 'Pizza', alcoholic_beverages: false, decoration: true,
+                            parking: true, parking_valet: false, customer_space: true, buffet:)
 
       visit edit_event_path event
 

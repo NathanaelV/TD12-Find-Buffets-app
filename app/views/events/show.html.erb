@@ -4,7 +4,8 @@
 <% if owner_signed_in? %>
   <div>
     <%= link_to 'Editar Evento', edit_event_path(@event) %> | 
-    <%= button_to 'Excluir Evento', @event, method: :delete, onclick: "return confirm('Você tem certeza?');" %>
+    <%= button_to 'Excluir Evento', @event, method: :delete, onclick: "return confirm('Você tem certeza?');" %> | 
+    <%= link_to 'Adicionar Custos do Evento', new_event_event_cost_path(@event) %>
   </div>
 <% end %>
 
@@ -61,3 +62,31 @@
     </dd>
   </div>
 </dl>
+
+<h2>Valores</h2>
+<section id='event-cost'>
+  <% @event_costs.each do |event_cost| %>
+    <div id=<%= event_cost.description.downcase.gsub(' ', '-') %> >
+      <div>
+        <p id><%= event_cost.description %> | <%= link_to 'Editar', edit_event_event_cost_path(@event) %></p>
+      </div>
+
+      <dl>
+        <div>
+          <dt><%= 'Valor inicial:' %></dt>
+          <dd><%= event_cost.minimum %></dd>
+        </div>
+
+        <div>
+          <dt><%= 'Preço adicional:' %></dt>
+          <dd><%= event_cost.additional_per_person %>/pessoa</dd>
+        </div>
+
+        <div>
+          <dt><%= 'Hora extra:' %></dt>
+          <dd><%= event_cost.overtime %>/hora</dd>
+        </div>
+      </dl>
+    </div>
+  <% end %>
+</section>

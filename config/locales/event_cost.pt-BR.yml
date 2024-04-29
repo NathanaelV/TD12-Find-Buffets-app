@@ -1,0 +1,14 @@
+pt-BR:
+  activerecord:
+    attributes:
+      event_cost:
+        description: Descrição
+        minimum: Valor mínimo
+        additional_per_person: Valor adicional por pessoa
+        overtime: Hora extra
+        event: Evento
+        event_id: Evento
+    models:
+      event_cost:
+        one: Custo do Evento
+        other: Custos do Evento

@@ -1,0 +1,25 @@
+<%= form_with model: [@event, @event_cost] do |f| %>
+  <div>
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+  </div>
+
+  <div>
+    <%= f.label :minimum %>
+    <%= f.number_field :minimum %>
+  </div>
+
+  <div>
+    <%= f.label :additional_per_person %>
+    <%= f.number_field :additional_per_person %>
+  </div>
+
+  <div>
+    <%= f.label :overtime %>
+    <%= f.number_field :overtime %>
+  </div>
+
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>

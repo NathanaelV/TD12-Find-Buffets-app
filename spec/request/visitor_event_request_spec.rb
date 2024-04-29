@@ -14,10 +14,8 @@ describe 'Visitor event request' do
   end
 
   context 'update' do
-    
   end
 
   context 'delete' do
-    
   end
 end

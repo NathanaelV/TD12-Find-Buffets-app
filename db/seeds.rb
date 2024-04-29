@@ -29,11 +29,15 @@ Buffet.find_or_create_by!(brand_name: 'Os Cavaleiro dos Zodíacos', corporate_na
                           payment: 'PIX, Catão de Débito, Cartão de Crédito', owner: phoenix)
 
 # Event
-Event.find_or_create_by!(name: 'Festa infantil', description: 'Festa para crianças com temática TMNT',
-                         min_people: 10, max_people: 100, duration: 300, menu: 'Pizza', alcoholic_beverages: false,
-                         decoration: true, parking: true, parking_valet: false, customer_space: true,
-                         buffet:)
+event = Event.find_or_create_by!(name: 'Festa infantil', description: 'Festa para crianças com temática TMNT',
+                                 min_people: 10, max_people: 100, duration: 300, menu: 'Pizza', alcoholic_beverages: false,
+                                 decoration: true, parking: true, parking_valet: false, customer_space: true,
+                                 buffet:)
 
 Event.find_or_create_by!(name: 'Festa de casamento', description: 'Festa de casamento dos sonhos', min_people: 10,
                          max_people: 100, duration: 420, menu: 'Pizza', alcoholic_beverages: true, decoration: true,
                          parking: true, parking_valet: true, customer_space: true, buffet:)
+
+# Event Cost
+EventCost.create!(description: 'Dias de semana', minimum: 2_000, additional_per_person: 70, overtime: 1000, event:)
+EventCost.create!(description: 'Fim de semana', minimum: 4_000, additional_per_person: 140, overtime: 2000, event:)

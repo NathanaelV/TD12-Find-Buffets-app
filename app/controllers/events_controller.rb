@@ -2,7 +2,9 @@ class EventsController < ApplicationController
   before_action :authenticate_owner!, except: %i[show]
   before_action :set_event, only: %i[show edit update destroy]
 
-  def show; end
+  def show
+    @event_costs = @event.event_costs
+  end
 
   def new
     @event = Event.new
