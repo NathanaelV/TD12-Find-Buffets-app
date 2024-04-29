@@ -10,7 +10,7 @@ class BuffetsController < ApplicationController
     Event.where('name LIKE ?', "%#{@query}%").each do |event|
       @buffets << event.buffet
     end
-    
+
     @buffets = @buffets.uniq.sort_by!(&:brand_name)
   end
 

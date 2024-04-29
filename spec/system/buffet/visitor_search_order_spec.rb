@@ -136,6 +136,7 @@ describe 'User search buffet' do
 
     expect(page).to have_content 'Resultado da busca por:'
     expect(page).to have_content '3 Buffets encontrados'
-    expect(page).to have_content 'Saint Seiya Buffet | SP - São Paulo TMNT Buffet | SP - São Paulo TMNT Eventos | BA - Salvador'
+    names_sorted = 'Saint Seiya Buffet | SP - São Paulo TMNT Buffet | SP - São Paulo TMNT Eventos | BA - Salvador'
+    expect(page).to have_content names_sorted
   end
 end
