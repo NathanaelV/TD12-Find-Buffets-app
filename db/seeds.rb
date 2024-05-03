@@ -13,11 +13,6 @@ leo_yoshi = Owner.create!(name: 'Leonardo Yoshi', email: 'leonardo.yoshi@email.c
 Owner.create!(name: 'Casey Jones', email: 'casey.jones@email.com', password: 'casey.jones123')
 phoenix = Owner.create!(name: 'Phoenix Ikki', email: 'phoenix.ikki@saint.com', password: 'phoenix.ikki123')
 
-# Customer
-Customer.create!(name: 'Donatello Hamato', cpf: '599.622.000-83', email: 'donatello@email.com',
-                 password: 'donatello123')
-Customer.create!(name: 'Dragon Shiryu', cpf: '665.455.630-50', email: 'shiryu@email.com', password: 'shiryu123')
-
 # Buffet
 buffet = Buffet.find_or_create_by!(brand_name: 'Teenage Mutant Ninja Turtles', corporate_name: 'TMNT Splinter LTDA',
                                    registration_number: '88392017000182', phone: '11912341234',
@@ -35,9 +30,9 @@ Buffet.find_or_create_by!(brand_name: 'Os Cavaleiro dos Zodíacos', corporate_na
 
 # Event
 event = Event.find_or_create_by!(name: 'Festa infantil', description: 'Festa para crianças com temática TMNT',
-                                 min_people: 10, max_people: 100, duration: 300, menu: 'Pizza',
-                                 alcoholic_beverages: false, decoration: true, parking: true, parking_valet: false,
-                                 customer_space: true, buffet:)
+                                 min_people: 10, max_people: 100, duration: 300, menu: 'Pizza', alcoholic_beverages: false,
+                                 decoration: true, parking: true, parking_valet: false, customer_space: true,
+                                 buffet:)
 
 Event.find_or_create_by!(name: 'Festa de casamento', description: 'Festa de casamento dos sonhos', min_people: 10,
                          max_people: 100, duration: 420, menu: 'Pizza', alcoholic_beverages: true, decoration: true,

@@ -26,12 +26,8 @@
           <% if owner_signed_in? %>
             <%= current_owner.description %>
             <%= button_to 'Sair', destroy_owner_session_path, method: :delete %>
-          <% elsif customer_signed_in? %>
-            <%= current_customer.description %>
-            <%= button_to 'Sair', destroy_owner_session_path, method: :delete %>
           <% else %>
-            <%= link_to 'Login para Dono de Buffet', new_owner_session_path %> | 
-            <%= link_to 'Login para Clientes', new_customer_session_path %>
+            <%= link_to 'Login', new_owner_session_path %>
           <% end %>
         </div>
       </nav>
