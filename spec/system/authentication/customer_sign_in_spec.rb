@@ -39,7 +39,7 @@ describe 'Customer sing in' do
 
     expect(page).to have_content 'Logout efetuado com sucesso.'
     expect(page).not_to have_button 'Sair'
-    expect(page).not_to have_content 'Leonardo <leonardo@email.com>'
+    expect(page).not_to have_content 'Donatello Hamato <donatello@email.com>'
     within('nav') do
       expect(page).to have_link 'Login'
     end

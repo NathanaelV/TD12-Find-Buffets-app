@@ -51,6 +51,7 @@ pt-BR:
         unlock_token: Token de desbloqueio
         updated_at: Atualizado em
         name: Nome
+        cpf: CPF
     models:
       owner:
         one: Proprietário

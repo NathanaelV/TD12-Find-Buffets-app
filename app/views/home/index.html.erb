@@ -1,3 +1,7 @@
+<% if @buffets.empty? %>
+  <p>Nenhum Buffet cadastrado</p>
+<% end %>
+
 <div>
   <ul>
     <% @buffets.each do |buffet| %>
