@@ -9,7 +9,7 @@ describe 'Buffet Owner view buffet details' do
                    city: 'São Paulo', state: 'SP', zip_code: '01234123',
                    description: 'Melhor Buffet da região. Cowabunga', payment: 'PIX', owner:)
 
-    login_as(owner)
+    login_as owner, scope: :owner
     visit root_path
     click_on 'TMNT Buffet'
 

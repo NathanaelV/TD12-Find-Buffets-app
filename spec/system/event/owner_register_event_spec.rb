@@ -5,7 +5,7 @@ describe 'Buffet owner register event' do
     owner = Owner.create!(name: 'Splinter', email: 'splinter@email.com', password: 'password')
     Buffet.create!(brand_name: 'TMNT Buffet', payment: 'PIX', owner:)
 
-    login_as(owner)
+    login_as owner, scope: :owner
     visit root_path
     click_on 'TMNT Buffet'
     click_on 'Criar Evento'
@@ -28,7 +28,7 @@ describe 'Buffet owner register event' do
     owner = Owner.create!(name: 'Splinter', email: 'splinter@email.com', password: 'password')
     Buffet.create!(brand_name: 'TMNT Buffet', payment: 'PIX', owner:)
 
-    login_as(owner)
+    login_as owner, scope: :owner
     visit root_path
     click_on 'TMNT Buffet'
     click_on 'Criar Evento'

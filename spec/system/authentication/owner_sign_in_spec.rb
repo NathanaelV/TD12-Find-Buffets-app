@@ -22,15 +22,10 @@ describe 'Owner sing in' do
   end
 
   it 'and logout' do
-    Owner.create!(name: 'Leonardo', email: 'leonardo@email.com', password: 'password')
+    owner = Owner.create!(name: 'Leonardo', email: 'leonardo@email.com', password: 'password')
 
+    login_as owner, scope: :owner
     visit root_path
-    click_on 'Login'
-    within 'section#login' do
-      fill_in 'E-mail',	with: 'leonardo@email.com'
-      fill_in 'Senha', with: 'password'
-      click_on 'Login'
-    end
     click_on 'Sair'
 
     expect(page).to have_content 'Logout efetuado com sucesso.'
@@ -49,13 +44,8 @@ describe 'Owner sing in' do
                    city: 'São Paulo', state: 'SP', zip_code: '01234123',
                    description: 'Melhor Buffet da região. Cowabunga', payment: 'PIX', owner:)
 
+    login_as owner, scope: :owner
     visit root_path
-    click_on 'Login'
-    within 'section#login' do
-      fill_in 'E-mail',	with: 'leonardo@email.com'
-      fill_in 'Senha', with: 'password'
-      click_on 'Login'
-    end
 
     expect(page).not_to have_content 'Cadastrar Buffet'
     expect(page).to have_content 'TMNT Buffet'

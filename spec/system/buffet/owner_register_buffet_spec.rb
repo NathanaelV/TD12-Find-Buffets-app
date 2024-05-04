@@ -10,7 +10,7 @@ describe 'Owner regiters buffet' do
   it 'successfully' do
     owner = Owner.create!(name: 'Splinter', email: 'splinter@email.com', password: 'password')
 
-    login_as(owner)
+    login_as owner, scope: :owner
     visit root_path
     fill_in 'Nome fantasia', with: 'Teenage Mutant Ninja Turtles'
     fill_in 'Razão social', with: 'TMNT Splinter LTDA'
