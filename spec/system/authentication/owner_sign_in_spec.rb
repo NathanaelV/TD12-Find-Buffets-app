@@ -5,7 +5,7 @@ describe 'Owner sing in' do
     Owner.create!(name: 'Leonardo', email: 'leonardo@email.com', password: 'password')
 
     visit root_path
-    click_on 'Login'
+    click_on 'Login para Dono de Buffet'
     within 'section#login' do
       fill_in 'E-mail',	with: 'leonardo@email.com'
       fill_in 'Senha', with: 'password'
