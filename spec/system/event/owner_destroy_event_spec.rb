@@ -29,7 +29,7 @@ describe 'Owner destroy event' do
                   max_people: 100, duration: 300, menu: 'Pizza', alcoholic_beverages: true, decoration: true,
                   parking: true, parking_valet: true, customer_space: true, buffet:)
 
-    login_as owner
+    login_as owner, scope: :owner
     visit root_path
     click_on 'TMNT Buffet'
     click_on 'Festa infantil'

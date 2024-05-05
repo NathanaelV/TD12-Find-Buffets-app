@@ -3,7 +3,7 @@ require 'rails_helper'
 describe 'Owner sign up' do
   it 'successfully' do
     visit root_path
-    click_on 'Login'
+    click_on 'Login para Dono de Buffet'
     click_on 'Criar uma conta'
     within 'section#registration' do
       fill_in 'Nome',	with: 'Leonardo'

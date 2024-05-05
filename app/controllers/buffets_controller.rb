@@ -19,6 +19,9 @@ class BuffetsController < ApplicationController
   end
 
   def new
+    existing_buffet = current_owner.buffet
+    redirect_to existing_buffet if existing_buffet
+
     @buffet = Buffet.new
   end
 

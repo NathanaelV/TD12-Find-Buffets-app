@@ -13,7 +13,8 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name]) if resource_name == :owner
+    devise_parameter_sanitizer.permit(:sign_up, keys: %i[name cpf]) if resource_name == :customer
   end
 
   def owner_has_buffet

@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe 'Visitor event request' do
   context 'create' do
-    # xit 'without authorization' do
+    # it 'without authorization' do
     #   owner = Owner.create!(name: 'Splinter', email: 'splinter@email.com', password: 'password')
 
     #   Buffet.create!(brand_name: 'TMNT Buffet', payment: 'PIX', owner:)

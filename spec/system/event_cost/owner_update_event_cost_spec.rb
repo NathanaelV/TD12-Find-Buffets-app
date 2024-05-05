@@ -13,7 +13,7 @@ describe 'Owner update Event Cost' do
     EventCost.create!(description: 'Dias de semana', minimum: 2_000, additional_per_person: 70, overtime: 1000, event:)
     EventCost.create!(description: 'Fim de semana', minimum: 4_000, additional_per_person: 140, overtime: 2000, event:)
 
-    login_as(owner)
+    login_as owner, scope: :owner
     visit root_path
     click_on 'TMNT Buffet'
     click_on 'Festa de casamento'
@@ -40,7 +40,7 @@ describe 'Owner update Event Cost' do
     EventCost.create!(description: 'Dias de semana', minimum: 2_000, additional_per_person: 70, overtime: 1000, event:)
     EventCost.create!(description: 'Fim de semana', minimum: 4_000, additional_per_person: 140, overtime: 2000, event:)
 
-    login_as(owner)
+    login_as owner, scope: :owner
     visit root_path
     click_on 'TMNT Buffet'
     click_on 'Festa de casamento'

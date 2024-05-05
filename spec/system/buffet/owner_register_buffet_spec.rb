@@ -10,7 +10,7 @@ describe 'Owner regiters buffet' do
   it 'successfully' do
     owner = Owner.create!(name: 'Splinter', email: 'splinter@email.com', password: 'password')
 
-    login_as(owner)
+    login_as owner, scope: :owner
     visit root_path
     fill_in 'Nome fantasia', with: 'Teenage Mutant Ninja Turtles'
     fill_in 'Razão social', with: 'TMNT Splinter LTDA'
@@ -37,5 +37,20 @@ describe 'Owner regiters buffet' do
     expect(page).to have_content 'Descrição: Melhor Buffet da região. Cowabunga'
     expect(page).to have_content 'Proprietário: Splinter'
     expect(page).to have_content 'Formas de pagamento: PIX, Cartão de Débito'
+  end
+
+  it 'view form the owner already has a buffet' do
+    owner = Owner.create!(name: 'Splinter Yoshi', email: 'splinter@email.com', password: 'password')
+    buffet = Buffet.create!(brand_name: 'TMNT Buffet', corporate_name: 'TMNT Splinter LTDA',
+                            registration_number: '88392017000182', phone: '11912341234',
+                            email: 'contato@tmntsplinter.com', address: 'Rua Estados Unidos, 1030 - Jardins',
+                            city: 'São Paulo', state: 'SP', zip_code: '01234123',
+                            description: 'Melhor Buffet da região. Cowabunga', payment: 'PIX', owner:)
+
+    login_as owner, scope: :owner
+    visit new_buffet_path
+
+    expect(page).to have_content 'TMNT Buffet'
+    expect(current_path).to eq buffet_path(buffet)
   end
 end
