@@ -1,7 +1,10 @@
 require 'rails_helper'
 
-describe 'Visitor cannot edit Buffet' do
-  it 'do not view link to form' do
+describe 'Customer cannot edit Buffet' do
+  it 'do not view form' do
+    customer = Customer.create!(name: 'Dragon Shiryu', cpf: '665.455.630-50', email: 'shiryu@email.com',
+                                password: 'shiryu123')
+
     owner = Owner.create!(name: 'Splinter Yoshi', email: 'splinter@email.com', password: 'password')
     Buffet.create!(brand_name: 'TMNT Buffet', corporate_name: 'TMNT Splinter LTDA',
                    registration_number: '88392017000182', phone: '11912341234',
@@ -9,6 +12,7 @@ describe 'Visitor cannot edit Buffet' do
                    city: 'São Paulo', state: 'SP', zip_code: '01234123',
                    description: 'Melhor Buffet da região. Cowabunga', payment: 'PIX', owner:)
 
+    login_as customer, scope: :customer
     visit root_path
     click_on 'TMNT Buffet'
 
@@ -16,6 +20,9 @@ describe 'Visitor cannot edit Buffet' do
   end
 
   it 'do not view form' do
+    customer = Customer.create!(name: 'Dragon Shiryu', cpf: '665.455.630-50', email: 'shiryu@email.com',
+                                password: 'shiryu123')
+
     owner = Owner.create!(name: 'Splinter Yoshi', email: 'splinter@email.com', password: 'password')
     buffet = Buffet.create!(brand_name: 'TMNT Buffet', corporate_name: 'TMNT Splinter LTDA',
                    registration_number: '88392017000182', phone: '11912341234',
@@ -23,6 +30,7 @@ describe 'Visitor cannot edit Buffet' do
                    city: 'São Paulo', state: 'SP', zip_code: '01234123',
                    description: 'Melhor Buffet da região. Cowabunga', payment: 'PIX', owner:)
 
+    login_as customer, scope: :customer
     visit edit_buffet_path(buffet)
 
     expect(page).not_to have_content 'Editar Buffet'
