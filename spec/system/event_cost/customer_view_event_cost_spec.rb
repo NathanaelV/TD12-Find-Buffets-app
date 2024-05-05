@@ -39,8 +39,8 @@ describe 'Customer view event cost' do
     buffet = Buffet.create!(brand_name: 'TMNT Buffet', payment: 'PIX', owner:)
 
     Event.create!(name: 'Festa de casamento', description: 'Festa de casamento dos sonhos', min_people: 10,
-                          max_people: 100, duration: 420, menu: 'Pizza', alcoholic_beverages: true, decoration: true,
-                          parking: true, parking_valet: true, customer_space: true, buffet:)
+                  max_people: 100, duration: 420, menu: 'Pizza', alcoholic_beverages: true, decoration: true,
+                  parking: true, parking_valet: true, customer_space: true, buffet:)
 
     customer = Customer.create!(name: 'Dragon Shiryu', cpf: '665.455.630-50', email: 'shiryu@email.com',
                                 password: 'shiryu123')
