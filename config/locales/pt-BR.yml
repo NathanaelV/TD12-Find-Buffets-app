@@ -226,3 +226,6 @@ pt-BR:
   found:
     one: encontrado
     other: encontrados
+  pending: Aguardando avaliação do buffet
+  approved: Pedido Confirmado
+  canceled: Pedido Cancelado

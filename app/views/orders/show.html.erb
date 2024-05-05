@@ -1,0 +1,30 @@
+<h1><%= I18n.l(@order.event_date) %> - <%= @order.code %></h1>
+
+<p><%= @order.buffet.brand_name %></p>
+
+<dl>
+  <div>
+    <dt>Evento:</dt>
+    <dd><%= @order.event.name %></dd>
+  </div>
+
+  <div>
+    <dt>Status:</dt>
+    <dd><%= t @order.status %></dd>
+  </div>
+
+  <div>
+    <dt>Detalhes da festa:</dt>
+    <dd><%= @order.details %></dd>
+  </div>
+
+  <div>
+    <dt>Local da festa:</dt>
+    <dd><%= @order.address %></dd>
+  </div>
+
+  <div>
+    <dt>Número de pessoas:</dt>
+    <dd><%= @order.people %></dd>
+  </div>
+</dl>

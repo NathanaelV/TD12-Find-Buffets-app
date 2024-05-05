@@ -99,3 +99,7 @@
     <p>Nenhum valor cadastrado</p>
   <% end %>
 </section>
+
+<% if customer_signed_in? %>
+  <h2><%= link_to 'Contratar serviço', new_event_order_path(@event) %></h2>
+<% end %>

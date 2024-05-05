@@ -1,0 +1,20 @@
+pt-BR:
+  activerecord:
+    attributes:
+      order:
+        code: Código
+        status: Status
+        event_date: Data do evento
+        details: Detalhes do evento
+        address: Local do evento
+        people: Quantidade de pessoas
+        buffet: Buffet
+        buffet_id: Buffet
+        customer: Cliente
+        customer_id: Cliente
+        event: Evento
+        event_id: Evento
+    models:
+      order:
+        one: Pedido
+        other: Pedidos
