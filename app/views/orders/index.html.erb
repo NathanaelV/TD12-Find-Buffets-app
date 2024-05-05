@@ -1,0 +1,13 @@
+<h1 id=customer-orders>Meus Pedidos</h1>
+
+<section>
+  <% if @orders.present? %>
+    <% @orders.each do |order| %>
+      <div>
+        <%= I18n.l order.event_date %> - <%= order.code %>
+      </div>
+    <% end %>
+  <% else %>
+    <p>Nenhum pedido cadastrado</p>
+  <% end %>
+</section>

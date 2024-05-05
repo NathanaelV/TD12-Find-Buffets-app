@@ -13,5 +13,5 @@ Rails.application.routes.draw do
     resources :event_costs, only: %i[new create edit update]
     resources :orders, only: %i[new create]
   end
-  resources :orders, only: %i[show]
+  resources :orders, only: %i[show index]
 end

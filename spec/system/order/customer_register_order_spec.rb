@@ -11,7 +11,6 @@ describe 'Customer register order' do
                           parking: true, parking_valet: true, customer_space: true, buffet:)
 
     EventCost.create!(description: 'Dias de semana', minimum: 2_000, additional_per_person: 70, overtime: 1000, event:)
-    EventCost.create!(description: 'Fim de semana', minimum: 4_000, additional_per_person: 140, overtime: 2000, event:)
 
     visit root_path
     click_on 'TMNT Buffet'
@@ -30,7 +29,6 @@ describe 'Customer register order' do
                           parking: true, parking_valet: true, customer_space: true, buffet:)
 
     EventCost.create!(description: 'Dias de semana', minimum: 2_000, additional_per_person: 70, overtime: 1000, event:)
-    EventCost.create!(description: 'Fim de semana', minimum: 4_000, additional_per_person: 140, overtime: 2000, event:)
 
     customer = Customer.create!(name: 'Dragon Shiryu', cpf: '665.455.630-50', email: 'shiryu@email.com',
                                 password: 'shiryu123')
@@ -58,7 +56,6 @@ describe 'Customer register order' do
                           parking: true, parking_valet: true, customer_space: true, buffet:)
 
     EventCost.create!(description: 'Dias de semana', minimum: 2_000, additional_per_person: 70, overtime: 1000, event:)
-    EventCost.create!(description: 'Fim de semana', minimum: 4_000, additional_per_person: 140, overtime: 2000, event:)
 
     customer = Customer.create!(name: 'Dragon Shiryu', cpf: '665.455.630-50', email: 'shiryu@email.com',
                                 password: 'shiryu123')
@@ -95,7 +92,6 @@ describe 'Customer register order' do
                           parking: true, parking_valet: true, customer_space: false, buffet:)
 
     EventCost.create!(description: 'Dias de semana', minimum: 2_000, additional_per_person: 70, overtime: 1000, event:)
-    EventCost.create!(description: 'Fim de semana', minimum: 4_000, additional_per_person: 140, overtime: 2000, event:)
 
     customer = Customer.create!(name: 'Dragon Shiryu', cpf: '665.455.630-50', email: 'shiryu@email.com',
                                 password: 'shiryu123')
