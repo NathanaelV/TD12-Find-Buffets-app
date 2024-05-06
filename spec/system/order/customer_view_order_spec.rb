@@ -28,7 +28,7 @@ describe 'Customer view orders' do
     second_future_date = 3.week.from_now.strftime('%d/%m/%Y')
     second_order = Order.create!(event_date: second_future_date, people: 80, details: 'Dia especial', address: 'Sítio ',
                                  buffet:, customer:, event:)
-                                
+
     login_as customer, scope: :customer
     visit root_path
     within 'nav' do
@@ -36,7 +36,7 @@ describe 'Customer view orders' do
     end
 
     within 'h1#customer-orders' do
-      expect(page).to have_content "Meus Pedidos"
+      expect(page).to have_content 'Meus Pedidos'
     end
     expect(page).to have_content "#{future_date} - #{order.code}"
     expect(page).to have_content "#{second_future_date} - #{second_order.code}"
@@ -72,7 +72,7 @@ describe 'Customer view orders' do
     future_date = 2.week.from_now.strftime('%d/%m/%Y')
     order = Order.create!(event_date: future_date, people: 80, details: 'Dia especial', address: 'Sítio ', buffet:,
                           customer:, event:, status: :approved)
-                                
+
     login_as customer, scope: :customer
     visit root_path
     within 'nav' do
@@ -100,7 +100,7 @@ describe 'Customer view orders' do
     future_date = 2.week.from_now.strftime('%d/%m/%Y')
     order = Order.create!(event_date: future_date, people: 80, details: 'Dia especial', address: 'Sítio ', buffet:,
                           customer:, event:, status: :canceled)
-                                
+
     login_as customer, scope: :customer
     visit root_path
     within 'nav' do

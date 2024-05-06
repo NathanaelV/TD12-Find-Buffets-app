@@ -18,7 +18,7 @@ class OrdersController < ApplicationController
     @order.event = @event
     @order.buffet = @event.buffet
     @order.customer = current_customer
-    
+
     @order.save!
     redirect_to @order, notice: 'Pedido realizado com sucesso. Aguardar aprovação do Buffet'
   end
