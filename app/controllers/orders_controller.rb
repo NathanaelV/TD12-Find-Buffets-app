@@ -1,6 +1,5 @@
 class OrdersController < ApplicationController
   def index
-    @orders = Order.all
     if owner_signed_in?
       @buffet = current_owner.buffet
       orders = Order.where(buffet: @buffet)
@@ -8,7 +7,7 @@ class OrdersController < ApplicationController
       @approved_orders = orders.select(&:approved?)
       @canceled_orders = orders.select(&:canceled?)
     else
-      @orders = Order.all
+      @orders = Order.where(customer: current_customer)
     end
   end
 
