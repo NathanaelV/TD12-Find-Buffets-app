@@ -17,23 +17,30 @@
       <nav>
         <div id=search>
           <%= form_with url: buffets_path, method: :get do |f| %>
+
             <%= f.label :query, 'Buscar Buffet' %>
             <%= f.text_field :query %>
             <%= f.submit 'Buscar' %>
+
           <% end %>
         </div>
         <div id=owner-login>
+
           <% if owner_signed_in? %>
-            <%= current_owner.description %>
+            <%= current_owner.description %> | 
+            <%= link_to 'Pedidos', orders_path %>
             <%= button_to 'Sair', destroy_owner_session_path, method: :delete %>
+
           <% elsif customer_signed_in? %>
             <%= current_customer.description %> | 
             <%= link_to 'Meus Pedidos', orders_path %>
             <%= button_to 'Sair', destroy_customer_session_path, method: :delete %>
+
           <% else %>
             <%= link_to 'Login para Dono de Buffet', new_owner_session_path %> | 
             <%= link_to 'Login para Clientes', new_customer_session_path %>
           <% end %>
+
         </div>
       </nav>
     </header>

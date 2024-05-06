@@ -1,6 +1,15 @@
 class OrdersController < ApplicationController
   def index
     @orders = Order.all
+    if owner_signed_in?
+      @buffet = current_owner.buffet
+      orders = Order.where(buffet: @buffet)
+      @pending_orders = orders.select(&:pending?)
+      @approved_orders = orders.select(&:approved?)
+      @canceled_orders = orders.select(&:canceled?)
+    else
+      @orders = Order.all
+    end
   end
 
   def show

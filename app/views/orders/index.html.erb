@@ -1,15 +1,84 @@
-<h1 id=customer-orders>Meus Pedidos</h1>
+<% if customer_signed_in? %>
+  <h1 id=customer-orders>Meus Pedidos</h1>
+<% elsif owner_signed_in? %>
+  <h1 id=buffet-orders>Pedidos do <%= @buffet.brand_name %></h1>
+<% end %>
 
-<section>
-  <% if @orders.present? %>
-    <% @orders.each do |order| %>
-      <div>
-        <%= link_to order do %>
-          <%= I18n.l order.event_date %> - <%= order.code %>
-        <% end %>
-      </div>
+<% if customer_signed_in? %>
+  <section>
+
+    <% if @orders.present? %>
+      <% @orders.each do |order| %>
+
+        <div>
+          <%= link_to order do %>
+            <%= I18n.l order.event_date %> - <%= order.code %>
+          <% end %>
+        </div>
+
+      <% end %>
+
+    <% else %>
+      <p>Nenhum pedido cadastrado</p>
     <% end %>
-  <% else %>
-    <p>Nenhum pedido cadastrado</p>
-  <% end %>
-</section>
+
+  </section>
+
+<% elsif owner_signed_in? %>
+  <section>
+    <p>Aguardando avaliação:</p>
+
+    <% if @pending_orders.present? %>
+      <% @pending_orders.each do |order| %>
+
+        <ul>
+          <%= link_to order do %>
+            <li><%= I18n.l order.event_date %> - <%= order.code %></li>
+          <% end %>
+        </ul>
+
+      <% end %>
+    <% else %>
+      <p>Nenhum evento pendente.</p>
+
+    <% end %>
+  </section>
+
+  <section>
+    <p>Aprovados:</p>
+    
+    <% if @approved_orders.present? %>
+      <% @approved_orders.each do |order| %>
+
+        <ul>
+          <%= link_to order do %>
+            <li><%= I18n.l order.event_date %> - <%= order.code %></li>
+          <% end %>
+        </ul>
+
+      <% end %>
+    <% else %>
+      <p>Nenhum evento aprovado.</p>
+
+    <% end %>
+  </section>
+
+  <section>
+    <p>Cancelados:</p>
+    
+    <% if @canceled_orders.present? %>
+      <% @canceled_orders.each do |order| %>
+
+        <ul>
+          <%= link_to order do %>
+            <li><%= I18n.l order.event_date %> - <%= order.code %></li>
+          <% end %>
+        </ul>
+
+      <% end %>
+    <% else %>
+      <p>Nenhum evento cancelado.</p>
+
+    <% end %>
+  </section>
+<% end %>
