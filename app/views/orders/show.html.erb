@@ -34,3 +34,7 @@
     <dd><%= @order.people %></dd>
   </div>
 </dl>
+
+<% if owner_signed_in? %>
+  <%= button_to 'Aprovar pedido', approve_order_path, { method: :patch } %>
+<% end %>

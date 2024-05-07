@@ -73,7 +73,6 @@ describe 'Owner view order' do
     owner = Owner.create!(name: 'Splinter', email: 'splinter@email.com', password: 'password')
 
     buffet = Buffet.create!(brand_name: 'TMNT Buffet', payment: 'PIX', owner:)
-    Buffet.create!(brand_name: 'Seiya', payment: 'PIX', owner:)
 
     event = Event.create!(name: 'Festa de casamento', description: 'Festa de casamento dos sonhos', min_people: 10,
                           max_people: 100, duration: 420, menu: 'Pizza', alcoholic_beverages: true, decoration: true,
