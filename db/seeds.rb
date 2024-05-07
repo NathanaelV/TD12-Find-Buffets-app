@@ -15,7 +15,7 @@ phoenix = Owner.create!(name: 'Phoenix Ikki', email: 'phoenix.ikki@saint.com', p
 
 # Customer
 customer = Customer.create!(name: 'Donatello Hamato', cpf: '599.622.000-83', email: 'donatello@email.com',
-                 password: 'donatello123')
+                            password: 'donatello123')
 Customer.create!(name: 'Dragon Shiryu', cpf: '665.455.630-50', email: 'shiryu@email.com', password: 'shiryu123')
 
 # Buffet
@@ -47,7 +47,7 @@ Event.find_or_create_by!(name: 'Festa de casamento', description: 'Festa de casa
 EventCost.create!(description: 'Dias de semana', minimum: 2_000, additional_per_person: 70, overtime: 1000, event:)
 EventCost.create!(description: 'Fim de semana', minimum: 4_000, additional_per_person: 140, overtime: 2000, event:)
 
-Order.create!(event_date: 2.month.from_now.strftime('%d/%m/%Y'), people: 80, details: 'Dia especial', address: 'Sítio do Barnabé',
-                                 buffet:, customer:, event:)
-Order.create!(event_date: 3.month.from_now.strftime('%d/%m/%Y'), people: 80, details: 'Dia especial', address: 'No Próprio Buffet',
-                                 buffet:, customer:, event:, status: :approved)
+Order.create!(event_date: 2.month.from_now.strftime('%d/%m/%Y'), people: 80, details: 'Dia especial',
+              address: 'Sítio do Barnabé', buffet:, customer:, event:)
+Order.create!(event_date: 3.month.from_now.strftime('%d/%m/%Y'), people: 80, details: 'Dia especial',
+              address: 'No Próprio Buffet', buffet:, customer:, event:, status: :approved)
