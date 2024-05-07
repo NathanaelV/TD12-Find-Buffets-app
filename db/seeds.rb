@@ -44,8 +44,10 @@ Event.find_or_create_by!(name: 'Festa de casamento', description: 'Festa de casa
                          parking: true, parking_valet: true, customer_space: true, buffet:)
 
 # Event Cost
-EventCost.create!(description: 'Dias de semana', minimum: 2_000, additional_per_person: 70, overtime: 1000, event:)
-EventCost.create!(description: 'Fim de semana', minimum: 4_000, additional_per_person: 140, overtime: 2000, event:)
+EventCost.create!(description: 'Dias de semana', minimum: 200_000, additional_per_person: 7_000, overtime: 10_0000,
+event:)
+EventCost.create!(description: 'Fim de semana', minimum: 400_000, additional_per_person: 14_000, overtime: 20_0000,
+event:)
 
 Order.create!(event_date: 2.month.from_now.strftime('%d/%m/%Y'), people: 80, details: 'Dia especial',
               address: 'Sítio do Barnabé', buffet:, customer:, event:)

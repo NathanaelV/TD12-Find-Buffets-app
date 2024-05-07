@@ -1,0 +1,33 @@
+<h1>Proposta para o cliente</h1>
+
+<%= form_with model: [@order, @proposal] do |f| %>
+  <div>
+    <%= f.label :cost, 'Valor final' %>
+    <%= f.number_field :cost %>
+  </div>
+
+  <div>
+    <%= f.label :validate_date, 'Data de expiração' %>
+    <%= f.number_field :validate_date %>
+  </div>
+
+  <div>
+    <%= f.label :price_change, 'Taxa/Desconto' %>
+    <%= f.number_field :price_change %>
+  </div>
+
+  <div>
+    <%= f.label :price_change_details, 'Justificativa' %>
+    <%= f.number_field :price_change_details %>
+  </div>
+
+  <div>
+    <%= f.label :payment, 'Forma de pagamento' %>
+    <%= f.number_field :payment %>
+  </div>
+
+  <div>
+    <%= f.label :status %>
+    <%= f.number_field :status %>
+  </div>
+<% end %>

@@ -36,5 +36,5 @@
 </dl>
 
 <% if owner_signed_in? %>
-  <%= button_to 'Aprovar pedido', approve_order_path, { method: :patch } %>
+  <%= link_to 'Aprovar pedido', new_order_proposal_path(@order) %>
 <% end %>

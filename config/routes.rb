@@ -14,6 +14,6 @@ Rails.application.routes.draw do
     resources :orders, only: %i[new create]
   end
   resources :orders, only: %i[show index] do
-    patch :approve, on: :member
+    resources :proposals, only: %i[new create]
   end
 end
