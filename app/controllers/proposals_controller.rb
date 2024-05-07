@@ -5,13 +5,30 @@ class ProposalsController < ApplicationController
     @proposal.cost = event_cost_calculate
   end
 
+  def create
+    @order = Order.find(params[:order_id])
+    @proposal = Proposal.new(proposal_params)
+    @proposal.order = @order
+    @proposal.event = @order.event
+    @proposal.event_cost = event_cost
+
+    if @proposal.save
+      @order.approved!
+      notice = "Proposta enviada com sucesso, para o pedido: #{I18n.l @order.event_date} - #{@order.code}"
+      redirect_to orders_path, notice:
+    else
+      render :new
+    end
+  end
+
   private
 
-  def event_cost_calculate
-    # event_cost = event_cost
-    event = @order.event
-    return 0 unless event_cost
+  def proposal_params
+    params.require(:proposal).permit(:cost, :validate_date, :price_change, :price_change_details, :payment)
+  end
 
+  def event_cost_calculate
+    event = @order.event
     event_cost.minimum + event_cost.additional_per_person * (@order.people - event.min_people)
   end
 

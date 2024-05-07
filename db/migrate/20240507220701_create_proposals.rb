@@ -6,10 +6,10 @@ class CreateProposals < ActiveRecord::Migration[7.1]
       t.references :event_cost, null: false, foreign_key: true
       t.integer :cost
       t.date :validate_date
-      t.integer :price_change
+      t.integer :price_change, default: 0
       t.string :price_change_details
       t.string :payment
-      t.integer :status
+      t.integer :status, default: 0
 
       t.timestamps
     end

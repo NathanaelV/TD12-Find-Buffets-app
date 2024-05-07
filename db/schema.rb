@@ -109,10 +109,10 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_07_220701) do
     t.integer "event_cost_id", null: false
     t.integer "cost"
     t.date "validate_date"
-    t.integer "price_change"
+    t.integer "price_change", default: 0
     t.string "price_change_details"
     t.string "payment"
-    t.integer "status"
+    t.integer "status", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["event_cost_id"], name: "index_proposals_on_event_cost_id"

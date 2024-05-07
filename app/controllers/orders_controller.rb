@@ -33,12 +33,6 @@ class OrdersController < ApplicationController
     redirect_to @order, notice: 'Pedido realizado com sucesso. Aguardar aprovação do Buffet'
   end
 
-  def approve
-    order = Order.find(params[:id])
-    order.approved!
-    redirect_to order
-  end
-
   private
 
   def order_params
