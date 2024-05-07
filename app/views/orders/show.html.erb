@@ -1,5 +1,11 @@
 <h1><%= I18n.l(@order.event_date) %> - <%= @order.code %></h1>
 
+<ul>
+  <% @conflicting_orders.each do |conflicting_order| %>
+    <li>AVISO: Evento <%= l conflicting_order.event_date %> - <%= conflicting_order.code %> no MESMO DIA!!!</li>
+  <% end %>
+</ul>
+
 <p><%= @order.buffet.brand_name %></p>
 
 <dl>

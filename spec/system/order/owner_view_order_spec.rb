@@ -68,4 +68,44 @@ describe 'Owner view order' do
     expect(page).to have_content 'Nenhum evento cancelado.'
     expect(page).not_to have_content "#{future_date} - #{order.code}"
   end
+
+  it 'and receive event notification of Events on the same date' do
+    owner = Owner.create!(name: 'Splinter', email: 'splinter@email.com', password: 'password')
+
+    buffet = Buffet.create!(brand_name: 'TMNT Buffet', payment: 'PIX', owner:)
+    Buffet.create!(brand_name: 'Seiya', payment: 'PIX', owner:)
+
+    event = Event.create!(name: 'Festa de casamento', description: 'Festa de casamento dos sonhos', min_people: 10,
+                          max_people: 100, duration: 420, menu: 'Pizza', alcoholic_beverages: true, decoration: true,
+                          parking: true, parking_valet: true, customer_space: true, buffet:)
+
+    customer = Customer.create!(name: 'Dragon Shiryu', cpf: '665.455.630-50', email: 'shiryu@email.com',
+                                password: 'shiryu123')
+
+    future_date = 1.week.from_now.strftime('%d/%m/%Y')
+    second_future_date = 2.week.from_now.strftime('%d/%m/%Y')
+    order = Order.create!(event_date: future_date, people: 80, details: 'Dia especial', address: 'Sítio', buffet:,
+                          customer:, event:)
+
+    second_order = Order.create!(event_date: future_date, people: 70, details: 'Especial', address: 'Buffet', buffet:,
+                                 customer:, event:)
+
+    third_order = Order.create!(event_date: second_future_date, people: 70, details: 'Especial', address: 'Buffet',
+                                buffet:, customer:, event:)
+
+    forth_order = Order.create!(event_date: future_date, people: 70, details: 'Especial', address: 'Buffet',
+                                buffet:, customer:, event:)
+
+    login_as owner, scope: :owner
+    visit root_path
+    within 'nav' do
+      click_on 'Pedidos'
+    end
+    click_on "#{future_date} - #{order.code}"
+
+    expect(page).to have_content "AVISO: Evento #{future_date} - #{second_order.code} no MESMO DIA!!!"
+    expect(page).to have_content "AVISO: Evento #{future_date} - #{forth_order.code} no MESMO DIA!!!"
+    expect(page).not_to have_content "AVISO: Evento #{future_date} - #{order.code} no MESMO DIA!!!"
+    expect(page).not_to have_content "#{second_future_date} - #{third_order.code}"
+  end
 end

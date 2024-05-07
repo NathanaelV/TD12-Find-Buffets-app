@@ -12,7 +12,9 @@ class OrdersController < ApplicationController
   end
 
   def show
-    @order = Order.find(params[:id])
+    order_id = params[:id].to_i
+    @order = Order.find(order_id)
+    @conflicting_orders = Order.where(event_date: @order.event_date).reject { |order| order.id == order_id }
   end
 
   def new
