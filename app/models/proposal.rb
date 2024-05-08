@@ -4,5 +4,5 @@ class Proposal < ApplicationRecord
   belongs_to :event_cost
   belongs_to :customer
 
-  enum status: { sent: 0, accept: 5, declined: 9 }
+  enum status: { sent: 0, accepted: 5, declined: 9 }
 end

@@ -25,6 +25,12 @@ class ProposalsController < ApplicationController
     end
   end
 
+  def accept
+    proposal = Proposal.find(params[:id])
+    proposal.accepted!
+    redirect_to orders_path, notice: 'Evento aceito com sucesso'
+  end
+
   private
 
   def proposal_params

@@ -27,5 +27,7 @@
     <dd><%= @proposal.payment %></dd>
   </div>
 
-  
+  <div>
+    <%= button_to 'Confirmar proposta', accept_order_proposal_path, { method: :patch } %>
+  </div>
 </dl>
