@@ -1,0 +1,31 @@
+<h1>Proposta do pedido <%= l @order.event_date %> - <%= @order.code %></h1>
+<p>Confirmar até <strong><%= l @proposal.validate_date %></strong></p>
+
+<dl>
+  <div>
+    <dt>Custo do evento:<dt>
+    <dd><%= sprintf('%.2f', @proposal_cost) %></dd>
+  </div>
+  
+  <div>
+    <dt>Taxa/Desconto:<dt>
+    <dd><%= sprintf('%.2f', @proposal_price_change) %></dd>
+  </div>
+  
+  <div>
+    <dt>Justificativa:<dt>
+    <dd><%= @proposal.price_change_details %></dd>
+  </div>
+  
+  <div>
+    <dt>Preço final:<dt>
+    <dd><%= sprintf('%.2f', @proposal_final_cost) %></dd>
+  </div>
+  
+  <div>
+    <dt>Forma de pagamento:<dt>
+    <dd><%= @proposal.payment %></dd>
+  </div>
+
+  
+</dl>

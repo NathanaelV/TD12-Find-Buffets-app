@@ -1,4 +1,12 @@
 class ProposalsController < ApplicationController
+  def show
+    @proposal = Proposal.find(params[:id])
+    @order = @proposal.order
+    @proposal_cost = @proposal.cost / 100.0
+    @proposal_price_change = @proposal.price_change / 100.0
+    @proposal_final_cost = @proposal_cost + @proposal_price_change
+  end
+
   def new
     @order = Order.find(params[:order_id])
     @proposal = Proposal.new
