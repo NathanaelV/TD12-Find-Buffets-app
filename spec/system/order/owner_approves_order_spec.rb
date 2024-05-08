@@ -93,7 +93,7 @@ describe 'Owner approves order' do
     click_on "#{future_date} - #{order.code}"
     click_on 'Aprovar pedido'
     fill_in 'Data de expiração', with: proposal_future_date
-    fill_in 'Taxa/Desconto', with: '-400'
+    fill_in 'Taxa/Desconto', with: '-40000'
     fill_in 'Justificativa', with: 'Gosto de multiplos de 500'
     fill_in 'Forma de pagamento', with: 'Cartão de Débito'
     click_on 'Aprovar pedido'
