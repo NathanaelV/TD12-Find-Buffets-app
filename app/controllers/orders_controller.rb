@@ -8,6 +8,8 @@ class OrdersController < ApplicationController
       @canceled_orders = orders.select(&:canceled?)
     else
       @orders = Order.where(customer: current_customer)
+      @proposal_orders = Proposal.where(customer: current_customer).select { |order| order.status == 'sent' }
+      # @proposal_orders = proposal_orders
     end
   end
 

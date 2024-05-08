@@ -1,4 +1,12 @@
 class ProposalsController < ApplicationController
+  def show
+    @proposal = Proposal.find(params[:id])
+    @order = @proposal.order
+    @proposal_cost = @proposal.cost / 100.0
+    @proposal_price_change = @proposal.price_change / 100.0
+    @proposal_final_cost = @proposal_cost + @proposal_price_change
+  end
+
   def new
     @order = Order.find(params[:order_id])
     @proposal = Proposal.new
@@ -6,11 +14,7 @@ class ProposalsController < ApplicationController
   end
 
   def create
-    @order = Order.find(params[:order_id])
-    @proposal = Proposal.new(proposal_params)
-    @proposal.order = @order
-    @proposal.event = @order.event
-    @proposal.event_cost = event_cost
+    proposal_and_order_generate
 
     if @proposal.save
       @order.approved!
@@ -19,6 +23,12 @@ class ProposalsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def accept
+    proposal = Proposal.find(params[:id])
+    proposal.accepted!
+    redirect_to orders_path, notice: 'Evento aceito com sucesso'
   end
 
   private
@@ -38,5 +48,14 @@ class ProposalsController < ApplicationController
     else
       @order.event.event_costs.find { |event| event.description == 'Fim de semana' }
     end
+  end
+
+  def proposal_and_order_generate
+    @order = Order.find(params[:order_id])
+    @proposal = Proposal.new(proposal_params)
+    @proposal.order = @order
+    @proposal.event = @order.event
+    @proposal.event_cost = event_cost
+    @proposal.customer = @order.customer
   end
 end

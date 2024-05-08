@@ -103,7 +103,7 @@ describe 'Owner approves order' do
     expect(Order.find(order.id).status).to eq 'approved'
     expect(Proposal.first.cost).to eq 690_000
     expect(Proposal.first.validate_date).to eq proposal_future_date
-    expect(Proposal.first.price_change).to eq(-400)
+    expect(Proposal.first.price_change).to eq(-40_000)
     expect(Proposal.first.price_change_details).to eq 'Gosto de multiplos de 500'
     expect(Proposal.first.payment).to eq 'Cartão de Débito'
     expect(Proposal.first.status).to eq 'sent'
