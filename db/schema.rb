@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 20_240_505_200_011) do
+ActiveRecord::Schema[7.1].define(version: 20_240_507_220_701) do
   create_table 'buffets', force: :cascade do |t|
     t.string 'brand_name'
     t.string 'corporate_name'
@@ -103,10 +103,30 @@ ActiveRecord::Schema[7.1].define(version: 20_240_505_200_011) do
     t.index ['reset_password_token'], name: 'index_owners_on_reset_password_token', unique: true
   end
 
+  create_table 'proposals', force: :cascade do |t|
+    t.integer 'order_id', null: false
+    t.integer 'event_id', null: false
+    t.integer 'event_cost_id', null: false
+    t.integer 'cost'
+    t.date 'validate_date'
+    t.integer 'price_change', default: 0
+    t.string 'price_change_details'
+    t.string 'payment'
+    t.integer 'status', default: 0
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.index ['event_cost_id'], name: 'index_proposals_on_event_cost_id'
+    t.index ['event_id'], name: 'index_proposals_on_event_id'
+    t.index ['order_id'], name: 'index_proposals_on_order_id'
+  end
+
   add_foreign_key 'buffets', 'owners'
   add_foreign_key 'event_costs', 'events'
   add_foreign_key 'events', 'buffets'
   add_foreign_key 'orders', 'buffets'
   add_foreign_key 'orders', 'customers'
   add_foreign_key 'orders', 'events'
+  add_foreign_key 'proposals', 'event_costs'
+  add_foreign_key 'proposals', 'events'
+  add_foreign_key 'proposals', 'orders'
 end

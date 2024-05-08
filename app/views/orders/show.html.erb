@@ -34,3 +34,7 @@
     <dd><%= @order.people %></dd>
   </div>
 </dl>
+
+<% if owner_signed_in? %>
+  <%= link_to 'Aprovar pedido', new_order_proposal_path(@order) %>
+<% end %>

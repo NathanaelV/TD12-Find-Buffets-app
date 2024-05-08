@@ -44,10 +44,15 @@ Event.find_or_create_by!(name: 'Festa de casamento', description: 'Festa de casa
                          parking: true, parking_valet: true, customer_space: true, buffet:)
 
 # Event Cost
-EventCost.create!(description: 'Dias de semana', minimum: 2_000, additional_per_person: 70, overtime: 1000, event:)
-EventCost.create!(description: 'Fim de semana', minimum: 4_000, additional_per_person: 140, overtime: 2000, event:)
+event_cost = EventCost.create!(description: 'Dias de semana', minimum: 200_000, additional_per_person: 7_000,
+                               vertime: 100_000, event:)
+EventCost.create!(description: 'Fim de semana', minimum: 400_000, additional_per_person: 14_000, overtime: 200_000,
+                  event:)
 
-Order.create!(event_date: 2.month.from_now.strftime('%d/%m/%Y'), people: 80, details: 'Dia especial',
-              address: 'Sítio do Barnabé', buffet:, customer:, event:)
+order = Order.create!(event_date: 2.month.from_now.strftime('%d/%m/%Y'), people: 80, details: 'Dia especial',
+                      address: 'Sítio do Barnabé', buffet:, customer:, event:)
 Order.create!(event_date: 3.month.from_now.strftime('%d/%m/%Y'), people: 80, details: 'Dia especial',
               address: 'No Próprio Buffet', buffet:, customer:, event:, status: :approved)
+
+Proposal.create!(order:, event:, event_cost:, cost: 690_000, price_change: -40_000,
+                 price_change_details: 'Gosto de múltiplos de 500', payment: 'Cartão de Débito')
