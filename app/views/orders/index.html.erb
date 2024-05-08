@@ -5,6 +5,15 @@
 <% end %>
 
 <% if customer_signed_in? %>
+  <h2>Aguardando Confirmação:</h2>
+  <ul>
+    <% @proposal_orders.each do |proposal_order| %>
+      <li><%= I18n.l proposal_order.order.event_date %> - <%= proposal_order.order.code %>: Confirmar até <%= l proposal_order.validate_date %> </li>
+    <% end %>
+  </ul>
+<% end %>
+
+<% if customer_signed_in? %>
   <section>
 
     <% if @orders.present? %>

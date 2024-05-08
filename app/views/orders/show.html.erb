@@ -1,5 +1,6 @@
 <h1><%= I18n.l(@order.event_date) %> - <%= @order.code %></h1>
 
+<%# Validação para somente o Proprietáiro ver esse aviso %>
 <ul>
   <% @conflicting_orders.each do |conflicting_order| %>
     <li>AVISO: Evento <%= l conflicting_order.event_date %> - <%= conflicting_order.code %> no MESMO DIA!!!</li>

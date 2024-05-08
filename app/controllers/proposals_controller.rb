@@ -6,11 +6,7 @@ class ProposalsController < ApplicationController
   end
 
   def create
-    @order = Order.find(params[:order_id])
-    @proposal = Proposal.new(proposal_params)
-    @proposal.order = @order
-    @proposal.event = @order.event
-    @proposal.event_cost = event_cost
+    proposal_and_order_generate
 
     if @proposal.save
       @order.approved!
@@ -38,5 +34,14 @@ class ProposalsController < ApplicationController
     else
       @order.event.event_costs.find { |event| event.description == 'Fim de semana' }
     end
+  end
+
+  def proposal_and_order_generate
+    @order = Order.find(params[:order_id])
+    @proposal = Proposal.new(proposal_params)
+    @proposal.order = @order
+    @proposal.event = @order.event
+    @proposal.event_cost = event_cost
+    @proposal.customer = @order.customer
   end
 end
