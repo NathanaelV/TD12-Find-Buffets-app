@@ -5,4 +5,8 @@ class Proposal < ApplicationRecord
   belongs_to :customer
 
   enum status: { sent: 0, accepted: 5, declined: 9 }
+
+  def proposal_expired?
+    validate_date < Date.today
+  end
 end

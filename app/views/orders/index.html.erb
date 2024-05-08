@@ -7,6 +7,7 @@
 <% if customer_signed_in? %>
   <h2>Aguardando Confirmação:</h2>
     <% @proposal_orders.each do |proposal_order| %>
+      <% next if proposal_order.proposal_expired? %>
       <%= I18n.l proposal_order.order.event_date %> - <%= proposal_order.order.code %>: Confirmar até <%= l proposal_order.validate_date %>
       <%= link_to 'Ver proposta', order_proposal_path(proposal_order.order, proposal_order) %>
     <% end %>
