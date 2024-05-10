@@ -96,18 +96,18 @@ describe 'Buffet API' do
                                     description: 'Melhor Buffet da região. Cowabunga', payment: 'PIX, Cartão de Débito',
                                     owner:)
 
-      second_buffet = Buffet.create!(brand_name: 'Os Cavaleiro dos Zodíacos', corporate_name: 'Saint Seiya LTDA',
-                                     registration_number: '12192017000312', phone: '11905051212',
-                                     email: 'contato@saintseiya.com', address: 'Estrada das 12 casas, 12 - Grécia',
-                                     city: 'São Paulo', state: 'SP', zip_code: '01212005',
-                                     description: 'Venha elevar o seu cosmo conosco.',
-                                     payment: 'PIX, Cartão de Débito, Cartão de Crédito', owner: phoenix)
+      second_buffet = Buffet.create!(brand_name: 'Teen Titans', corporate_name: 'Justice League Teens',
+                                     registration_number: '70849145000147', phone: '11900001111', 
+                                     email: 'contato@teentitans.com', address: 'Torre T, s/n - Ilha',
+                                     city: 'Florianópolis', state: 'SC', zip_code: '88000-123',
+                                     description: 'Batman é o melhor.',
+                                     payment: 'PIX, Cartão de Débito, Cartão de Crédito', owner: batman)
 
-      third_buffet = Buffef.create!(brand_name: 'Teen Titans', corporate_name: 'Justice League Teens',
-                                    registration_number: '70849145000147', phone: '11900001111', email: 'contato@teentitans.com',
-                                    address: 'Torre T, s/n - Ilha', city: 'Florianópolis', state: 'SC', zip_code: '88000-123',
-                                    description: 'Batman é o melhor.', payment: 'PIX, Cartão de Débito, Cartão de Crédito',
-                                    owner: batman)
+      Buffet.create!(brand_name: 'Os Cavaleiro dos Zodíacos', corporate_name: 'Saint Seiya LTDA',
+                     registration_number: '12192017000312', phone: '11905051212', email: 'contato@saintseiya.com',
+                     address: 'Estrada das 12 casas, 12 - Grécia', city: 'São Paulo', state: 'SP', zip_code: '01212005',
+                     description: 'Venha elevar o seu cosmo conosco.',
+                     payment: 'PIX, Cartão de Débito, Cartão de Crédito', owner: phoenix)
 
       get '/api/v1/buffets', params: { query: 'teen' }
 
@@ -118,7 +118,7 @@ describe 'Buffet API' do
       expect(json_response.first['id']).to eq first_buffet.id
       expect(json_response.first['brand_name']).to eq 'Teenage Mutant Ninja Turtles'
       expect(json_response.second['id']).to eq second_buffet.id
-      expect(json_response.second['brand_name']).to eq 'Os Cavaleiro dos Zodíacos'
+      expect(json_response.second['brand_name']).to eq 'Teen Titans'
     end
   end
 end
