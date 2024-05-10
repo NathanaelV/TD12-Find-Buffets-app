@@ -88,6 +88,7 @@ describe 'Buffet API' do
     it 'using a query' do
       owner = Owner.create!(name: 'Leonardo Yoshi', email: 'leonardo.yoshi@email.com', password: 'leonardo123')
       phoenix = Owner.create!(name: 'Phoenix Ikki', email: 'phoenix.ikki@saint.com', password: 'phoenix.ikki123')
+      batman = Owner.create!(name: 'Bruce Wayne', email: 'bruce.wayne@dccomix.com', password: 'nanananana_batman!')
 
       first_buffet = Buffet.create!(brand_name: 'Teenage Mutant Ninja Turtles', corporate_name: 'TMNT Splinter LTDA',
                                     registration_number: '88392017000182', phone: '11912341234',
