@@ -12,6 +12,7 @@
 leo_yoshi = Owner.create!(name: 'Leonardo Yoshi', email: 'leonardo.yoshi@email.com', password: 'leonardo123')
 Owner.create!(name: 'Casey Jones', email: 'casey.jones@email.com', password: 'casey.jones123')
 phoenix = Owner.create!(name: 'Phoenix Ikki', email: 'phoenix.ikki@saint.com', password: 'phoenix.ikki123')
+batman = Owner.create!(name: 'Bruce Wayne', email: 'bruce.wayne@dccomix.com', password: 'nanananana_batman!')
 
 # Customer
 customer = Customer.create!(name: 'Donatello Hamato', cpf: '599.622.000-83', email: 'donatello@email.com',
@@ -23,7 +24,7 @@ buffet = Buffet.find_or_create_by!(brand_name: 'Teenage Mutant Ninja Turtles', c
                                    registration_number: '88392017000182', phone: '11912341234',
                                    email: 'contato@tmntsplinter.com', address: 'Rua Estados Unidos, 1030 - Jardins',
                                    city: 'São Paulo', state: 'SP', zip_code: '01234123',
-                                   description: 'Melhor Buffet da região. Cowabunga', payment: 'PIX, Catão de Débito',
+                                   description: 'Melhor Buffet da região. Cowabunga', payment: 'PIX, Cartão de Débito',
                                    owner: leo_yoshi)
 
 Buffet.find_or_create_by!(brand_name: 'Os Cavaleiro dos Zodíacos', corporate_name: 'Saint Seiya LTDA',
@@ -31,7 +32,13 @@ Buffet.find_or_create_by!(brand_name: 'Os Cavaleiro dos Zodíacos', corporate_na
                           email: 'contato@saintseiya.com', address: 'Estrada das 12 casas, 12 - Grécia',
                           city: 'São Paulo', state: 'SP', zip_code: '01212005',
                           description: 'Venha elevar o seu cosmo conosco.',
-                          payment: 'PIX, Catão de Débito, Cartão de Crédito', owner: phoenix)
+                          payment: 'PIX, Cartão de Débito, Cartão de Crédito', owner: phoenix)
+
+Buffef.find_or_create_by!(brand_name: 'Teen Titans', corporate_name: 'Justice League Teens',
+                          registration_number: '70849145000147', phone: '11900001111', email: 'contato@teentitans.com',
+                          address: 'Torre T, s/n - Ilha', city: 'Florianópolis', state: 'SC', zip_code: '88000-123',
+                          description: 'Batman é o melhor.', payment: 'PIX, Cartão de Débito, Cartão de Crédito',
+                          owner: batman)
 
 # Event
 event = Event.find_or_create_by!(name: 'Festa infantil', description: 'Festa para crianças com temática TMNT',
