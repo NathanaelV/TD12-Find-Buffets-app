@@ -1,6 +1,4 @@
 class Api::V1::BuffetsController < Api::V1::ApiController
-  rescue_from ActiveRecord::ActiveRecordError, with: :return_500
-
   def index
     query = params[:query]
 
@@ -19,10 +17,6 @@ class Api::V1::BuffetsController < Api::V1::ApiController
   end
 
   private
-
-  def return_500
-    render status: 500
-  end
 
   def except_on_buffets
     %i[corporate_name registration_number phone email address zip_code description payment owner_id created_at
