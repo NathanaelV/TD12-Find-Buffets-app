@@ -1,4 +1,4 @@
-class Api::V1::BuffetsController < ActionController::API
+class Api::V1::BuffetsController < Api::V1::ApiController
   rescue_from ActiveRecord::ActiveRecordError, with: :return_500
 
   def index
