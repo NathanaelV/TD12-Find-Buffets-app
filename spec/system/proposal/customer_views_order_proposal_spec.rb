@@ -11,7 +11,7 @@ describe 'Customer views order proposal' do
                           parking: true, parking_valet: true, customer_space: true, buffet:)
 
     event_cost = EventCost.create!(description: 'Dias de semana', minimum: 200_000, additional_per_person: 7_000,
-    overtime: 100_000, event:)
+                                   overtime: 100_000, event:)
 
     customer = Customer.create!(name: 'Dragon Shiryu', cpf: '665.455.630-50', email: 'shiryu@email.com',
                                 password: 'shiryu123')
@@ -46,7 +46,7 @@ describe 'Customer views order proposal' do
                           parking: true, parking_valet: true, customer_space: true, buffet:)
 
     event_cost = EventCost.create!(description: 'Dias de semana', minimum: 200_000, additional_per_person: 7_000,
-    overtime: 100_000, event:)
+                                   overtime: 100_000, event:)
 
     customer = Customer.create!(name: 'Dragon Shiryu', cpf: '665.455.630-50', email: 'shiryu@email.com',
                                 password: 'shiryu123')
@@ -81,7 +81,7 @@ describe 'Customer views order proposal' do
                           parking: true, parking_valet: true, customer_space: true, buffet:)
 
     event_cost = EventCost.create!(description: 'Dias de semana', minimum: 200_000, additional_per_person: 7_000,
-    overtime: 100_000, event:)
+                                   overtime: 100_000, event:)
 
     customer = Customer.create!(name: 'Dragon Shiryu', cpf: '665.455.630-50', email: 'shiryu@email.com',
                                 password: 'shiryu123')
@@ -123,7 +123,7 @@ describe 'Customer views order proposal' do
                           parking: true, parking_valet: true, customer_space: true, buffet:)
 
     event_cost = EventCost.create!(description: 'Dias de semana', minimum: 200_000, additional_per_person: 7_000,
-    overtime: 100_000, event:)
+                                   overtime: 100_000, event:)
 
     customer = Customer.create!(name: 'Dragon Shiryu', cpf: '665.455.630-50', email: 'shiryu@email.com',
                                 password: 'shiryu123')
