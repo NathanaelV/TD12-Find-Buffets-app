@@ -10,7 +10,12 @@ class Api::V1::BuffetsController < Api::V1::ApiController
                 Buffet.all
               end
 
-    render status: 200, json: buffets.to_json(except: %i[owner_id created_at updated_at], include: include_owner)
+    render status: 200, json: buffets.to_json(except: except_on_buffets)
+  end
+
+  def show
+    buffet = Buffet.find(params[:id])
+    render status: 200, json: buffet.to_json(except: except_on_buffet)
   end
 
   private
@@ -19,7 +24,12 @@ class Api::V1::BuffetsController < Api::V1::ApiController
     render status: 500
   end
 
-  def include_owner
-    { owner: { except: %i[created_at updated_at] } }
+  def except_on_buffets
+    %i[corporate_name registration_number phone email address zip_code description payment owner_id created_at
+       updated_at]
+  end
+
+  def except_on_buffet
+    %i[corporate_name registration_number owner_id created_at updated_at]
   end
 end

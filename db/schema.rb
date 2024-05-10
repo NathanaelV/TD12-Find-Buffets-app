@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 20_240_508_081_241) do
+ActiveRecord::Schema[7.1].define(version: 20_240_510_230_123) do
   create_table 'buffets', force: :cascade do |t|
     t.string 'brand_name'
     t.string 'corporate_name'
@@ -18,7 +18,6 @@ ActiveRecord::Schema[7.1].define(version: 20_240_508_081_241) do
     t.string 'phone'
     t.string 'email'
     t.string 'address'
-    t.string 'string'
     t.string 'city'
     t.string 'state'
     t.string 'zip_code'
