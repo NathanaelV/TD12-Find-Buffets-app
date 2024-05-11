@@ -135,7 +135,12 @@ Retorna:
 ]
 ```
 
-### Detalhes do Buffet
+### Erros:
+
+Caso tenha algum erro interno retorna o status:
+*  **500 - Internal Server Error**
+
+## Detalhes do Buffet
 
 Para ver os detalhes do Buffet, passe o ID na URL
 
@@ -175,4 +180,121 @@ Retorna:
 
 Caso tenha algum erro interno retorna o status:
 *  **500 - Internal Server Error**
- 
+
+Se buscar por um Buffet que não existe
+* **404 - Not Found**
+
+## Eventos
+
+### Buscar eventos de um Buffet
+
+Ver todos os eventos que um Buffet faz. É necessário saber o ID do buffet e passar no lugar de `:id_buffet`:
+
+Verbo HTTP: `GET`
+
+URL: `http://localhost:300/api/v1/buffets/:id_buffet/events`
+
+Retorna:
+
+```json
+[
+  {
+    "id": 1,
+    "name": "Festa infantil",
+    "description": "Festa para crianças com temática TMNT",
+    "buffet": {
+      "id": 1,
+      "brand_name": "Teenage Mutant Ninja Turtles"
+    }
+  },
+  {
+    "id": 2,
+    "name": "Festa de casamento",
+    "description": "Festa de casamento dos sonhos",
+    "buffet": {
+      "id": 1,
+      "brand_name": "Teenage Mutant Ninja Turtles"
+    }
+  }
+]
+```
+
+- `id`: ID do evento
+- `name`: Nome do evento
+- `description`: Descrição
+- `buffet`: informações do Buffet
+    - `id`: ID do buffet
+    - `brand_name`: Nome do Buffet
+
+
+### Sem eventos cadastrados
+
+Caso não tenha nenhum buffet cadastrado, retornará um Array vazio
+
+Verbo HTTP: `GET`
+
+URL: `http://localhost:300/api/v1/buffets/:id_buffet/events`
+
+Retorna:
+
+```json
+[]
+```
+
+### Erros:
+
+Caso tenha algum erro interno retorna o status:
+*  **500 - Internal Server Error**
+
+Se buscar os eventos de um Buffet que não existe
+* **404 - Not Found**
+
+## Detalhes do Evento
+
+Ver detalhes do evento. É necessário saber o ID do buffet e passar no lugar de `:id_buffet` e passar o ID do evento no lugar de `:id_event`:
+
+Verbo HTTP: `GET`
+
+URL: `http://localhost:300/api/v1/buffets/:id_buffet/events/:id_event`
+
+Retorna:
+
+```json
+{
+  "id": 1,
+  "name": "Festa infantil",
+  "description": "Festa para crianças com temática TMNT",
+  "min_people": 10,
+  "max_people": 100,
+  "duration": 300,
+  "menu": "Pizza",
+  "alcoholic_beverages": false,
+  "decoration": true,
+  "parking": true,
+  "parking_valet": false,
+  "customer_space": true
+}
+```
+
+- `id`: ID do evento
+- `name`: Nome do evento
+- `description`: Descrição
+- `min_people`: Mínimo de pessoas
+- `max_people`: Máximo de pessoas que o espaço suporta
+- `duration`: Duração máxima do evento
+- `menu`: Cardápio
+- `alcoholic_beverages`: Presença de bebida alcólica, ou não. `true` tem, `false` não
+- `decoration`: Buffet tem decoração própria
+- `parking`: Se o Buffet tem estacionamento ou não
+- `parking_valet`: Se o Buffet tem serviço de Valet
+- `customer_space`: Se o Buffet também faz evento no espaço do cliente
+
+
+### Erros:
+
+Caso tenha algum erro interno retorna o status:
+*  **500 - Internal Server Error**
+
+Se buscar por um evento que não existe
+* **404 - Not Found**
+

@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe 'Events API' do
-  context 'GET /api/v1/:buffet_id/events' do
+  context 'GET /api/v1/buffets/:buffet_id/events' do
     it 'successfully' do
       owner = Owner.create!(name: 'Leonardo Yoshi', email: 'leonardo.yoshi@email.com', password: 'leonardo123')
       phoenix = Owner.create!(name: 'Phoenix Ikki', email: 'phoenix.ikki@saint.com', password: 'phoenix.ikki123')
