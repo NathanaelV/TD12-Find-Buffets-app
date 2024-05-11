@@ -200,23 +200,5 @@ describe 'Events API' do
 
       expect(response).to have_http_status(500)
     end
-
-    xit 'search by date of available events' do
-      owner = Owner.create!(name: 'Leonardo Yoshi', email: 'leonardo.yoshi@email.com', password: 'leonardo123')
-
-      buffet = Buffet.create!(brand_name: 'Teenage Mutant Ninja Turtles', corporate_name: 'TMNT Splinter LTDA',
-                              registration_number: '88392017000182', phone: '11912341234',
-                              email: 'contato@tmntsplinter.com', address: 'Rua Estados Unidos, 1030 - Jardins',
-                              city: 'São Paulo', state: 'SP', zip_code: '01234123',
-                              description: 'Melhor Buffet da região. Cowabunga', payment: 'PIX, Cartão de Débito',
-                              owner:)
-
-      Event.create!(name: 'Festa infantil', description: 'Festa para crianças com temática TMNT', min_people: 10,
-                    max_people: 100, duration: 300, menu: 'Pizza',
-                    alcoholic_beverages: false, decoration: true, parking: true, parking_valet: false,
-                    customer_space: true, buffet:)
-
-      get '/api/v1/buffets/1/events/1', params: { event_date: '' }
-    end
   end
 end

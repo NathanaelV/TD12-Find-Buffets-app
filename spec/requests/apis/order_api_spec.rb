@@ -78,7 +78,7 @@ describe 'Order API' do
       expect(response.body).to include 'Order não pode ficar em branco'
     end
 
-    xit 'busy date' do
+    it 'busy date' do
       owner = Owner.create!(name: 'Leonardo Yoshi', email: 'leonardo.yoshi@email.com', password: 'leonardo123')
 
       buffet = Buffet.create!(brand_name: 'Teenage Mutant Ninja Turtles', corporate_name: 'TMNT Splinter LTDA',
@@ -92,18 +92,21 @@ describe 'Order API' do
                             min_people: 10, max_people: 100, duration: 300, menu: 'Pizza', alcoholic_beverages: false,
                             decoration: true, parking: true, parking_valet: false, customer_space: true, buffet:)
 
-      post "/api/v1/buffets/#{buffet.id}/events/#{event.id}/orders", params: {}
+      EventCost.create!(description: 'Fim de semana', minimum: 400_000, additional_per_person: 14_000,
+      overtime: 200_000, event:)
 
-      expect(response).to have_http_status 400
+      customer = Customer.create!(name: 'Donatello Hamato', cpf: '599.622.000-83', email: 'donatello@email.com',
+      password: 'donatello123')
+
+      event_date = 3.month.from_now.strftime('%d/%m/%Y')
+      Order.create!(event_date:, people: 80, details: 'Dia especial', address: 'No Próprio Buffet', buffet:, customer:,
+      event:, status: :approved)
+
+      order_params = { order: { event_date:, people: 80 } }
+      post "/api/v1/buffets/#{buffet.id}/events/#{event.id}/orders", params: order_params
+
+      expect(response).to have_http_status 412
       expect(response.body).to include 'Buffet indisponível na data escolhida'
-    end
-
-    xit 'past date' do
-      
-    end
-
-    xit 'excess of people' do
-      
     end
   end
 end

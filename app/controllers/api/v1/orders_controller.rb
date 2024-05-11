@@ -9,7 +9,7 @@ class Api::V1::OrdersController < Api::V1::ApiController
       advance_price = "R$ #{sprintf('%.2f', event_cost_calculate / 100.0)}"
       render status: 201, json: { advance_price: }
     else
-      render status: 412, json: { errors: error_messages }
+      render status: 412, json: { errors: @error_messages }
     end
   end
 
@@ -20,10 +20,14 @@ class Api::V1::OrdersController < Api::V1::ApiController
   end
 
   def event_cost
+    event_cost_select || @event.event_costs.first
+  end
+
+  def event_cost_select
     if @order.event_date.on_weekday?
-      @order.event.event_costs.find { |event| event.description == 'Dias de semana' }
+      @event.event_costs.find { |event| event.description == 'Dias de semana' }
     else
-      @order.event.event_costs.find { |event| event.description == 'Fim de semana' }
+      @event.event_costs.find { |event| event.description == 'Fim de semana' }
     end
   end
 
@@ -36,10 +40,22 @@ class Api::V1::OrdersController < Api::V1::ApiController
   end
 
   def order_valid_api?
-    order_params[:event_date] || order_params[:people]
+    present_parameters? && available_date?
   end
 
-  def error_messages
-    ['Data do evento não pode ficar em branco', 'Quantidade de pessoas não pode ficar em branco']
+  def present_parameters?
+    return true if order_params[:event_date] && order_params[:people]
+
+    @error_messages = ['Data do evento não pode ficar em branco', 'Quantidade de pessoas não pode ficar em branco']
+    false
+  end
+
+  def available_date?
+    if Order.find_by(event_date: order_params[:event_date])
+      @error_messages = 'Buffet indisponível na data escolhida'
+      false
+    else
+      true
+    end
   end
 end
