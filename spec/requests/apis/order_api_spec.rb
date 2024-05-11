@@ -17,7 +17,7 @@ describe 'Order API' do
                             decoration: true, parking: true, parking_valet: false, customer_space: true, buffet:)
 
       EventCost.create!(description: 'Fim de semana', minimum: 400_000, additional_per_person: 14_000,
-                             overtime: 200_000, event:)
+                        overtime: 200_000, event:)
 
       future_date = 4.day.from_now.strftime('%d/%m/%Y')
       order_params = { order: { event_date: future_date, people: 80 } }
@@ -45,7 +45,7 @@ describe 'Order API' do
                             decoration: true, parking: true, parking_valet: false, customer_space: true, buffet:)
 
       EventCost.create!(description: 'Fim de semana', minimum: 400_000, additional_per_person: 14_000,
-                             overtime: 200_000, event:)
+                        overtime: 200_000, event:)
 
       order_params = { order: { event_date: nil, people: nil } }
 
@@ -93,14 +93,14 @@ describe 'Order API' do
                             decoration: true, parking: true, parking_valet: false, customer_space: true, buffet:)
 
       EventCost.create!(description: 'Fim de semana', minimum: 400_000, additional_per_person: 14_000,
-      overtime: 200_000, event:)
+                        overtime: 200_000, event:)
 
       customer = Customer.create!(name: 'Donatello Hamato', cpf: '599.622.000-83', email: 'donatello@email.com',
-      password: 'donatello123')
+                                  password: 'donatello123')
 
       event_date = 3.month.from_now.strftime('%d/%m/%Y')
       Order.create!(event_date:, people: 80, details: 'Dia especial', address: 'No Próprio Buffet', buffet:, customer:,
-      event:, status: :approved)
+                    event:, status: :approved)
 
       order_params = { order: { event_date:, people: 80 } }
       post "/api/v1/buffets/#{buffet.id}/events/#{event.id}/orders", params: order_params

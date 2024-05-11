@@ -6,7 +6,7 @@ class Api::V1::OrdersController < Api::V1::ApiController
     @order = Order.new(order_params)
     @order.event = @event
     if order_valid_api?
-      advance_price = "R$ #{sprintf('%.2f', event_cost_calculate / 100.0)}"
+      advance_price = "R$ #{format('%.2f', event_cost_calculate / 100.0)}"
       render status: 201, json: { advance_price: }
     else
       render status: 412, json: { errors: @error_messages }
