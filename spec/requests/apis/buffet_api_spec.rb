@@ -155,5 +155,19 @@ describe 'Buffet API' do
       expect(json_response).not_to have_key 'updated_at'
       expect(json_response).not_to include 'Os Cavaleiro dos Zodíacos'
     end
+
+    it 'there is no Buffet' do
+      get "/api/v1/buffets/999"
+
+      expect(response.status).to eq 404
+    end
+
+    it 'and raise iternal error' do
+      allow(Buffet).to receive(:find).and_raise(ActiveRecord::QueryCanceled)
+
+      get '/api/v1/buffets/1'
+
+      expect(response).to have_http_status(500)
+    end
   end
 end
