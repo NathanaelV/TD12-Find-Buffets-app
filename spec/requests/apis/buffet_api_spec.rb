@@ -100,7 +100,7 @@ describe 'Buffet API' do
                                      description: 'Batman é o melhor.',
                                      payment: 'PIX, Cartão de Débito, Cartão de Crédito', owner: batman)
 
-      get '/api/v1/buffets', params: { buffet_name: 'teen' }
+      get '/api/v1/buffets', params: { brand_name: 'teen' }
 
       expect(response.status).to eq 200
       expect(response.content_type).to include 'application/json'
@@ -157,7 +157,7 @@ describe 'Buffet API' do
     end
 
     it 'there is no Buffet' do
-      get "/api/v1/buffets/999"
+      get '/api/v1/buffets/999'
 
       expect(response.status).to eq 404
     end

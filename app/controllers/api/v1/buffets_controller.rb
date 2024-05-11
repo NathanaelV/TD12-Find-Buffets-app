@@ -1,9 +1,9 @@
 class Api::V1::BuffetsController < Api::V1::ApiController
   def index
-    query = params[:query]
+    brand_name = params[:brand_name]
 
-    buffets = if query
-                Buffet.where('brand_name LIKE ?', "%#{query}%")
+    buffets = if brand_name
+                Buffet.where('brand_name LIKE ?', "%#{brand_name}%")
               else
                 Buffet.all
               end
