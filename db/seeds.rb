@@ -34,7 +34,7 @@ second_buffet = Buffet.find_or_create_by!(brand_name: 'Os Cavaleiro dos Zodíaco
                                           description: 'Venha elevar o seu cosmo conosco.',
                                           payment: 'PIX, Cartão de Débito, Cartão de Crédito', owner: phoenix)
 
-Buffef.find_or_create_by!(brand_name: 'Teen Titans', corporate_name: 'Justice League Teens',
+Buffet.find_or_create_by!(brand_name: 'Teen Titans', corporate_name: 'Justice League Teens',
                           registration_number: '70849145000147', phone: '11900001111', email: 'contato@teentitans.com',
                           address: 'Torre T, s/n - Ilha', city: 'Florianópolis', state: 'SC', zip_code: '88000-123',
                           description: 'Batman é o melhor.', payment: 'PIX, Cartão de Débito, Cartão de Crédito',
@@ -57,7 +57,7 @@ Event.find_or_create_by!(name: 'Coffee Break', description: 'Coffee Break para c
 
 # Event Cost
 event_cost = EventCost.find_or_create_by!(description: 'Dias de semana', minimum: 200_000, additional_per_person: 7_000,
-                                          vertime: 100_000, event:)
+                                          overtime: 100_000, event:)
 EventCost.find_or_create_by!(description: 'Fim de semana', minimum: 400_000, additional_per_person: 14_000,
                              overtime: 200_000, event:)
 
