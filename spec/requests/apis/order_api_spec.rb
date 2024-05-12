@@ -19,8 +19,8 @@ describe 'Order API' do
       EventCost.create!(description: 'Fim de semana', minimum: 400_000, additional_per_person: 14_000,
                         overtime: 200_000, event:)
 
-      future_date = 4.day.from_now.strftime('%d/%m/%Y')
-      order_params = { order: { event_date: future_date, people: 80 } }
+      event_date = 4.day.from_now.strftime('%d/%m/%Y')
+      order_params = { order: { event_date:, people: 80 } }
 
       post "/api/v1/buffets/#{buffet.id}/events/#{event.id}/orders", params: order_params
 

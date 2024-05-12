@@ -71,6 +71,8 @@ URL: `http://localhost:300/api/v1/buffets`
 
 Retorna:
 
+Status: `200`
+
 ```json
 [
   {
@@ -118,6 +120,8 @@ params: `{ brand_name: 'buffet name' }`
 
 Retorna:
 
+Status: `200`
+
 ```json
 [
   {
@@ -149,6 +153,8 @@ Verbo HTTP: `GET`
 URL: `http://localhost:300/api/v1/buffets/:id_buffet`
 
 Retorna:
+
+Status: `200`
 
 ```json
 {
@@ -195,6 +201,8 @@ Verbo HTTP: `GET`
 URL: `http://localhost:300/api/v1/buffets/:id_buffet/events`
 
 Retorna:
+
+Status: `200`
 
 ```json
 [
@@ -259,6 +267,8 @@ URL: `http://localhost:300/api/v1/buffets/:id_buffet/events/:id_event`
 
 Retorna:
 
+Status: `200`
+
 ```json
 {
   "id": 1,
@@ -298,3 +308,64 @@ Caso tenha algum erro interno retorna o status:
 Se buscar por um evento que não existe
 * **404 - Not Found**
 
+## Pedido
+
+O Cliente pode consultar a disponibilidade de um Buffet para um evento. 
+
+Verbo HTTP: `POST`
+
+URL: `http://localhost:300/api/v1/buffets/:id_buffet/events/:id_event/orders`
+
+Parametros: `{ order: { event_date: '01/01/2020', people: 80 } }`
+
+- `event_date`: Data no padrão dd/mm/aaaa. (Obrigatório)
+- `people`: Número de pessoas que vai na festa. (Obrigatório)
+
+Caso o objeto seja criado Retorna:
+
+Status: `201`
+
+```json
+{ "advance_price": "R$ 13800.00" }
+```
+
+- `advance_price`: Valor prévio do pedido
+
+### Erros:
+
+Caso tenha algum erro interno retorna o status:
+*  **500 - Internal Server Error**
+
+Caso tente criar um evento sem passar a data ou a quantidade de pessoas
+* **412 - Precondition Failed**
+
+```json
+{
+    "errors": [
+        "Data do evento não pode ficar em branco",
+        "Quantidade de pessoas não pode ficar em branco"
+    ]
+}
+```
+
+Caso tente criar um evento sem passar os parametros
+* **412 - Precondition Failed**
+
+```json
+{
+    "errors": [
+        "Order não pode ficar em branco"
+    ]
+}
+```
+
+Caso já tenha um evento marcado para a data que foi passada
+* **412 - Precondition Failed**
+
+```json
+{
+    "errors": [
+        "Buffet indisponível na data escolhida"
+    ]
+}
+```
