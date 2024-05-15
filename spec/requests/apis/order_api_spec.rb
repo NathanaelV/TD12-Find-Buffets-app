@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe 'Order API' do
-  context 'POST /api/v1/events/:event_id/orders' do
+  context 'POST /api/v1/buffets/:buffet_id/events/:event_id/orders' do
     it 'successfully' do
       owner = Owner.create!(name: 'Leonardo Yoshi', email: 'leonardo.yoshi@email.com', password: 'leonardo123')
 
@@ -107,6 +107,18 @@ describe 'Order API' do
 
       expect(response).to have_http_status 412
       expect(response.body).to include 'Buffet indisponível na data escolhida'
+    end
+
+    xit 'past date' do
+      
+    end
+
+    xit 'people less than the min_people' do
+      
+    end
+
+    xit 'zero people' do
+      
     end
   end
 end

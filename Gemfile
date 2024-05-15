@@ -22,6 +22,8 @@ gem 'tzinfo-data', platforms: %i[windows jruby]
 # Some CPF generators fail.
 gem 'cpf_cnpj'
 
+gem 'rack-cors'
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'byebug'
