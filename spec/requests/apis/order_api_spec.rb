@@ -110,15 +110,12 @@ describe 'Order API' do
     end
 
     xit 'past date' do
-      
     end
 
     xit 'people less than the min_people' do
-      
     end
 
     xit 'zero people' do
-      
     end
   end
 end
