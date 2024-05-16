@@ -30,4 +30,6 @@ Rails.application.routes.draw do
       end
     end
   end
+
+  match '*unmatched', to: 'errors#error404', via: :all
 end
