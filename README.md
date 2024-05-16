@@ -21,6 +21,12 @@ Após terminar o setup, você pode popular o seu banco de dados com o comando:
 $ rails db:seed
 ```
 
+caso já tenha salvo algum valor no banco de dados, pode resetar o banco de dados com o comando
+
+```
+$ rails db:reset
+```
+
 ### Executando a aplicação local
 
 Para executar a aplicação local, use o comando
@@ -44,6 +50,10 @@ Acesse o endereço [localhost:3000](localhost:3000) no seu navegador
 
 <br>
 
+1. Informar os campos obrigatórios na criação dos models
+2. Informar como funciona o sistema de busca
+  - busca todos os elementos pelo nome ou pelo
+  - Caso não digite nada e aperte o botão de buscar, irá retornar todos os buffets
 
 
 # API Buffet

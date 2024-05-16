@@ -10,7 +10,11 @@ describe 'Owner view order' do
   it 'successfully' do
     owner = Owner.create!(name: 'Splinter', email: 'splinter@email.com', password: 'password')
 
-    buffet = Buffet.create!(brand_name: 'TMNT Buffet', payment: 'PIX', owner:)
+    buffet = Buffet.create!(brand_name: 'Teenage Mutant Ninja Turtles', corporate_name: 'TMNT Splinter LTDA',
+                            registration_number: '88392017000182', phone: '11912341234',
+                            email: 'contato@tmntsplinter.com', address: 'Rua Estados Unidos, 1030 - Jardins',
+                            city: 'São Paulo', state: 'SP', zip_code: '01234123',
+                            description: 'Melhor Buffet da região. Cowabunga', payment: 'PIX, Cartão de Débito', owner:)
 
     event = Event.create!(name: 'Festa de casamento', description: 'Festa de casamento dos sonhos', min_people: 10,
                           max_people: 100, duration: 420, menu: 'Pizza', alcoholic_beverages: true, decoration: true,
@@ -31,7 +35,7 @@ describe 'Owner view order' do
     click_on "#{future_date} - #{order.code}"
 
     expect(page).to have_content "#{future_date} - #{order.code}"
-    expect(page).to have_content 'TMNT Buffet'
+    expect(page).to have_content 'Teenage Mutant Ninja Turtles'
     expect(page).to have_content 'Evento: Festa de casamento'
     expect(page).to have_content 'Status: Aguardando avaliação do buffet'
     expect(page).to have_content 'Detalhes da festa: Dia especial'
@@ -43,8 +47,17 @@ describe 'Owner view order' do
     owner = Owner.create!(name: 'Splinter', email: 'splinter@email.com', password: 'password')
     phoenix = Owner.create!(name: 'Phoenix Ikki', email: 'phoenix.ikki@saint.com', password: 'phoenix.ikki123')
 
-    buffet = Buffet.create!(brand_name: 'TMNT Buffet', payment: 'PIX', owner:)
-    Buffet.create!(brand_name: 'Seiya', payment: 'PIX', owner: phoenix)
+    buffet = Buffet.create!(brand_name: 'Teenage Mutant Ninja Turtles', corporate_name: 'TMNT Splinter LTDA',
+                            registration_number: '88392017000182', phone: '11912341234',
+                            email: 'contato@tmntsplinter.com', address: 'Rua Estados Unidos, 1030 - Jardins',
+                            city: 'São Paulo', state: 'SP', zip_code: '01234123',
+                            description: 'Melhor Buffet da região. Cowabunga', payment: 'PIX, Cartão de Débito', owner:)
+
+    Buffet.create!(brand_name: 'Os Cavaleiro dos Zodíacos', corporate_name: 'Saint Seiya LTDA',
+                   registration_number: '12192017000312', phone: '11905051212', email: 'contato@saintseiya.com',
+                   address: 'Estrada das 12 casas, 12 - Grécia', city: 'São Paulo', state: 'SP', zip_code: '01212005',
+                   description: 'Venha elevar o seu cosmo conosco.', payment: 'Cartão de Débito, Cartão de Crédito',
+                   owner: phoenix)
 
     event = Event.create!(name: 'Festa de casamento', description: 'Festa de casamento dos sonhos', min_people: 10,
                           max_people: 100, duration: 420, menu: 'Pizza', alcoholic_beverages: true, decoration: true,
@@ -72,7 +85,11 @@ describe 'Owner view order' do
   it 'and receive event notification of Events on the same date' do
     owner = Owner.create!(name: 'Splinter', email: 'splinter@email.com', password: 'password')
 
-    buffet = Buffet.create!(brand_name: 'TMNT Buffet', payment: 'PIX', owner:)
+    buffet = Buffet.create!(brand_name: 'Teenage Mutant Ninja Turtles', corporate_name: 'TMNT Splinter LTDA',
+                            registration_number: '88392017000182', phone: '11912341234',
+                            email: 'contato@tmntsplinter.com', address: 'Rua Estados Unidos, 1030 - Jardins',
+                            city: 'São Paulo', state: 'SP', zip_code: '01234123',
+                            description: 'Melhor Buffet da região. Cowabunga', payment: 'PIX, Cartão de Débito', owner:)
 
     event = Event.create!(name: 'Festa de casamento', description: 'Festa de casamento dos sonhos', min_people: 10,
                           max_people: 100, duration: 420, menu: 'Pizza', alcoholic_beverages: true, decoration: true,
