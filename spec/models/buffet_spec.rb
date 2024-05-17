@@ -7,9 +7,8 @@ RSpec.describe Buffet, type: :model do
   end
 
   describe 'presence' do
-    it '' do
-      owner = Owner.create!(name: 'Splinter', email: 'splinter@email.com', password: 'password')
-      buffet = Buffet.new(owner:)
+    it 'mandatory' do
+      buffet = Buffet.new
 
       buffet.valid?
 
