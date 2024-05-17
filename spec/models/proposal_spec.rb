@@ -12,18 +12,4 @@ RSpec.describe Proposal, type: :model do
       expect(proposal.errors).to include :payment
     end
   end
-
-  xit 'status need to be created as sent' do
-    
-  end
-
-  describe 'price_change' do
-    xit 'default zero' do
-      
-    end
-    
-    xit 'cannot be negative' do
-      
-    end
-  end
 end

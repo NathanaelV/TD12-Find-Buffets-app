@@ -16,12 +16,4 @@ RSpec.describe Event, type: :model do
       expect(event.errors).to include :buffet_id
     end
   end
-
-  xit 'min_people can not be less than zero' do
-    
-  end
-
-  xit 'duration can not be less than zero' do
-    
-  end
 end
