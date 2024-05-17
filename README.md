@@ -50,19 +50,50 @@ $ rails s
 
 Acesse o endereço [localhost:3000](localhost:3000) no seu navegador e terá acesso a aplicação.
 
+
+## Busca
+
+O campo __Buscar Buffet__ permite buscar um Buffet pelo nome ou pelo tipo de evento que realiza.
+
+Caso não digite nada e clique em __Buscar__, será retornado todos os Buffets cadastrados
+
+
+## Navegabilidade
+
+Ao clicar no nome Buffet no topo da página, será transferido para a página principal, com todos os Buffets Cadastrados.
+
+### Autorizações
+
+**Visitante:**
+- Um visit pode Visualizar todos os Buffets criados.
+- Pode acessar os detalhes dos Buffets clicando no nome do Buffet
+- Fazer as busca pelos Buffets usando o nome.
+- Buscar os Buffets pelo nome do evento. _Ex.: Evento Infantil_
+- Pode ver detalhes dos eventos de cada Buffet
+
+<br>
+
+**Cliente:**
+- Pode fazer tudo que o visitante pode fazer.
+- Pode contratar um dos serviços de evento do Buffet.
+- Verificar os pedidos de contratação de eventos
+- Verificar as propostas enviadas pelos responsáveis do Buffet
+
+<br>
+
+**Dono do Buffet**
+- Pode cadastrar e editar o Buffet
+- Cadastrar e editar os Eventos para o Buffet
+- Cadastrar e editar os custos de cada evento
+- Pode registrar mais de um custo por evento
+
+
 <br>
 
 ---
 ---
 
 <br>
-
-<!-- Adicionar a Documentação e na API -->
-1. Informar os campos obrigatórios na criação dos models
-2. Informar como funciona o sistema de busca
-  - busca todos os elementos pelo nome ou pelo
-  - Caso não digite nada e aperte o botão de buscar, irá retornar todos os buffets
-
 
 # API Buffet
 
