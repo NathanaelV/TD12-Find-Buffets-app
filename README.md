@@ -5,8 +5,15 @@
 
 ## Inicialização
 
+Todos os comandos que começam com `$` devem ser executados no seu terminal. Ao digitar o comando no terminal, não use o `$`.
+
 ### Setup
-Essa aplicação usa a versão do __Ruby 3.2.3__ e a versão do __Rails 7.1.3__.
+Essa aplicação usa a versão do __Ruby 3.2.3__ e a versão do __Rails 7.1.3__. Pode instalar o Ruby usando o [RVM](https://rvm.io/rvm/install)
+Depois de instalar o RVM, instale o a versão __3.2.3__ do __Ruby__
+
+```
+$ rvm install "ruby-3.2.3"
+```
 
 Após baixar a aplicação na sua máquina, acesse o diretório e faça o setup executando o seguinte comando no terminal:
 
@@ -41,7 +48,7 @@ ou
 $ rails s
 ```
 
-Acesse o endereço [localhost:3000](localhost:3000) no seu navegador
+Acesse o endereço [localhost:3000](localhost:3000) no seu navegador e terá acesso a aplicação.
 
 <br>
 
@@ -50,6 +57,7 @@ Acesse o endereço [localhost:3000](localhost:3000) no seu navegador
 
 <br>
 
+<!-- Adicionar a Documentação e na API -->
 1. Informar os campos obrigatórios na criação dos models
 2. Informar como funciona o sistema de busca
   - busca todos os elementos pelo nome ou pelo
