@@ -38,7 +38,7 @@ describe 'Owner sing in' do
 
   it 'successfully with Buffet registered' do
     owner = Owner.create!(name: 'Leonardo', email: 'leonardo@email.com', password: 'password')
-    Buffet.create!(brand_name: 'TMNT Buffet', corporate_name: 'TMNT Splinter LTDA',
+    Buffet.create!(brand_name: 'Teenage Mutant Ninja Turtles', corporate_name: 'TMNT Splinter LTDA',
                    registration_number: '88392017000182', phone: '11912341234',
                    email: 'contato@tmntsplinter.com', address: 'Rua Estados Unidos, 1030 - Jardins',
                    city: 'São Paulo', state: 'SP', zip_code: '01234123',
@@ -48,6 +48,6 @@ describe 'Owner sing in' do
     visit root_path
 
     expect(page).not_to have_content 'Cadastrar Buffet'
-    expect(page).to have_content 'TMNT Buffet'
+    expect(page).to have_content 'Teenage Mutant Ninja Turtles'
   end
 end

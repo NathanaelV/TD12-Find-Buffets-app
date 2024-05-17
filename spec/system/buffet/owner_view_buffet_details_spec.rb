@@ -3,7 +3,7 @@ require 'rails_helper'
 describe 'Buffet Owner view buffet details' do
   it 'successfully' do
     owner = Owner.create!(name: 'Splinter', email: 'splinter@email.com', password: 'password')
-    Buffet.create!(brand_name: 'TMNT Buffet', corporate_name: 'TMNT Splinter LTDA',
+    Buffet.create!(brand_name: 'Teenage Mutant Ninja Turtles', corporate_name: 'TMNT Splinter LTDA',
                    registration_number: '88392017000182', phone: '11912341234',
                    email: 'contato@tmntsplinter.com', address: 'Rua Estados Unidos, 1030 - Jardins',
                    city: 'São Paulo', state: 'SP', zip_code: '01234123',
@@ -11,9 +11,9 @@ describe 'Buffet Owner view buffet details' do
 
     login_as owner, scope: :owner
     visit root_path
-    click_on 'TMNT Buffet'
+    click_on 'Teenage Mutant Ninja Turtles'
 
-    expect(page).to have_content 'Buffet TMNT Buffet'
+    expect(page).to have_content 'Buffet Teenage Mutant Ninja Turtles'
     expect(page).to have_content 'Razão social: TMNT Splinter LTDA'
     expect(page).to have_content 'CNPJ: 88392017000182'
     expect(page).to have_content 'Telefone: 11912341234'

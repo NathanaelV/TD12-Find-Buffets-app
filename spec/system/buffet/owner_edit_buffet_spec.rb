@@ -3,7 +3,7 @@ require 'rails_helper'
 describe 'Buffet owner edit Buffet' do
   it 'view form' do
     owner = Owner.create!(name: 'Splinter Yoshi', email: 'splinter@email.com', password: 'password')
-    Buffet.create!(brand_name: 'TMNT Buffet', corporate_name: 'TMNT Splinter LTDA',
+    Buffet.create!(brand_name: 'Teenage Mutant Ninja Turtles', corporate_name: 'TMNT Splinter LTDA',
                    registration_number: '88392017000182', phone: '11912341234',
                    email: 'contato@tmntsplinter.com', address: 'Rua Estados Unidos, 1030 - Jardins',
                    city: 'São Paulo', state: 'SP', zip_code: '01234123',
@@ -11,11 +11,11 @@ describe 'Buffet owner edit Buffet' do
 
     login_as owner, scope: :owner
     visit root_path
-    click_on 'TMNT Buffet'
+    click_on 'Teenage Mutant Ninja Turtles'
     click_on 'Editar Buffet'
 
-    expect(page).to have_content 'Editar TMNT Buffet'
-    expect(page).to have_field 'Nome fantasia', with: 'TMNT Buffet'
+    expect(page).to have_content 'Editar Teenage Mutant Ninja Turtles'
+    expect(page).to have_field 'Nome fantasia', with: 'Teenage Mutant Ninja Turtles'
     expect(page).to have_field 'Razão social', with: 'TMNT Splinter LTDA'
     expect(page).to have_field 'CNPJ', with: '88392017000182'
     expect(page).to have_field 'Telefone', with: '11912341234'
@@ -29,7 +29,7 @@ describe 'Buffet owner edit Buffet' do
 
   it 'successfully' do
     owner = Owner.create!(name: 'Splinter Yoshi', email: 'splinter@email.com', password: 'password')
-    Buffet.create!(brand_name: 'TMNT Buffet', corporate_name: 'TMNT Splinter LTDA',
+    Buffet.create!(brand_name: 'Teenage Mutant Ninja Turtles', corporate_name: 'TMNT Splinter LTDA',
                    registration_number: '88392017000182', phone: '11912341234',
                    email: 'contato@tmntsplinter.com', address: 'Rua Estados Unidos, 1030 - Jardins',
                    city: 'São Paulo', state: 'SP', zip_code: '01234123',
@@ -37,7 +37,7 @@ describe 'Buffet owner edit Buffet' do
 
     login_as owner, scope: :owner
     visit root_path
-    click_on 'TMNT Buffet'
+    click_on 'Teenage Mutant Ninja Turtles'
     click_on 'Editar Buffet'
     fill_in 'Nome fantasia', with: 'Turma do Smilingüido'
     fill_in 'Razão social', with: 'Smilingüido e sua turma LTDA'

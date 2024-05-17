@@ -5,8 +5,17 @@ describe 'Owner view all orders' do
     owner = Owner.create!(name: 'Splinter', email: 'splinter@email.com', password: 'password')
     phoenix = Owner.create!(name: 'Phoenix Ikki', email: 'phoenix.ikki@saint.com', password: 'phoenix.ikki123')
 
-    buffet = Buffet.create!(brand_name: 'TMNT Buffet', payment: 'PIX', owner:)
-    seiya_buffet = Buffet.create!(brand_name: 'Os Cavaleiro dos Zodíacos', payment: 'Debito', owner: phoenix)
+    buffet = Buffet.create!(brand_name: 'Teenage Mutant Ninja Turtles', corporate_name: 'TMNT Splinter LTDA',
+                            registration_number: '88392017000182', phone: '11912341234',
+                            email: 'contato@tmntsplinter.com', address: 'Rua Estados Unidos, 1030 - Jardins',
+                            city: 'São Paulo', state: 'SP', zip_code: '01234123',
+                            description: 'Melhor Buffet da região. Cowabunga', payment: 'PIX, Cartão de Débito', owner:)
+
+    seiya = Buffet.create!(brand_name: 'Os Cavaleiro dos Zodíacos', corporate_name: 'Saint Seiya LTDA',
+                           registration_number: '12192017000312', phone: '11905051212', email: 'contato@saintseiya.com',
+                           address: 'Estrada das 12 casas, 12 - Grécia', city: 'São Paulo', state: 'SP',
+                           zip_code: '01212005', description: 'Venha elevar o seu cosmo conosco.',
+                           payment: 'Cartão de Débito, Cartão de Crédito', owner: phoenix)
 
     event = Event.create!(name: 'Festa de casamento', description: 'Festa de casamento dos sonhos', min_people: 10,
                           max_people: 100, duration: 420, menu: 'Pizza', alcoholic_beverages: true, decoration: true,
@@ -20,7 +29,7 @@ describe 'Owner view all orders' do
     seiya_event = Event.create!(name: 'Festa de casamento', description: 'Casamento dos sonhos', min_people: 10,
                                 max_people: 100, duration: 420, menu: 'Pizza', alcoholic_beverages: true,
                                 decoration: true, parking: true, parking_valet: true, customer_space: true,
-                                buffet: seiya_buffet)
+                                buffet: seiya)
 
     customer = Customer.create!(name: 'Dragon Shiryu', cpf: '665.455.630-50', email: 'shiryu@email.com',
                                 password: 'shiryu123')
@@ -38,7 +47,7 @@ describe 'Owner view all orders' do
 
     seiya_future_date = 3.week.from_now.strftime('%d/%m/%Y')
     seiya_order = Order.create!(event_date: second_future_date, people: 80, details: 'Dia especial', address: 'Buffet',
-                                buffet: seiya_buffet, customer:, event: seiya_event)
+                                buffet: seiya, customer:, event: seiya_event)
 
     login_as owner, scope: :owner
     visit root_path
@@ -46,7 +55,7 @@ describe 'Owner view all orders' do
       click_on 'Pedidos'
     end
 
-    expect(page).to have_content 'Pedidos do TMNT Buffet'
+    expect(page).to have_content 'Pedidos do Teenage Mutant Ninja Turtles'
     expect(page).to have_content "#{future_date} - #{order.code}"
     expect(page).to have_content "#{second_future_date} - #{second_order.code}"
     expect(page).not_to have_content "#{seiya_future_date} - #{seiya_order.code}"
@@ -55,7 +64,11 @@ describe 'Owner view all orders' do
   it 'pending first' do
     owner = Owner.create!(name: 'Splinter', email: 'splinter@email.com', password: 'password')
 
-    buffet = Buffet.create!(brand_name: 'TMNT Buffet', payment: 'PIX', owner:)
+    buffet = Buffet.create!(brand_name: 'Teenage Mutant Ninja Turtles', corporate_name: 'TMNT Splinter LTDA',
+                            registration_number: '88392017000182', phone: '11912341234',
+                            email: 'contato@tmntsplinter.com', address: 'Rua Estados Unidos, 1030 - Jardins',
+                            city: 'São Paulo', state: 'SP', zip_code: '01234123',
+                            description: 'Melhor Buffet da região. Cowabunga', payment: 'PIX, Cartão de Débito', owner:)
 
     event = Event.create!(name: 'Festa de casamento', description: 'Festa de casamento dos sonhos', min_people: 10,
                           max_people: 100, duration: 420, menu: 'Pizza', alcoholic_beverages: true, decoration: true,
@@ -106,14 +119,17 @@ describe 'Owner view all orders' do
       #{sixth_future_date} - #{sixth_order.code}
     ORDERS
 
-    expect(page).to have_content 'Pedidos do TMNT Buffet'
+    expect(page).to have_content 'Pedidos do Teenage Mutant Ninja Turtles'
     expect(page).to have_content text_orders
   end
 
   it 'if there is an order' do
     owner = Owner.create!(name: 'Splinter', email: 'splinter@email.com', password: 'password')
 
-    Buffet.create!(brand_name: 'TMNT Buffet', payment: 'PIX', owner:)
+    Buffet.create!(brand_name: 'Teenage Mutant Ninja Turtles', corporate_name: 'TMNT Splinter LTDA',
+                   registration_number: '88392017000182', phone: '11912341234', email: 'contato@tmntsplinter.com',
+                   address: 'Rua Estados Unidos, 1030 - Jardins', city: 'São Paulo', state: 'SP', zip_code: '01234123',
+                   description: 'Melhor Buffet da região. Cowabunga', payment: 'PIX, Cartão de Débito', owner:)
 
     login_as owner, scope: :owner
     visit root_path

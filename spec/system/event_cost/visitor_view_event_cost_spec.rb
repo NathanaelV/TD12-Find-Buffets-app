@@ -4,7 +4,11 @@ describe 'Visitor view event cost' do
   it 'successfully' do
     owner = Owner.create!(name: 'Splinter', email: 'splinter@email.com', password: 'password')
 
-    buffet = Buffet.create!(brand_name: 'TMNT Buffet', payment: 'PIX', owner:)
+    buffet = Buffet.create!(brand_name: 'Teenage Mutant Ninja Turtles', corporate_name: 'TMNT Splinter LTDA',
+                            registration_number: '88392017000182', phone: '11912341234',
+                            email: 'contato@tmntsplinter.com', address: 'Rua Estados Unidos, 1030 - Jardins',
+                            city: 'São Paulo', state: 'SP', zip_code: '01234123',
+                            description: 'Melhor Buffet da região. Cowabunga', payment: 'PIX, Cartão de Débito', owner:)
 
     event = Event.create!(name: 'Festa de casamento', description: 'Festa de casamento dos sonhos', min_people: 10,
                           max_people: 100, duration: 420, menu: 'Pizza', alcoholic_beverages: true, decoration: true,
@@ -14,7 +18,7 @@ describe 'Visitor view event cost' do
     EventCost.create!(description: 'Fim de semana', minimum: 4_000, additional_per_person: 140, overtime: 2000, event:)
 
     visit root_path
-    click_on 'TMNT Buffet'
+    click_on 'Teenage Mutant Ninja Turtles'
     click_on 'Festa de casamento'
 
     expect(page).to have_content 'Valores'
@@ -32,14 +36,18 @@ describe 'Visitor view event cost' do
   it 'there is no event cost registered' do
     owner = Owner.create!(name: 'Splinter', email: 'splinter@email.com', password: 'password')
 
-    buffet = Buffet.create!(brand_name: 'TMNT Buffet', payment: 'PIX', owner:)
+    buffet = Buffet.create!(brand_name: 'Teenage Mutant Ninja Turtles', corporate_name: 'TMNT Splinter LTDA',
+                            registration_number: '88392017000182', phone: '11912341234',
+                            email: 'contato@tmntsplinter.com', address: 'Rua Estados Unidos, 1030 - Jardins',
+                            city: 'São Paulo', state: 'SP', zip_code: '01234123',
+                            description: 'Melhor Buffet da região. Cowabunga', payment: 'PIX, Cartão de Débito', owner:)
 
     Event.create!(name: 'Festa de casamento', description: 'Festa de casamento dos sonhos', min_people: 10,
                   max_people: 100, duration: 420, menu: 'Pizza', alcoholic_beverages: true, decoration: true,
                   parking: true, parking_valet: true, customer_space: true, buffet:)
 
     visit root_path
-    click_on 'TMNT Buffet'
+    click_on 'Teenage Mutant Ninja Turtles'
     click_on 'Festa de casamento'
 
     expect(page).to have_content 'Valores'
