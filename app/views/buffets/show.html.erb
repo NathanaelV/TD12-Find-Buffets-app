@@ -76,7 +76,10 @@
         <% end %>
       </dl>
     <% else %>
-      <p>Nenhum evento cadastrado! <%= link_to 'Clique aqui', new_event_path %> para cadastrar.</p>
+      <p>Nenhum evento cadastrado!</p>
+      <% if owner_signed_in? %>
+        <p><%= link_to 'Clique aqui', new_event_path %> para cadastrar um evento.</p>
+      <% end %>
     <% end %>
   </div>
 </section>

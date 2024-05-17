@@ -5,8 +5,15 @@
 
 ## Inicialização
 
+Todos os comandos que começam com `$` devem ser executados no seu terminal. Ao digitar o comando no terminal, não use o `$`.
+
 ### Setup
-Essa aplicação usa a versão do __Ruby 3.2.3__ e a versão do __Rails 7.1.3__.
+Essa aplicação usa a versão do __Ruby 3.2.3__ e a versão do __Rails 7.1.3__. Pode instalar o Ruby usando o [RVM](https://rvm.io/rvm/install)
+Depois de instalar o RVM, instale o a versão __3.2.3__ do __Ruby__
+
+```
+$ rvm install "ruby-3.2.3"
+```
 
 Após baixar a aplicação na sua máquina, acesse o diretório e faça o setup executando o seguinte comando no terminal:
 
@@ -19,6 +26,12 @@ Após terminar o setup, você pode popular o seu banco de dados com o comando:
 
 ```
 $ rails db:seed
+```
+
+caso já tenha salvo algum valor no banco de dados, pode resetar o banco de dados com o comando
+
+```
+$ rails db:reset
 ```
 
 ### Executando a aplicação local
@@ -35,7 +48,45 @@ ou
 $ rails s
 ```
 
-Acesse o endereço [localhost:3000](localhost:3000) no seu navegador
+Acesse o endereço [localhost:3000](localhost:3000) no seu navegador e terá acesso a aplicação.
+
+
+## Busca
+
+O campo __Buscar Buffet__ permite buscar um Buffet pelo nome ou pelo tipo de evento que realiza.
+
+Caso não digite nada e clique em __Buscar__, será retornado todos os Buffets cadastrados
+
+
+## Navegabilidade
+
+Ao clicar no nome Buffet no topo da página, será transferido para a página principal, com todos os Buffets Cadastrados.
+
+### Autorizações
+
+**Visitante:**
+- Um visit pode Visualizar todos os Buffets criados.
+- Pode acessar os detalhes dos Buffets clicando no nome do Buffet
+- Fazer as busca pelos Buffets usando o nome.
+- Buscar os Buffets pelo nome do evento. _Ex.: Evento Infantil_
+- Pode ver detalhes dos eventos de cada Buffet
+
+<br>
+
+**Cliente:**
+- Pode fazer tudo que o visitante pode fazer.
+- Pode contratar um dos serviços de evento do Buffet.
+- Verificar os pedidos de contratação de eventos
+- Verificar as propostas enviadas pelos responsáveis do Buffet
+
+<br>
+
+**Dono do Buffet**
+- Pode cadastrar e editar o Buffet
+- Cadastrar e editar os Eventos para o Buffet
+- Cadastrar e editar os custos de cada evento
+- Pode registrar mais de um custo por evento
+
 
 <br>
 
@@ -43,8 +94,6 @@ Acesse o endereço [localhost:3000](localhost:3000) no seu navegador
 ---
 
 <br>
-
-
 
 # API Buffet
 

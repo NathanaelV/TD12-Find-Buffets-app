@@ -4,7 +4,6 @@ class BuffetsController < ApplicationController
 
   def index
     @query = params[:query]
-    return @buffets = [] if @query.empty?
 
     @buffets = Buffet.where('brand_name LIKE ? OR city LIKE ?', "%#{@query}%", "%#{@query}%").to_a
     Event.where('name LIKE ?', "%#{@query}%").each do |event|

@@ -108,17 +108,5 @@ describe 'Order API' do
       expect(response).to have_http_status 412
       expect(response.body).to include 'Buffet indisponível na data escolhida'
     end
-
-    xit 'past date' do
-      
-    end
-
-    xit 'people less than the min_people' do
-      
-    end
-
-    xit 'zero people' do
-      
-    end
   end
 end

@@ -41,7 +41,7 @@ describe 'Owner regiters buffet' do
 
   it 'view form the owner already has a buffet' do
     owner = Owner.create!(name: 'Splinter Yoshi', email: 'splinter@email.com', password: 'password')
-    buffet = Buffet.create!(brand_name: 'TMNT Buffet', corporate_name: 'TMNT Splinter LTDA',
+    buffet = Buffet.create!(brand_name: 'Teenage Mutant Ninja Turtles', corporate_name: 'TMNT Splinter LTDA',
                             registration_number: '88392017000182', phone: '11912341234',
                             email: 'contato@tmntsplinter.com', address: 'Rua Estados Unidos, 1030 - Jardins',
                             city: 'São Paulo', state: 'SP', zip_code: '01234123',
@@ -50,7 +50,7 @@ describe 'Owner regiters buffet' do
     login_as owner, scope: :owner
     visit new_buffet_path
 
-    expect(page).to have_content 'TMNT Buffet'
+    expect(page).to have_content 'Teenage Mutant Ninja Turtles'
     expect(current_path).to eq buffet_path(buffet)
   end
 end
