@@ -12,9 +12,14 @@ class EventsController < ApplicationController
 
   def create
     buffet = current_owner.buffet
-    event = Event.create(event_params)
+    event = Event.new(event_params)
     buffet.events << event
-    redirect_to event, notice: 'Evento criado com sucesso!'
+
+    if event.save!
+      redirect_to event, notice: 'Evento criado com sucesso!'
+    else
+      render :new
+    end
   end
 
   def edit; end

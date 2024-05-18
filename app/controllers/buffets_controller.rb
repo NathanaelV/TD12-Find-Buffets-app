@@ -27,8 +27,12 @@ class BuffetsController < ApplicationController
   def create
     @buffet = Buffet.new(buffet_params)
     @buffet.owner = current_owner
-    @buffet.save!
-    redirect_to @buffet, notice: 'Buffet criado com sucesso!'
+    if @buffet.save
+      redirect_to @buffet, notice: 'Buffet criado com sucesso!'
+    else
+      @buffet_errors = @buffet.errors.full_messages
+      render :new
+    end
   end
 
   def edit; end
