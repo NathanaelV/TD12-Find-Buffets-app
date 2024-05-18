@@ -1,3 +1,17 @@
 <h1>Adicionar custos do evento</h1>
 
+
+<% if @event_cost_errors.present? %>
+  <p>Atente-se aos erros abaixo:</p>
+
+  <ul>
+    
+    <% @event_cost_errors.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    
+  </ul>
+
+<% end %>
+
 <%= render partial: 'form' %>

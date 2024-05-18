@@ -35,6 +35,7 @@ describe 'Customer view event cost' do
     expect(page).to have_content 'Preço adicional: 140/pessoa'
     expect(page).to have_content 'Hora extra: 2000/hora'
     expect(page).not_to have_content 'Editar'
+    expect(page).not_to have_content 'Adicionar Custos do Evento'
   end
 
   it 'there is no event cost registered' do

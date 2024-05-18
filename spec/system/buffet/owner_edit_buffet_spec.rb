@@ -65,7 +65,7 @@ describe 'Buffet owner edit Buffet' do
     expect(page).to have_content 'Proprietário: Splinter Yoshi'
   end
 
-  it 'fill fields blank' do
+  it 'and leaves some fields blank' do
     owner = Owner.create!(name: 'Splinter Yoshi', email: 'splinter@email.com', password: 'password')
     Buffet.create!(brand_name: 'Teenage Mutant Ninja Turtles', corporate_name: 'TMNT Splinter LTDA',
                    registration_number: '88392017000182', phone: '11912341234',

@@ -7,10 +7,14 @@ class EventCostsController < ApplicationController
   end
 
   def create
-    event_cost = EventCost.new(event_cost_params)
-    event_cost.event = @event
-    event_cost.save
-    redirect_to @event, notice: 'Custo do evento criado com sucesso.'
+    @event_cost = EventCost.new(event_cost_params)
+    @event_cost.event = @event
+    if @event_cost.save
+      redirect_to @event, notice: 'Custo do evento criado com sucesso.'
+    else
+      @event_cost_errors = @event_cost.errors.full_messages
+      render :new
+    end
   end
 
   def edit; end
