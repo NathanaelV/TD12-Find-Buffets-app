@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'Buffet register' do
+describe 'Register Buffet' do
   xit "when owner already has a buffet" do
     
   end

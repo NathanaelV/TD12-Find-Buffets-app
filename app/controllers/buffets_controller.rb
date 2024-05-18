@@ -38,8 +38,12 @@ class BuffetsController < ApplicationController
   def edit; end
 
   def update
-    @buffet.update(buffet_params)
-    redirect_to @buffet, notice: 'Buffet atualizado com sucesso'
+    if @buffet.update(buffet_params)
+      redirect_to @buffet, notice: 'Buffet atualizado com sucesso'
+    else
+      @buffet_errors = @buffet.errors.full_messages
+      render :edit
+    end
   end
 
   private
