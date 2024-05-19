@@ -17,4 +17,7 @@ describe 'Edit Buffet ' do
 
   xit 'visitor cannot edit' do
   end
+
+  xit 'if it is yours' do
+  end
 end

@@ -6,4 +6,7 @@ describe 'Edit Event Cost' do
 
   xit 'visitor cannot' do
   end
+
+  xit 'if it is yours' do
+  end
 end

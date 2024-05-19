@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'Register Event Cost' do
+describe 'Edit Event' do
   xit 'customer cannot' do
   end
 
