@@ -120,4 +120,7 @@ describe 'Owner approves order' do
     expect(Proposal.first.payment).to eq 'Cartão de Débito'
     expect(Proposal.first.status).to eq 'sent'
   end
+
+  xit 'if it is yours' do
+  end
 end

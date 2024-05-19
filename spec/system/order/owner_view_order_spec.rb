@@ -124,4 +124,7 @@ describe 'Owner view order' do
     expect(page).not_to have_content "AVISO: Evento #{future_date} - #{order.code} no MESMO DIA!!!"
     expect(page).not_to have_content "#{second_future_date} - #{third_order.code}"
   end
+
+  xit 'if it is yours' do
+  end
 end

@@ -67,4 +67,7 @@ describe 'Owner update Event Cost' do
     expect(page).to have_content '200'
     expect(page).to have_content '2500'
   end
+
+  xit 'if it is yours' do
+  end
 end

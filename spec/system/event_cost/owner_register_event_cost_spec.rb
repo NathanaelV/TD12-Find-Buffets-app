@@ -87,4 +87,7 @@ describe 'Owner register event cost' do
     expect(page).to have_content 'Hora extra não pode ficar em branco'
     expect(page).not_to have_content 'Evento é obrigatório(a)'
   end
+
+  xit 'if it is yours' do
+  end
 end

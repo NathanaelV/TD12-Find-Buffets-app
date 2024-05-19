@@ -103,4 +103,7 @@ describe 'Buffet owner edit Buffet' do
     expect(page).to have_content 'Formas de pagamento não pode ficar em branco'
     expect(page).not_to have_content 'Proprietário é obrigatório(a)'
   end
+
+  xit 'if it is yours' do
+  end
 end

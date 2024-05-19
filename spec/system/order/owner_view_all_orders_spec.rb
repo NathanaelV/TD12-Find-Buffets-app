@@ -141,4 +141,7 @@ describe 'Owner view all orders' do
     expect(page).to have_content 'Nenhum evento aprovado.'
     expect(page).to have_content 'Nenhum evento cancelado.'
   end
+
+  xit 'if it is yours' do
+  end
 end

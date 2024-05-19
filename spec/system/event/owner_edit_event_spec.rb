@@ -95,4 +95,7 @@ describe 'Owner edit events' do
     expect(page).not_to have_content 'Bebidas alcoólicas'
     expect(page).not_to have_content 'Serviço de Valet'
   end
+
+  xit 'if it is yours' do
+  end
 end

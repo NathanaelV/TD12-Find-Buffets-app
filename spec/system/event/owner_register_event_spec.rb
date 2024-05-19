@@ -67,4 +67,7 @@ describe 'Buffet owner register event' do
     expect(page).to have_content 'Serviço de Valet'
     expect(page).to have_content 'Evento em residência'
   end
+
+  xit 'if it is yours' do
+  end
 end
