@@ -1,5 +1,17 @@
 <h1>Editar <%= @event.name %></h1>
 
+<% if @event_errors.present? %>
+  <p>Atente-se aos erros abaixo:</p>
+
+  <ul>
+    
+    <% @event_errors.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    
+  </ul>
+<% end %>
+
 <div>
   <%= render partial: 'form' %>
 </div>

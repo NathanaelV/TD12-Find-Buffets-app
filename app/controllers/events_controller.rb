@@ -25,8 +25,12 @@ class EventsController < ApplicationController
   def edit; end
 
   def update
-    @event.update(event_params)
-    redirect_to @event, notice: 'Evento atualizado com sucesso!'
+    if @event.update(event_params)
+      redirect_to @event, notice: 'Evento atualizado com sucesso!'
+    else
+      @event_errors = @event.errors.full_messages
+      render :edit
+    end
   end
 
   def destroy
