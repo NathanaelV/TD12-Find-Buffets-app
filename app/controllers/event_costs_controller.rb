@@ -20,8 +20,12 @@ class EventCostsController < ApplicationController
   def edit; end
 
   def update
-    @event_cost.update(event_cost_params)
-    redirect_to @event, notice: 'Custo do evento atualizado com sucesso.'
+    if @event_cost.update(event_cost_params)
+      redirect_to @event, notice: 'Custo do evento atualizado com sucesso.'
+    else
+      @event_cost_errors = @event_cost.errors.full_messages
+      render :edit
+    end
   end
 
   private
