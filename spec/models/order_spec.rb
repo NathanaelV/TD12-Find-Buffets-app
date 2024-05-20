@@ -22,4 +22,10 @@ RSpec.describe Order, type: :model do
 
   xit 'status needs to be created as pending' do
   end
+
+  xit 'validate fields' do
+    # Simplify system testing
+    # Numbers cannot be negative
+    # Date cannot be past
+  end
 end
