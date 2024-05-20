@@ -52,4 +52,7 @@ describe 'Owner destroy event' do
     end
     expect(Event.count).to eq 1
   end
+
+  xit 'if it is yours' do
+  end
 end

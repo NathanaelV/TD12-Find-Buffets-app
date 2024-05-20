@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Event, type: :model do
-  describe "presence" do
-    it "mandatory" do
+  describe 'presence' do
+    it 'mandatory' do
       event = Event.new
 
       event.valid?

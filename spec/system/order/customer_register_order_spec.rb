@@ -49,9 +49,10 @@ describe 'Customer register order' do
 
     expect(page).to have_content 'Contratar Festa de casamento'
     expect(page).to have_field 'Data do evento', type: 'date'
-    expect(page).to have_field 'Número de pessoas', type: 'number'
-    expect(page).to have_field 'Detalhes da festa', type: 'textarea'
-    expect(page).to have_field 'Local da festa', type: 'text'
+    expect(page).to have_field 'Quantidade de pessoas', type: 'number'
+    expect(page).to have_field 'Detalhes do evento', type: 'textarea'
+    expect(page).to have_field 'Local do evento', type: 'text'
+    expect(page).not_to have_content 'Atente-se aos erros abaixo:'
   end
 
   it 'successfully' do
@@ -79,9 +80,9 @@ describe 'Customer register order' do
     visit event_path(event)
     click_on 'Contratar serviço'
     fill_in 'Data do evento', with: future_date
-    fill_in 'Número de pessoas', with: 80
-    fill_in 'Detalhes da festa', with: 'Festa muito especial'
-    fill_in 'Local da festa', with: 'Sítio do Barnabé'
+    fill_in 'Quantidade de pessoas', with: 80
+    fill_in 'Detalhes do evento', with: 'Festa muito especial'
+    fill_in 'Local do evento', with: 'Sítio do Barnabé'
     click_on 'Criar Pedido'
 
     expect(page).to have_content 'Pedido realizado com sucesso. Aguardar aprovação do Buffet'
@@ -94,7 +95,7 @@ describe 'Customer register order' do
     expect(page).to have_content 'Número de pessoas: 80'
   end
 
-  it 'from homepage' do
+  it 'successfully' do
     owner = Owner.create!(name: 'Splinter', email: 'splinter@email.com', password: 'password')
 
     buffet = Buffet.create!(brand_name: 'Teenage Mutant Ninja Turtles', corporate_name: 'TMNT Splinter LTDA',
@@ -105,7 +106,7 @@ describe 'Customer register order' do
 
     event = Event.create!(name: 'Festa de casamento', description: 'Festa de casamento dos sonhos', min_people: 10,
                           max_people: 100, duration: 420, menu: 'Pizza', alcoholic_beverages: true, decoration: true,
-                          parking: true, parking_valet: true, customer_space: false, buffet:)
+                          parking: true, parking_valet: true, customer_space: true, buffet:)
 
     EventCost.create!(description: 'Dias de semana', minimum: 2_000, additional_per_person: 70, overtime: 1000, event:)
 
@@ -113,15 +114,20 @@ describe 'Customer register order' do
                                 password: 'shiryu123')
 
     login_as customer, scope: :customer
-    visit root_path
-    click_on 'Teenage Mutant Ninja Turtles'
-    click_on 'Festa de casamento'
+    visit event_path(event)
     click_on 'Contratar serviço'
+    fill_in 'Data do evento', with: ''
+    click_on 'Criar Pedido'
 
-    expect(page).to have_content 'Contratar Festa de casamento'
-    expect(page).to have_field 'Data do evento', type: 'date'
-    expect(page).to have_field 'Número de pessoas', type: 'number'
-    expect(page).to have_field 'Detalhes da festa', type: 'textarea'
-    expect(page).not_to have_field 'Local da festa'
+    expect(page).to have_content 'Atente-se aos erros abaixo:'
+    expect(page).to have_content 'Data do evento não pode ficar em branco'
+    expect(page).to have_content 'Data do evento deve ser futura'
+    expect(page).to have_content 'Quantidade de pessoas não pode ficar em branco'
+    expect(page).to have_content 'Quantidade de pessoas deve ser positivo'
+    expect(page).to have_content 'Detalhes do evento não pode ficar em branco'
+    expect(page).to have_content 'Local do evento não pode ficar em branco'
+    expect(page).not_to have_content 'Buffet não pode ficar em branco'
+    expect(page).not_to have_content 'Cliente não pode ficar em branco'
+    expect(page).not_to have_content 'Evento não pode ficar em branco'
   end
 end

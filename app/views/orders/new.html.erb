@@ -1,29 +1,43 @@
 <h1>Contratar <%= @event.name %></h1>
 
+
+<% if @order_errors.present? %>
+  <p>Atente-se aos erros abaixo:</p>
+
+  <ul>
+
+    <% @order_errors.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    
+  </ul>
+
+<% end %>
+
 <%= form_with model: [@event, @order] do |f| %>
   <div>
-    <%= f.label :event_date, 'Data do evento' %>
+    <%= f.label :event_date %>
     <%= f.date_field :event_date %>
   </div>
 
   <div>
-    <%= f.label :people, 'Número de pessoas' %>
+    <%= f.label :people %>
     <%= f.number_field :people %>
   </div>
 
   <div>
-    <%= f.label :details, 'Detalhes da festa' %>
+    <%= f.label :details %>
     <%= f.text_area :details %>
   </div>
 
   <% if @event.customer_space %>
     <div>
-      <%= f.label :address, 'Local da festa' %>
+      <%= f.label :address %>
       <%= f.text_field :address %>
     </div>
   <% end %>
 
   <div>
-    <%= f.submit 'Criar Pedido' %>
+    <%= f.submit %>
   </div>
 <% end %>

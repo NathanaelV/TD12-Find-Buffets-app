@@ -65,9 +65,13 @@ describe 'Customer views order proposal' do
 
     proposal_past_date = 1.day.ago.strftime('%d/%m/%Y')
 
+    Timecop.travel(2.day.ago)
+
     Proposal.create!(order:, event:, event_cost:, customer:, cost: 690_000, validate_date: proposal_past_date,
                      price_change: -40_000, price_change_details: 'Gosto de múltiplos de 500',
                      payment: 'Cartão de Débito')
+
+    Timecop.travel(2.day.from_now)
 
     login_as customer, scope: :customer
     visit root_path

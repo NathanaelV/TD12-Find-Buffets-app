@@ -1,3 +1,15 @@
 <h1>Editar <%= @buffet.brand_name %></h1>
 
+<% if @buffet_errors.present? %>
+  <p>Atente-se aos erros abaixo:</p>
+
+  <ul>
+    
+    <% @buffet_errors.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    
+  </ul>
+<% end %>
+
 <%= render partial: 'form' %>

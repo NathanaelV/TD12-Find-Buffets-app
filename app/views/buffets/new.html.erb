@@ -1,5 +1,18 @@
 <h1>Cadastrar Buffet</h1>
 
+
+<% if @buffet_errors.present? %>
+  <p>Atente-se aos erros abaixo:</p>
+
+  <ul>
+    
+    <% @buffet_errors.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    
+  </ul>
+<% end %>
+
 <div>
   <%= render partial: 'form'  %>
 </div>

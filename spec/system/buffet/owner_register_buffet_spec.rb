@@ -41,6 +41,7 @@ describe 'Owner regiters buffet' do
 
   it 'view form the owner already has a buffet' do
     owner = Owner.create!(name: 'Splinter Yoshi', email: 'splinter@email.com', password: 'password')
+
     buffet = Buffet.create!(brand_name: 'Teenage Mutant Ninja Turtles', corporate_name: 'TMNT Splinter LTDA',
                             registration_number: '88392017000182', phone: '11912341234',
                             email: 'contato@tmntsplinter.com', address: 'Rua Estados Unidos, 1030 - Jardins',
@@ -52,5 +53,26 @@ describe 'Owner regiters buffet' do
 
     expect(page).to have_content 'Teenage Mutant Ninja Turtles'
     expect(current_path).to eq buffet_path(buffet)
+  end
+
+  it 'and leaves some fields blank' do
+    owner = Owner.create!(name: 'Splinter Yoshi', email: 'splinter@email.com', password: 'password')
+
+    login_as owner, scope: :owner
+    visit new_buffet_path
+    click_on 'Criar Buffet'
+
+    expect(page).to have_content 'Atente-se aos erros abaixo:'
+    expect(page).to have_content 'Nome fantasia não pode ficar em branco'
+    expect(page).to have_content 'Razão social não pode ficar em branco'
+    expect(page).to have_content 'CNPJ não pode ficar em branco'
+    expect(page).to have_content 'Telefone não pode ficar em branco'
+    expect(page).to have_content 'E-mail não pode ficar em branco'
+    expect(page).to have_content 'Endereço não pode ficar em branco'
+    expect(page).to have_content 'Cidade não pode ficar em branco'
+    expect(page).to have_content 'Estado não pode ficar em branco'
+    expect(page).to have_content 'CEP não pode ficar em branco'
+    expect(page).to have_content 'Formas de pagamento não pode ficar em branco'
+    expect(page).not_to have_content 'Proprietário é obrigatório(a)'
   end
 end

@@ -1,28 +1,40 @@
 <h1>Proposta para o cliente</h1>
 
+
+<% if @proposal_errors.present? %>
+  <p>Atente-se aos erros abaixo:</p>
+
+  <ul>
+    <% @proposal_errors.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+  
+<% end %>
+
 <%= form_with model: [@order, @proposal] do |f| %>
   <div>
-    <%= f.label :cost, 'Valor final' %>
+    <%= f.label :cost %>
     <%= f.number_field :cost %>
   </div>
 
   <div>
-    <%= f.label :validate_date, 'Data de expiração' %>
-    <%= f.number_field :validate_date %>
+    <%= f.label :validate_date %>
+    <%= f.date_field :validate_date %>
   </div>
 
   <div>
-    <%= f.label :price_change, 'Taxa/Desconto' %>
+    <%= f.label :price_change %>
     <%= f.number_field :price_change %>
   </div>
 
   <div>
-    <%= f.label :price_change_details, 'Justificativa' %>
+    <%= f.label :price_change_details %>
     <%= f.number_field :price_change_details %>
   </div>
 
   <div>
-    <%= f.label :payment, 'Forma de pagamento' %>
+    <%= f.label :payment %>
     <%= f.number_field :payment %>
   </div>
 
