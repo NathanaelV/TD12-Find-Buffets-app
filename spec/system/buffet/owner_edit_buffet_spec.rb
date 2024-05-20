@@ -104,6 +104,23 @@ describe 'Buffet owner edit Buffet' do
     expect(page).not_to have_content 'Proprietário é obrigatório(a)'
   end
 
+  it 'back button' do
+    owner = Owner.create!(name: 'Splinter Yoshi', email: 'splinter@email.com', password: 'password')
+    buffet = Buffet.create!(brand_name: 'Teenage Mutant Ninja Turtles', corporate_name: 'TMNT Splinter LTDA',
+                   registration_number: '88392017000182', phone: '11912341234',
+                   email: 'contato@tmntsplinter.com', address: 'Rua Estados Unidos, 1030 - Jardins',
+                   city: 'São Paulo', state: 'SP', zip_code: '01234123',
+                   description: 'Melhor Buffet da região. Cowabunga', payment: 'PIX', owner:)
+
+    login_as owner, scope: :owner
+    visit root_path
+    click_on 'Teenage Mutant Ninja Turtles'
+    click_on 'Editar Buffet'
+    click_on 'Voltar para Buffet'
+
+    expect(current_path).to eq buffet_path(buffet)
+  end
+
   xit 'if it is yours' do
   end
 end
