@@ -1,0 +1,19 @@
+pt-BR:
+  activerecord:
+    attributes:
+      proposal:
+        cost: Valor final
+        validate_date: Data de expiração
+        price_change: Taxa/Desconto
+        price_change_details: Justificativa
+        payment: Forma de pagamento
+        event: Evento
+        event_id: Evento
+        event_cost: Custos do evento
+        event_cost_id: Custos do evento
+        order: Pedido
+        order_id: Pedido
+    models:
+      proposal:
+        one: Proposta
+        other: Propostas

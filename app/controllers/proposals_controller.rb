@@ -21,6 +21,7 @@ class ProposalsController < ApplicationController
       notice = "Proposta enviada com sucesso, para o pedido: #{I18n.l @order.event_date} - #{@order.code}"
       redirect_to orders_path, notice:
     else
+      @proposal_errors = @proposal.errors.full_messages
       render :new
     end
   end

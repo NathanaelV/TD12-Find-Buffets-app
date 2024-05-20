@@ -12,4 +12,8 @@ RSpec.describe Proposal, type: :model do
       expect(proposal.errors).to include :payment
     end
   end
+
+  xit 'validate fields' do
+    # Cost needs to be positive. Try it with negative number
+  end
 end

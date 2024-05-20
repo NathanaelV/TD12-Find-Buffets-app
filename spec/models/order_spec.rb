@@ -16,4 +16,10 @@ RSpec.describe Order, type: :model do
       expect(order.errors).to include :event_id
     end
   end
+
+  xit 'code needs to be created' do
+  end
+
+  xit 'status needs to be created as pending' do
+  end
 end
