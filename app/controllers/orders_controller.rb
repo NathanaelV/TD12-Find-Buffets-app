@@ -33,6 +33,7 @@ class OrdersController < ApplicationController
     if @order.save
       redirect_to @order, notice: 'Pedido realizado com sucesso. Aguardar aprovação do Buffet'
     else
+      @order_errors = @order.errors.full_messages
       render :new
     end
   end
