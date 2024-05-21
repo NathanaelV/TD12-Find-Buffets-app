@@ -1,5 +1,9 @@
 <h1>Editar <%= @event_cost.description %></h1>
 
+<div>
+  <p><%= link_to 'Voltar para Evento', @event %></p>
+</div>
+
 <% if @event_cost_errors.present? %>
   <p>Atente-se aos erros abaixo:</p>
 
