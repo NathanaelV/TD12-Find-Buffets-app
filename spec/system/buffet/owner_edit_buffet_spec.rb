@@ -101,16 +101,36 @@ describe 'Buffet owner edit Buffet' do
     expect(page).not_to have_content 'Proprietário é obrigatório(a)'
   end
 
-  xit 'if it is yours' do
+  it 'if it is yours' do
+    owner = Owner.create!(name: 'Splinter Yoshi', email: 'splinter@email.com', password: 'password')
+    phoenix = Owner.create!(name: 'Phoenix Ikki', email: 'phoenix.ikki@saint.com', password: 'phoenix.ikki123')
+
+    buffet = Buffet.create!(brand_name: 'Teenage Mutant Ninja Turtles', corporate_name: 'TMNT Splinter LTDA',
+                            registration_number: '88392017000182', phone: '11912341234',
+                            email: 'contato@tmntsplinter.com', address: 'Rua Estados Unidos, 1030 - Jardins',
+                            city: 'São Paulo', state: 'SP', zip_code: '01234123',
+                            description: 'Melhor Buffet da região. Cowabunga', payment: 'PIX', owner:)
+
+    saint_seiya = Buffet.create!(brand_name: 'Os Cavaleiro dos Zodíacos', corporate_name: 'Saint Seiya LTDA',
+                                 registration_number: '12192017000312', phone: '11905051212',
+                                 email: 'contato@saintseiya.com', address: 'Estrada das 12 casas, 12 - Grécia',
+                                 city: 'São Paulo', state: 'SP', zip_code: '01212005',
+                                 description: 'Venha elevar o seu cosmo conosco.',
+                                 payment: 'PIX, Cartão de Débito, Cartão de Crédito', owner: phoenix)
+
+    login_as phoenix, scope: :owner
+    visit edit_buffet_path(buffet)
+
+    expect(current_path).to eq buffet_path(saint_seiya)
   end
 
   it 'back button' do
     owner = Owner.create!(name: 'Splinter Yoshi', email: 'splinter@email.com', password: 'password')
     buffet = Buffet.create!(brand_name: 'Teenage Mutant Ninja Turtles', corporate_name: 'TMNT Splinter LTDA',
-                   registration_number: '88392017000182', phone: '11912341234',
-                   email: 'contato@tmntsplinter.com', address: 'Rua Estados Unidos, 1030 - Jardins',
-                   city: 'São Paulo', state: 'SP', zip_code: '01234123',
-                   description: 'Melhor Buffet da região. Cowabunga', payment: 'PIX', owner:)
+                            registration_number: '88392017000182', phone: '11912341234',
+                            email: 'contato@tmntsplinter.com', address: 'Rua Estados Unidos, 1030 - Jardins',
+                            city: 'São Paulo', state: 'SP', zip_code: '01234123',
+                            description: 'Melhor Buffet da região. Cowabunga', payment: 'PIX', owner:)
 
     login_as owner, scope: :owner
     visit root_path

@@ -68,4 +68,7 @@ describe 'Owner view events' do
 
     expect(current_path).to eq buffet_path(buffet)
   end
+
+  xit 'if it yours' do
+  end
 end
