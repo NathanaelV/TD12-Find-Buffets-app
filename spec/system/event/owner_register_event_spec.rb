@@ -124,17 +124,14 @@ describe 'Buffet owner register event' do
     expect(page).not_to have_content 'Duração não pode ficar em branco'
   end
 
-  xit 'if it is yours' do
-  end
-
   it 'back button to buffet' do
     owner = Owner.create!(name: 'Splinter', email: 'splinter@email.com', password: 'password')
 
     buffet = Buffet.create!(brand_name: 'Teenage Mutant Ninja Turtles', corporate_name: 'TMNT Splinter LTDA',
-                   registration_number: '88392017000182', phone: '11912341234',
-                   email: 'contato@tmntsplinter.com', address: 'Rua Estados Unidos, 1030 - Jardins',
-                   city: 'São Paulo', state: 'SP', zip_code: '01234123',
-                   description: 'Melhor Buffet da região. Cowabunga', payment: 'PIX, Cartão de Débito', owner:)
+                            registration_number: '88392017000182', phone: '11912341234',
+                            email: 'contato@tmntsplinter.com', address: 'Rua Estados Unidos, 1030 - Jardins',
+                            city: 'São Paulo', state: 'SP', zip_code: '01234123',
+                            description: 'Melhor Buffet da região. Cowabunga', payment: 'PIX, Cartão de Débito', owner:)
 
     login_as owner, scope: :owner
     visit root_path
