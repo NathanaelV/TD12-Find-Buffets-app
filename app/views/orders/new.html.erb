@@ -1,5 +1,8 @@
 <h1>Contratar <%= @event.name %></h1>
 
+<div>
+  <p><%= link_to 'Voltar para Evento', @event %></p>
+</div>
 
 <% if @order_errors.present? %>
   <p>Atente-se aos erros abaixo:</p>
