@@ -9,6 +9,8 @@ class ProposalsController < ApplicationController
 
   def new
     @order = Order.find(params[:order_id])
+    redirect_to orders_path if current_owner != @order.buffet.owner
+
     @proposal = Proposal.new
     @proposal.cost = event_cost_calculate
   end
