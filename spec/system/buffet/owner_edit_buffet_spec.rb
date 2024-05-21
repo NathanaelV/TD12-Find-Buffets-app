@@ -11,7 +11,6 @@ describe 'Buffet owner edit Buffet' do
 
     login_as owner, scope: :owner
     visit root_path
-    click_on 'Teenage Mutant Ninja Turtles'
     click_on 'Editar Buffet'
 
     expect(page).to have_content 'Editar Teenage Mutant Ninja Turtles'
@@ -37,7 +36,6 @@ describe 'Buffet owner edit Buffet' do
 
     login_as owner, scope: :owner
     visit root_path
-    click_on 'Teenage Mutant Ninja Turtles'
     click_on 'Editar Buffet'
     fill_in 'Nome fantasia', with: 'Turma do Smilingüido'
     fill_in 'Razão social', with: 'Smilingüido e sua turma LTDA'
@@ -75,7 +73,6 @@ describe 'Buffet owner edit Buffet' do
 
     login_as owner, scope: :owner
     visit root_path
-    click_on 'Teenage Mutant Ninja Turtles'
     click_on 'Editar Buffet'
     fill_in 'Nome fantasia', with: ''
     fill_in 'Razão social', with: ''
@@ -117,7 +114,6 @@ describe 'Buffet owner edit Buffet' do
 
     login_as owner, scope: :owner
     visit root_path
-    click_on 'Teenage Mutant Ninja Turtles'
     click_on 'Editar Buffet'
     click_on 'Voltar para Buffet'
 

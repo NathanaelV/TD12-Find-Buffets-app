@@ -11,7 +11,6 @@ describe 'Buffet owner register event' do
 
     login_as owner, scope: :owner
     visit root_path
-    click_on 'Teenage Mutant Ninja Turtles'
     click_on 'Criar Evento'
 
     expect(page).to have_content 'Cadastrar Evento'
@@ -39,7 +38,6 @@ describe 'Buffet owner register event' do
 
     login_as owner, scope: :owner
     visit root_path
-    click_on 'Teenage Mutant Ninja Turtles'
     click_on 'Criar Evento'
     fill_in 'Nome',	with: 'Festa infantil'
     fill_in 'Descrição',	with: 'Festa para crianças com temática TMNT'
@@ -79,7 +77,6 @@ describe 'Buffet owner register event' do
 
     login_as owner, scope: :owner
     visit root_path
-    click_on 'Teenage Mutant Ninja Turtles'
     click_on 'Criar Evento'
     fill_in 'Nome',	with: ''
     fill_in 'Descrição',	with: ''
@@ -112,7 +109,6 @@ describe 'Buffet owner register event' do
 
     login_as owner, scope: :owner
     visit root_path
-    click_on 'Teenage Mutant Ninja Turtles'
     click_on 'Criar Evento'
     fill_in 'Mínimo de pessoas',	with: '-1'
     fill_in 'Máximo de pessoas', with: '-1'
@@ -142,7 +138,6 @@ describe 'Buffet owner register event' do
 
     login_as owner, scope: :owner
     visit root_path
-    click_on 'Teenage Mutant Ninja Turtles'
     click_on 'Criar Evento'
     click_on 'Voltar para Buffet'
 

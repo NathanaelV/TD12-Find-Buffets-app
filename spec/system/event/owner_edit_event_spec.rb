@@ -36,7 +36,6 @@ describe 'Owner edit events' do
 
     login_as owner, scope: :owner
     visit root_path
-    click_on 'Teenage Mutant Ninja Turtles'
     click_on 'Festa infantil'
     click_on 'Editar Evento'
 
@@ -69,7 +68,6 @@ describe 'Owner edit events' do
 
     login_as owner, scope: :owner
     visit root_path
-    click_on 'Teenage Mutant Ninja Turtles'
     click_on 'Festa de casamento'
     click_on 'Editar Evento'
     fill_in 'Nome',	with: 'Festa infantil'
@@ -111,7 +109,6 @@ describe 'Owner edit events' do
 
     login_as owner, scope: :owner
     visit root_path
-    click_on 'Teenage Mutant Ninja Turtles'
     click_on 'Festa de casamento'
     click_on 'Editar Evento'
     fill_in 'Nome',	with: ''
@@ -149,7 +146,6 @@ describe 'Owner edit events' do
 
     login_as owner, scope: :owner
     visit root_path
-    click_on 'Teenage Mutant Ninja Turtles'
     click_on 'Festa de casamento'
     click_on 'Editar Evento'
     fill_in 'Mínimo de pessoas',	with: '-1'
@@ -184,7 +180,6 @@ describe 'Owner edit events' do
 
     login_as owner, scope: :owner
     visit root_path
-    click_on 'Teenage Mutant Ninja Turtles'
     click_on 'Festa de casamento'
     click_on 'Editar Evento'
     click_on 'Voltar para Evento'

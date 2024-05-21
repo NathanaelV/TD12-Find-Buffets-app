@@ -16,7 +16,6 @@ describe 'Owner register event cost' do
 
     login_as owner, scope: :owner
     visit root_path
-    click_on 'Teenage Mutant Ninja Turtles'
     click_on 'Festa de casamento'
     click_on 'Adicionar Custos do Evento'
 
@@ -42,7 +41,6 @@ describe 'Owner register event cost' do
 
     login_as owner, scope: :owner
     visit root_path
-    click_on 'Teenage Mutant Ninja Turtles'
     click_on 'Festa de casamento'
     click_on 'Adicionar Custos do Evento'
     fill_in 'Descrição',	with: 'Fim de semana'
@@ -74,7 +72,6 @@ describe 'Owner register event cost' do
 
     login_as owner, scope: :owner
     visit root_path
-    click_on 'Teenage Mutant Ninja Turtles'
     click_on 'Festa de casamento'
     click_on 'Adicionar Custos do Evento'
     fill_in 'Descrição',	with: ''
@@ -103,7 +100,6 @@ describe 'Owner register event cost' do
 
     login_as owner, scope: :owner
     visit root_path
-    click_on 'Teenage Mutant Ninja Turtles'
     click_on 'Festa de casamento'
     click_on 'Adicionar Custos do Evento'
     fill_in 'Descrição', with: 'Fim de semana'
@@ -137,7 +133,6 @@ describe 'Owner register event cost' do
 
     login_as owner, scope: :owner
     visit root_path
-    click_on 'Teenage Mutant Ninja Turtles'
     click_on 'Festa de casamento'
     click_on 'Adicionar Custos do Evento'
     click_on 'Voltar para Evento'

@@ -19,7 +19,6 @@ describe 'Owner update Event Cost' do
 
     login_as owner, scope: :owner
     visit root_path
-    click_on 'Teenage Mutant Ninja Turtles'
     click_on 'Festa de casamento'
     within('div#dias-de-semana') do
       click_on 'Editar'
@@ -51,7 +50,6 @@ describe 'Owner update Event Cost' do
 
     login_as owner, scope: :owner
     visit root_path
-    click_on 'Teenage Mutant Ninja Turtles'
     click_on 'Festa de casamento'
     within('div#dias-de-semana') do
       click_on 'Editar'
@@ -87,7 +85,6 @@ describe 'Owner update Event Cost' do
 
     login_as owner, scope: :owner
     visit root_path
-    click_on 'Teenage Mutant Ninja Turtles'
     click_on 'Festa de casamento'
     within '#dias-de-semana' do
       click_on 'Editar'
@@ -127,7 +124,6 @@ describe 'Owner update Event Cost' do
 
     login_as owner, scope: :owner
     visit root_path
-    click_on 'Teenage Mutant Ninja Turtles'
     click_on 'Festa de casamento'
     within '#dias-de-semana' do
       click_on 'Editar'
@@ -163,7 +159,6 @@ describe 'Owner update Event Cost' do
 
     login_as owner, scope: :owner
     visit root_path
-    click_on 'Teenage Mutant Ninja Turtles'
     click_on 'Festa de casamento'
     within '#dias-de-semana' do
       click_on 'Editar'

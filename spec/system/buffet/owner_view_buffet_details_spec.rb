@@ -11,7 +11,6 @@ describe 'Buffet Owner view buffet details' do
 
     login_as owner, scope: :owner
     visit root_path
-    click_on 'Teenage Mutant Ninja Turtles'
 
     expect(page).to have_content 'Buffet Teenage Mutant Ninja Turtles'
     expect(page).to have_content 'Razão social: TMNT Splinter LTDA'

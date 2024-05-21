@@ -16,7 +16,6 @@ describe 'Owner view events' do
 
     login_as owner, scope: :owner
     visit root_path
-    click_on 'Teenage Mutant Ninja Turtles'
     click_on 'Festa infantil'
 
     expect(page).to have_content 'Festa infantil'
@@ -43,7 +42,6 @@ describe 'Owner view events' do
 
     login_as owner, scope: :owner
     visit root_path
-    click_on 'Teenage Mutant Ninja Turtles'
 
     expect(page).to have_content 'Nenhum evento cadastrado!'
     expect(page).to have_content 'Clique aqui para cadastrar um evento.'
@@ -65,7 +63,6 @@ describe 'Owner view events' do
 
     login_as owner, scope: :owner
     visit root_path
-    click_on 'Teenage Mutant Ninja Turtles'
     click_on 'Festa infantil'
     click_on 'Voltar para Buffet'
 
