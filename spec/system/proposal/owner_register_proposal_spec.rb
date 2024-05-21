@@ -145,7 +145,7 @@ describe 'Owner register proposal' do
                             city: 'São Paulo', state: 'SP', zip_code: '01234123',
                             description: 'Melhor Buffet da região. Cowabunga', payment: 'PIX, Cartão de Débito', owner:)
 
-    Buffet.create!(brand_name: 'Os Cavaleiro dos Zodíacos', corporate_name: 'Saint Seiya LTDA',
+    saint_seiya = Buffet.create!(brand_name: 'Os Cavaleiro dos Zodíacos', corporate_name: 'Saint Seiya LTDA',
                    registration_number: '12192017000312', phone: '11905051212', email: 'contato@saintseiya.com',
                    address: 'Estrada das 12 casas, 12 - Grécia', city: 'São Paulo', state: 'SP', zip_code: '01212005',
                    description: 'Venha elevar o seu cosmo conosco.',
@@ -168,7 +168,7 @@ describe 'Owner register proposal' do
     login_as phoenix, scope: :owner
     visit new_order_proposal_path(order)
 
-    expect(current_path).to eq root_path
+    expect(current_path).to eq buffet_path(saint_seiya)
   end
 
   it 'click on back button' do
