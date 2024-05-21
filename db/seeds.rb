@@ -10,10 +10,9 @@
 
 # Owner
 leo_yoshi = Owner.create!(name: 'Leonardo Yoshi', email: 'leonardo.yoshi@email.com', password: 'leonardo123')
-Owner.create!(name: 'Casey Jones', email: 'casey.jones@email.com', password: 'casey.jones123')
 phoenix = Owner.create!(name: 'Phoenix Ikki', email: 'phoenix.ikki@saint.com', password: 'phoenix.ikki123')
 batman = Owner.create!(name: 'Bruce Wayne', email: 'bruce.wayne@dccomix.com', password: 'nanananana_batman!')
-Owner.create!(name: 'Clark Kent', email: 'clark.kent@dccomix.com', password: 'superman123')
+Owner.create!(name: 'Casey Jones', email: 'casey.jones@email.com', password: 'casey.jones123')
 
 # Customer
 customer = Customer.create!(name: 'Donatello Hamato', cpf: '599.622.000-83', email: 'donatello@email.com',
