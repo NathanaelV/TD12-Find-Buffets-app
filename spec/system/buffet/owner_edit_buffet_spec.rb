@@ -104,6 +104,9 @@ describe 'Buffet owner edit Buffet' do
     expect(page).not_to have_content 'Proprietário é obrigatório(a)'
   end
 
+  xit 'if it is yours' do
+  end
+
   it 'back button' do
     owner = Owner.create!(name: 'Splinter Yoshi', email: 'splinter@email.com', password: 'password')
     buffet = Buffet.create!(brand_name: 'Teenage Mutant Ninja Turtles', corporate_name: 'TMNT Splinter LTDA',
@@ -119,8 +122,5 @@ describe 'Buffet owner edit Buffet' do
     click_on 'Voltar para Buffet'
 
     expect(current_path).to eq buffet_path(buffet)
-  end
-
-  xit 'if it is yours' do
   end
 end
