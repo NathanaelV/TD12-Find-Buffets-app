@@ -125,7 +125,40 @@ describe 'Owner view order' do
     expect(page).not_to have_content "#{second_future_date} - #{third_order.code}"
   end
 
-  xit 'if it is yours' do
+  it 'if it is yours' do
+    owner = Owner.create!(name: 'Splinter', email: 'splinter@email.com', password: 'password')
+    phoenix = Owner.create!(name: 'Phoenix Ikki', email: 'phoenix.ikki@saint.com', password: 'phoenix.ikki123')
+
+    buffet = Buffet.create!(brand_name: 'Teenage Mutant Ninja Turtles', corporate_name: 'TMNT Splinter LTDA',
+                            registration_number: '88392017000182', phone: '11912341234',
+                            email: 'contato@tmntsplinter.com', address: 'Rua Estados Unidos, 1030 - Jardins',
+                            city: 'São Paulo', state: 'SP', zip_code: '01234123',
+                            description: 'Melhor Buffet da região. Cowabunga', payment: 'PIX, Cartão de Débito', owner:)
+
+    Buffet.create!(brand_name: 'Os Cavaleiro dos Zodíacos', corporate_name: 'Saint Seiya LTDA',
+                   registration_number: '12192017000312', phone: '11905051212', email: 'contato@saintseiya.com',
+                   address: 'Estrada das 12 casas, 12 - Grécia', city: 'São Paulo', state: 'SP', zip_code: '01212005',
+                   description: 'Venha elevar o seu cosmo conosco.',
+                   payment: 'PIX, Cartão de Débito, Cartão de Crédito', owner: phoenix)
+
+    event = Event.create!(name: 'Festa de casamento', description: 'Festa de casamento dos sonhos', min_people: 10,
+                          max_people: 100, duration: 420, menu: 'Pizza', alcoholic_beverages: true, decoration: true,
+                          parking: true, parking_valet: true, customer_space: true, buffet:)
+
+    EventCost.create!(description: 'Dias de semana', minimum: 200_000, additional_per_person: 7_000, overtime: 100_000,
+                      event:)
+
+    customer = Customer.create!(name: 'Dragon Shiryu', cpf: '665.455.630-50', email: 'shiryu@email.com',
+                                password: 'shiryu123')
+
+    future_date = 2.week.from_now.strftime('%d/%m/%Y')
+    order = Order.create!(event_date: future_date, people: 80, details: 'Dia especial', address: 'Sítio', buffet:,
+                          customer:, event:)
+
+    login_as phoenix, scope: :owner
+    visit order_path(order)
+
+    expect(current_path).to eq root_path
   end
 
   it 'and click on back button' do

@@ -168,7 +168,7 @@ describe 'Owner register proposal' do
     login_as phoenix, scope: :owner
     visit new_order_proposal_path(order)
 
-    expect(current_path).to eq orders_path
+    expect(current_path).to eq root_path
   end
 
   it 'click on back button' do
