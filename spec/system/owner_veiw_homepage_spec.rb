@@ -25,4 +25,10 @@ describe 'Owner view homepage' do
     expect(page).to have_content 'Teenage Mutant Ninja Turtles'
     expect(page).to have_link 'Teenage Mutant Ninja Turtles', href: buffet_path(buffet)
   end
+
+  xit 'and is redirect to his buffet' do
+    # Add on home#index: redirect_to current_owner.buffet if owner_signed_in?
+    # current_path to eq buffet_path(buffet)
+    # Other texts on show buffet
+  end
 end

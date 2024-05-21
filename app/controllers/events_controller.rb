@@ -3,10 +3,12 @@ class EventsController < ApplicationController
   before_action :set_event, only: %i[show edit update destroy]
 
   def show
+    @buffet = @event.buffet
     @event_costs = @event.event_costs
   end
 
   def new
+    @buffet = current_owner.buffet
     @event = Event.new
   end
 
