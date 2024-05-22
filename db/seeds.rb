@@ -58,12 +58,14 @@ Event.find_or_create_by!(name: 'Coffee Break', description: 'Coffee Break para c
 # Event Cost
 event_cost = EventCost.find_or_create_by!(description: 'Dias de semana', minimum: 200_000, additional_per_person: 7_000,
                                           overtime: 100_000, event:)
+
 EventCost.find_or_create_by!(description: 'Fim de semana', minimum: 400_000, additional_per_person: 14_000,
                              overtime: 200_000, event:)
 
 # Order
 order = Order.find_or_create_by!(event_date: 2.month.from_now.strftime('%d/%m/%Y'), people: 80, details: 'Dia especial',
                                  address: 'Sítio do Barnabé', buffet:, customer:, event:)
+
 Order.find_or_create_by!(event_date: 3.month.from_now.strftime('%d/%m/%Y'), people: 80, details: 'Dia especial',
                          address: 'No Próprio Buffet', buffet:, customer:, event:, status: :approved)
 

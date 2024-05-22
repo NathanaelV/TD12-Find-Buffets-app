@@ -1,4 +1,6 @@
 class OrdersController < ApplicationController
+  before_action :authenticate_customer!, only: %i[create]
+
   def index
     if owner_signed_in?
       @buffet = current_owner.buffet
