@@ -1,7 +1,7 @@
 class EventsController < ApplicationController
   before_action :authenticate_owner!, except: %i[show]
   before_action :set_event, only: %i[show edit update destroy]
-  before_action :redirect_to_buffet, only: %i[edit show]
+  before_action :redirect_to_buffet, only: %i[show edit update destroy]
 
   def show
     @buffet = @event.buffet
