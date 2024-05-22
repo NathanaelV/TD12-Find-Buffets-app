@@ -95,7 +95,7 @@ describe 'Customer register order' do
     expect(page).to have_content 'Número de pessoas: 80'
   end
 
-  it 'successfully' do
+  it 'fields cannot be blank' do
     owner = Owner.create!(name: 'Splinter', email: 'splinter@email.com', password: 'password')
 
     buffet = Buffet.create!(brand_name: 'Teenage Mutant Ninja Turtles', corporate_name: 'TMNT Splinter LTDA',
