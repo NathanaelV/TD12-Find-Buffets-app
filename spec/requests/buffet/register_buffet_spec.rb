@@ -13,8 +13,7 @@ describe 'Register Buffet' do
     body = { buffet: { id: 3, brand_name: 'Teen Titans', corporate_name: 'Justice League Teens',
                        registration_number: '70849145000147', phone: '11900001111', email: 'contato@teentitans.com',
                        address: 'Torre T, s/n - Ilha', city: 'Florianópolis', state: 'SC', zip_code: '88000-123',
-                       description: 'Batman é o melhor.', payment: 'PIX, Cartão de Débito, Cartão de Crédito',
-                       owner_id: 3 } }
+                       description: 'Batman é o melhor.', payment: 'PIX, Cartão de Débito, Cartão de Crédito' } }
 
     login_as owner, scope: :owner
     post(buffets_path, params: body)
@@ -37,8 +36,7 @@ describe 'Register Buffet' do
     body = { buffet: { id: 3, brand_name: 'Teen Titans', corporate_name: 'Justice League Teens',
                        registration_number: '70849145000147', phone: '11900001111', email: 'contato@teentitans.com',
                        address: 'Torre T, s/n - Ilha', city: 'Florianópolis', state: 'SC', zip_code: '88000-123',
-                       description: 'Batman é o melhor.', payment: 'PIX, Cartão de Débito, Cartão de Crédito',
-                       owner_id: 3 } }
+                       description: 'Batman é o melhor.', payment: 'PIX, Cartão de Débito, Cartão de Crédito' } }
 
     login_as customer, scope: :customer
     post(buffets_path, params: body)
@@ -58,8 +56,7 @@ describe 'Register Buffet' do
     body = { buffet: { id: 3, brand_name: 'Teen Titans', corporate_name: 'Justice League Teens',
                        registration_number: '70849145000147', phone: '11900001111', email: 'contato@teentitans.com',
                        address: 'Torre T, s/n - Ilha', city: 'Florianópolis', state: 'SC', zip_code: '88000-123',
-                       description: 'Batman é o melhor.', payment: 'PIX, Cartão de Débito, Cartão de Crédito',
-                       owner_id: 3 } }
+                       description: 'Batman é o melhor.', payment: 'PIX, Cartão de Débito, Cartão de Crédito' } }
 
     post(buffets_path, params: body)
 

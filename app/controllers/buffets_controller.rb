@@ -1,7 +1,7 @@
 class BuffetsController < ApplicationController
   before_action :authenticate_owner!, except: %i[show index]
   before_action :set_buffet, only: %i[show edit update]
-  before_action :redirect_buffet_owner, only: %i[show edit]
+  before_action :redirect_buffet_owner, only: %i[show edit update]
 
   def index
     @query = params[:query]
