@@ -1,7 +1,8 @@
 class EventCostsController < ApplicationController
+  before_action :authenticate_owner!
   before_action :set_event, only: %i[new create edit update]
   before_action :set_event_cost, only: %i[edit update]
-  before_action :redirect_to_buffet, only: %i[new edit]
+  before_action :redirect_to_buffet, only: %i[new create edit update]
 
   def new
     @event_cost = EventCost.new
