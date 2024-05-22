@@ -26,8 +26,14 @@ class BuffetsController < ApplicationController
   end
 
   def create
+    if current_owner.buffet
+      redirect_to current_owner.buffet
+      return
+    end
+
     @buffet = Buffet.new(buffet_params)
     @buffet.owner = current_owner
+
     if @buffet.save
       redirect_to @buffet, notice: 'Buffet criado com sucesso!'
     else
