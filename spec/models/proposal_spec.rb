@@ -13,7 +13,14 @@ RSpec.describe Proposal, type: :model do
     end
   end
 
-  xit 'validate fields' do
-    # Cost needs to be positive. Try it with negative number
+  it 'validate fields' do
+    proposal = Proposal.new(cost: -1, validate_date: 1.day.ago)
+
+    proposal.valid?
+
+    expect(proposal.errors.full_messages).to include 'Valor final deve ser positivo'
+    expect(proposal.errors.full_messages).to include 'Data de expiração deve ser futura'
+    expect(proposal.errors.full_messages).not_to include 'Data de expiração não pode ficar em branco'
+    expect(proposal.errors.full_messages).not_to include 'Valor final não pode ficar em branco'
   end
 end

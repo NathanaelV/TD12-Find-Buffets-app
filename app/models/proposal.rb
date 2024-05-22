@@ -18,12 +18,12 @@ class Proposal < ApplicationRecord
   def cost_positive
     return if cost&.positive?
 
-    errors.add(:cost, ' deve ser positivo')
+    errors.add(:cost, 'deve ser positivo')
   end
 
   def validate_date_future
     return if validate_date && validate_date > Date.today
 
-    errors.add(:validate_date, ' deve ser futura')
+    errors.add(:validate_date, 'deve ser futura')
   end
 end

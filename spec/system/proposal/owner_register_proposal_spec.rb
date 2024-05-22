@@ -146,8 +146,9 @@ describe 'Owner register proposal' do
                             description: 'Melhor Buffet da região. Cowabunga', payment: 'PIX, Cartão de Débito', owner:)
 
     saint_seiya = Buffet.create!(brand_name: 'Os Cavaleiro dos Zodíacos', corporate_name: 'Saint Seiya LTDA',
-                                 registration_number: '12192017000312', phone: '11905051212', email: 'contato@saintseiya.com',
-                                 address: 'Estrada das 12 casas, 12 - Grécia', city: 'São Paulo', state: 'SP', zip_code: '01212005',
+                                 registration_number: '12192017000312', phone: '11905051212', 
+                                 email: 'contato@saintseiya.com', address: 'Estrada das 12 casas, 12 - Grécia',
+                                 city: 'São Paulo', state: 'SP', zip_code: '01212005',
                                  description: 'Venha elevar o seu cosmo conosco.',
                                  payment: 'PIX, Cartão de Débito, Cartão de Crédito', owner: phoenix)
 
