@@ -19,12 +19,12 @@ class Order < ApplicationRecord
   def event_date_furute
     return if event_date && event_date > Date.today
 
-    errors.add(:event_date, ' deve ser futura')
+    errors.add(:event_date, 'deve ser futura')
   end
 
   def people_positive
     return if people&.positive?
 
-    errors.add(:people, ' deve ser positivo')
+    errors.add(:people, 'deve ser positivo')
   end
 end
