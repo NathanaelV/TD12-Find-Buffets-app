@@ -10,18 +10,18 @@ class Event < ApplicationRecord
   def min_people_positive
     return if min_people.to_i.positive?
 
-    errors.add(:min_people, ' deve ser positivo')
+    errors.add(:min_people, 'deve ser positivo')
   end
 
   def max_people_positive
     return if max_people.to_i.positive?
 
-    errors.add(:max_people, ' deve ser positivo')
+    errors.add(:max_people, 'deve ser positivo')
   end
 
   def duration_positive
     return if duration.to_i.positive?
 
-    errors.add(:duration, ' deve ser positivo')
+    errors.add(:duration, 'deve ser positivo')
   end
 end

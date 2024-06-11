@@ -63,7 +63,4 @@ describe 'Owner approves order' do
 
     expect(page).to have_link 'Aprovar pedido', href: new_order_proposal_path(order)
   end
-
-  xit 'if it is yours' do
-  end
 end

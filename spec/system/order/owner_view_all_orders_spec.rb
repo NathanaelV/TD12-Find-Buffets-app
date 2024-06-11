@@ -123,7 +123,7 @@ describe 'Owner view all orders' do
     expect(page).to have_content text_orders
   end
 
-  it 'if there is an order' do
+  it 'if there is no order' do
     owner = Owner.create!(name: 'Splinter', email: 'splinter@email.com', password: 'password')
 
     Buffet.create!(brand_name: 'Teenage Mutant Ninja Turtles', corporate_name: 'TMNT Splinter LTDA',
@@ -140,8 +140,5 @@ describe 'Owner view all orders' do
     expect(page).to have_content 'Nenhum evento pendente.'
     expect(page).to have_content 'Nenhum evento aprovado.'
     expect(page).to have_content 'Nenhum evento cancelado.'
-  end
-
-  xit 'if it is yours' do
   end
 end

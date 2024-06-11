@@ -1,4 +1,6 @@
 class OrdersController < ApplicationController
+  before_action :authenticate_customer!, only: %i[create]
+
   def index
     if owner_signed_in?
       @buffet = current_owner.buffet
@@ -15,6 +17,8 @@ class OrdersController < ApplicationController
   def show
     order_id = params[:id].to_i
     @order = Order.find(order_id)
+    redirect_to root_path unless current_owner == @order.buffet.owner || current_customer == @order.customer
+
     @conflicting_orders = Order.where(event_date: @order.event_date).reject { |order| order.id == order_id }
   end
 
