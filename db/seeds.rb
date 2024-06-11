@@ -9,7 +9,7 @@
 #   end
 
 # Owner
-leo_yoshi = Owner.create!(name: 'Leonardo Yoshi', email: 'leonardo.yoshi@email.com', password: 'leonardo123')
+leo_yoshi = Owner.create!(name: 'Leonardo Yoshi', email: 'leonardo.yoshi@tmnt.com', password: 'leonardo.yoshi123')
 phoenix = Owner.create!(name: 'Phoenix Ikki', email: 'phoenix.ikki@saint.com', password: 'phoenix.ikki123')
 batman = Owner.create!(name: 'Bruce Wayne', email: 'bruce.wayne@dccomix.com', password: 'nanananana_batman!')
 Owner.create!(name: 'Casey Jones', email: 'casey.jones@email.com', password: 'casey.jones123')

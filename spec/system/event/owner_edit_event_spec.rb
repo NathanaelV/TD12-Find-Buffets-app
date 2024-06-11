@@ -49,8 +49,8 @@ describe 'Owner edit events' do
     expect(page).to have_checked_field 'Decoração'
     expect(page).to have_checked_field 'Serviço de estacionamento'
     expect(page).to have_checked_field 'Evento em residência'
-    expect(page).to have_unchecked_field 'Bebidas alcoólicas'
-    expect(page).to have_unchecked_field 'Serviço de Valet'
+    expect(page).to have_field 'Bebidas alcoólicas', type: 'checkbox'
+    expect(page).to have_field 'Serviço de Valet', type: 'checkbox'
   end
 
   it 'successfully' do

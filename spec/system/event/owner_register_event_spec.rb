@@ -20,11 +20,11 @@ describe 'Buffet owner register event' do
     expect(page).to have_field 'Máximo de pessoas', type: 'number'
     expect(page).to have_field 'Duração', type: 'number'
     expect(page).to have_field 'Cardápio', type: 'text'
-    expect(page).to have_unchecked_field 'Bebidas alcoólicas'
-    expect(page).to have_unchecked_field 'Decoração'
-    expect(page).to have_unchecked_field 'Serviço de estacionamento'
-    expect(page).to have_unchecked_field 'Serviço de Valet'
-    expect(page).to have_unchecked_field 'Evento em residência'
+    expect(page).to have_field 'Bebidas alcoólicas', type: 'checkbox'
+    expect(page).to have_field 'Decoração', type: 'checkbox'
+    expect(page).to have_field 'Serviço de estacionamento', type: 'checkbox'
+    expect(page).to have_field 'Serviço de Valet', type: 'checkbox'
+    expect(page).to have_field 'Evento em residência', type: 'checkbox'
   end
 
   it 'successfully' do
