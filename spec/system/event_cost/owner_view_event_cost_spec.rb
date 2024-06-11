@@ -19,6 +19,7 @@ describe 'Owner view event cost' do
 
     login_as owner, scope: :owner
     visit root_path
+    click_on 'Teenage Mutant Ninja Turtles'
     click_on 'Festa de casamento'
 
     expect(page).to have_content 'Valores'
@@ -47,6 +48,7 @@ describe 'Owner view event cost' do
 
     login_as owner, scope: :owner
     visit root_path
+    click_on 'Teenage Mutant Ninja Turtles'
     click_on 'Festa de casamento'
 
     expect(page).to have_content 'Valores'

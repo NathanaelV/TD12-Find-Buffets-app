@@ -9,18 +9,18 @@ class EventCost < ApplicationRecord
   def minimum_positive
     return if minimum.to_i.positive?
 
-    errors.add(:minimum, 'deve ser positivo')
+    errors.add(:minimum, ' deve ser positivo')
   end
 
   def additional_per_person_positive
     return if additional_per_person.to_i.positive?
 
-    errors.add(:additional_per_person, 'deve ser positivo')
+    errors.add(:additional_per_person, ' deve ser positivo')
   end
 
   def overtime_positive
     return if overtime.to_i.positive?
 
-    errors.add(:overtime, 'deve ser positivo')
+    errors.add(:overtime, ' deve ser positivo')
   end
 end

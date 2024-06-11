@@ -1,8 +1,4 @@
 class ProposalsController < ApplicationController
-  before_action :authenticate_owner!, only: %i[create]
-  before_action :set_order, only: %i[new create]
-  before_action :redirect_to_buffet, only: %i[create new]
-
   def show
     @proposal = Proposal.find(params[:id])
     @order = @proposal.order
@@ -12,6 +8,7 @@ class ProposalsController < ApplicationController
   end
 
   def new
+    @order = Order.find(params[:order_id])
     @proposal = Proposal.new
     @proposal.cost = event_cost_calculate
   end
@@ -54,20 +51,12 @@ class ProposalsController < ApplicationController
     end
   end
 
-  def set_order
-    @order = Order.find(params[:order_id])
-  end
-
   def proposal_and_order_generate
+    @order = Order.find(params[:order_id])
     @proposal = Proposal.new(proposal_params)
     @proposal.order = @order
     @proposal.event = @order.event
     @proposal.event_cost = event_cost
     @proposal.customer = @order.customer
-  end
-
-  def redirect_to_buffet
-    owner_buffet = current_owner.buffet
-    redirect_to owner_buffet if owner_buffet != @order.buffet
   end
 end

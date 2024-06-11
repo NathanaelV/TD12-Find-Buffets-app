@@ -11,6 +11,7 @@ describe 'Buffet owner register event' do
 
     login_as owner, scope: :owner
     visit root_path
+    click_on 'Teenage Mutant Ninja Turtles'
     click_on 'Criar Evento'
 
     expect(page).to have_content 'Cadastrar Evento'
@@ -20,11 +21,11 @@ describe 'Buffet owner register event' do
     expect(page).to have_field 'Máximo de pessoas', type: 'number'
     expect(page).to have_field 'Duração', type: 'number'
     expect(page).to have_field 'Cardápio', type: 'text'
-    expect(page).to have_field 'Bebidas alcoólicas', type: 'checkbox'
-    expect(page).to have_field 'Decoração', type: 'checkbox'
-    expect(page).to have_field 'Serviço de estacionamento', type: 'checkbox'
-    expect(page).to have_field 'Serviço de Valet', type: 'checkbox'
-    expect(page).to have_field 'Evento em residência', type: 'checkbox'
+    expect(page).to have_unchecked_field 'Bebidas alcoólicas'
+    expect(page).to have_unchecked_field 'Decoração'
+    expect(page).to have_unchecked_field 'Serviço de estacionamento'
+    expect(page).to have_unchecked_field 'Serviço de Valet'
+    expect(page).to have_unchecked_field 'Evento em residência'
   end
 
   it 'successfully' do
@@ -38,6 +39,7 @@ describe 'Buffet owner register event' do
 
     login_as owner, scope: :owner
     visit root_path
+    click_on 'Teenage Mutant Ninja Turtles'
     click_on 'Criar Evento'
     fill_in 'Nome',	with: 'Festa infantil'
     fill_in 'Descrição',	with: 'Festa para crianças com temática TMNT'
@@ -77,6 +79,7 @@ describe 'Buffet owner register event' do
 
     login_as owner, scope: :owner
     visit root_path
+    click_on 'Teenage Mutant Ninja Turtles'
     click_on 'Criar Evento'
     fill_in 'Nome',	with: ''
     fill_in 'Descrição',	with: ''
@@ -109,6 +112,7 @@ describe 'Buffet owner register event' do
 
     login_as owner, scope: :owner
     visit root_path
+    click_on 'Teenage Mutant Ninja Turtles'
     click_on 'Criar Evento'
     fill_in 'Mínimo de pessoas',	with: '-1'
     fill_in 'Máximo de pessoas', with: '-1'
@@ -124,17 +128,21 @@ describe 'Buffet owner register event' do
     expect(page).not_to have_content 'Duração não pode ficar em branco'
   end
 
+  xit 'if it is yours' do
+  end
+
   it 'back button to buffet' do
     owner = Owner.create!(name: 'Splinter', email: 'splinter@email.com', password: 'password')
 
     buffet = Buffet.create!(brand_name: 'Teenage Mutant Ninja Turtles', corporate_name: 'TMNT Splinter LTDA',
-                            registration_number: '88392017000182', phone: '11912341234',
-                            email: 'contato@tmntsplinter.com', address: 'Rua Estados Unidos, 1030 - Jardins',
-                            city: 'São Paulo', state: 'SP', zip_code: '01234123',
-                            description: 'Melhor Buffet da região. Cowabunga', payment: 'PIX, Cartão de Débito', owner:)
+                   registration_number: '88392017000182', phone: '11912341234',
+                   email: 'contato@tmntsplinter.com', address: 'Rua Estados Unidos, 1030 - Jardins',
+                   city: 'São Paulo', state: 'SP', zip_code: '01234123',
+                   description: 'Melhor Buffet da região. Cowabunga', payment: 'PIX, Cartão de Débito', owner:)
 
     login_as owner, scope: :owner
     visit root_path
+    click_on 'Teenage Mutant Ninja Turtles'
     click_on 'Criar Evento'
     click_on 'Voltar para Buffet'
 

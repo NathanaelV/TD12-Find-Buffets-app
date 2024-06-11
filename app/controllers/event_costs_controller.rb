@@ -1,8 +1,6 @@
 class EventCostsController < ApplicationController
-  before_action :authenticate_owner!
   before_action :set_event, only: %i[new create edit update]
   before_action :set_event_cost, only: %i[edit update]
-  before_action :redirect_to_buffet, only: %i[new create edit update]
 
   def new
     @event_cost = EventCost.new
@@ -19,10 +17,7 @@ class EventCostsController < ApplicationController
     end
   end
 
-  def edit
-    owner_buffet = current_owner.buffet
-    redirect_to owner_buffet if owner_buffet != @event.buffet
-  end
+  def edit; end
 
   def update
     if @event_cost.update(event_cost_params)
@@ -45,10 +40,5 @@ class EventCostsController < ApplicationController
 
   def event_cost_params
     params.require(:event_cost).permit(:description, :minimum, :additional_per_person, :overtime)
-  end
-
-  def redirect_to_buffet
-    owner_buffet = current_owner.buffet
-    redirect_to owner_buffet if owner_buffet != @event.buffet
   end
 end

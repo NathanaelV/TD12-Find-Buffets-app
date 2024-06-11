@@ -40,6 +40,7 @@ describe 'Owner destroy event' do
 
     login_as owner, scope: :owner
     visit root_path
+    click_on 'Teenage Mutant Ninja Turtles'
     click_on 'Festa infantil'
     click_on 'Excluir Evento'
 
@@ -50,5 +51,8 @@ describe 'Owner destroy event' do
       expect(page).not_to have_content 'Festa infantil'
     end
     expect(Event.count).to eq 1
+  end
+
+  xit 'if it is yours' do
   end
 end
