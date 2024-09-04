@@ -28,7 +28,7 @@ Após terminar o setup, você pode popular o seu banco de dados com o comando:
 $ rails db:seed
 ```
 
-caso já tenha salvo algum valor no banco de dados, pode resetar o banco de dados com o comando
+Caso queira, pode resetar o banco de dados com o comando
 
 ```
 $ rails db:reset
